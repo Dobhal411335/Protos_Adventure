@@ -5,11 +5,6 @@ const ReturnPolicy = () => {
     <section className="bg-[#fffaf3] py-10 px-4 md:px-12 w-full mx-auto rounded-lg shadow-sm">
       <div className="border border-black p-4 md:p-8 rounded-xl shadow-sm">
         <h2 className="text-xl md:text-2xl font-bold mb-6 text-center">Return Policy & Procedure</h2>
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 63e857a545928a3b0ae09de75d52df35b38d16f9
         <div className="space-y-6">
           <div>
             <h3 className="text-xl font-semibold mb-3">How We Accept Return Requests:</h3>
@@ -30,11 +25,7 @@ const ReturnPolicy = () => {
               <div>
                 <h4 className="font-semibold">Initiate Return Request:</h4>
                 <p className="mt-2">
-<<<<<<< HEAD
                   The guest must contact our customer service desk or email us at <a href="mailto:info@protosadventures.com" className="text-blue-600 hover:underline">info@protosadventures.com</a> or call <a href="tel:+911352442822" className="text-blue-600 hover:underline">+91-135-2442822</a> / <a href="tel:917669280002" className="text-blue-600 hover:underline">7669280002</a>, <a href="tel:919897468886" className="text-blue-600 hover:underline">9897468886</a> with the following details:
-=======
-                  The guest must contact our customer service desk or email us at <a href="mailto:info@adventureaxis.in" className="text-blue-600 hover:underline">info@adventureaxis.in</a> or call <a href="tel:+911352442822" className="text-blue-600 hover:underline">+91-135-2442822</a> / <a href="tel:917669280002" className="text-blue-600 hover:underline">7669280002</a>, <a href="tel:919897468886" className="text-blue-600 hover:underline">9897468886</a> with the following details:
->>>>>>> 63e857a545928a3b0ae09de75d52df35b38d16f9
                 </p>
                 <ul className="list-disc ml-6 mt-2 space-y-1">
                   <li>Order number</li>
@@ -69,11 +60,6 @@ const ReturnPolicy = () => {
             <p className="mb-4">
               Once your return request is received, the following steps will be taken:
             </p>
-<<<<<<< HEAD
-
-=======
-            
->>>>>>> 63e857a545928a3b0ae09de75d52df35b38d16f9
             <div className="ml-4 space-y-4">
               <div>
                 <h4 className="font-semibold">Verification:</h4>
@@ -104,11 +90,6 @@ const ReturnPolicy = () => {
 
           <div className="border-t border-gray-300 pt-6">
             <h3 className="text-xl font-semibold mb-3">Refund & Exchange Terms</h3>
-<<<<<<< HEAD
-
-=======
-            
->>>>>>> 63e857a545928a3b0ae09de75d52df35b38d16f9
             <div className="ml-4 space-y-4">
               <div>
                 <h4 className="font-semibold">Refund Mode:</h4>
@@ -144,7 +125,6 @@ const ReturnPolicy = () => {
           </div>
 
           <div className="border-t border-gray-300 pt-6 text-sm text-gray-600">
-<<<<<<< HEAD
             <p className="font-semibold">"www.protosadventures.com" is a registered trade mark.</p>
             <p>PAN Number: AADCP9394E1</p>
             <p>GST Registration Number: 05AADCP9394E1Z7</p>
@@ -158,18 +138,6 @@ const ReturnPolicy = () => {
             <p>Ph.: +91-135-2442822 | Mo.: 7669280002, 9897468886</p>
             <p>E-mail: <a href="mailto:info@protosadventures.com" className="text-blue-600 hover:underline">info@protosadventures.com</a> / <a href="mailto:nitin.rksh@gmail.com" className="text-blue-600 hover:underline">nitin.rksh@gmail.com</a></p>
             <p>Visit us at: <a href="https://www.protosadventures.com" className="text-blue-600 hover:underline">www.protosadventures.com</a></p>
-=======
-            <p className="font-semibold">"www.adventureaxis.in" is a registered trade mark.</p>
-            <p>PAN Number: AAKCA0262D</p>
-            <p>GST Registration Number: 05AAKCA0262D1Z8</p>
-            <p>Working Hours: 9:30 - 18:30 pm</p>
-            <p className="font-semibold mt-2">Adventure Axis Equipments (Pvt.) Ltd.</p>
-            <p>Address: 162, Badrinath Road (Opp. Divine Lakshmi Ganga Hotel)</p>
-            <p>Tapovan Luxman Jhoola, RISHIKESH-249 192 (UK)</p>
-            <p>Ph.: +91-135-2442822 | Mo.: 7669280002, 9897468886</p>
-            <p>E-mail: <a href="mailto:info@adventureaxis.in" className="text-blue-600 hover:underline">info@adventureaxis.in</a> / <a href="mailto:nitin.rksh@gmail.com" className="text-blue-600 hover:underline">nitin.rksh@gmail.com</a></p>
-            <p>Visit us at: <a href="https://www.adventureaxis.in" className="text-blue-600 hover:underline">www.adventureaxis.in</a></p>
->>>>>>> 63e857a545928a3b0ae09de75d52df35b38d16f9
           </div>
         </div>
       </div>

@@ -6,22 +6,14 @@ const ShippingPolicy = () => {
       <div className="border border-black p-4 rounded-xl shadow-sm">
         <h2 className="text-3xl font-bold mb-6 text-start">Our Shipping Policy</h2>
         <p className="mb-4">
-<<<<<<< HEAD
           <span className="font-semibold">www.protosadventures.com (Website)</span> (“we”, “our”, “us”) To ensure ease of selling and the best possible customer experience, we mandate delivery to all customers via our logistics partners and deduct the shipping cost from the selling price before making a payment to you. Shipping fee is calculated on actual weight or volumetric weight, whichever is higher. This is to account for items which are lightweight but occupy a lot of shipping space.
-=======
-          <span className="font-semibold">www.adventureaxis.in (Website)</span> (“we”, “our”, “us”) To ensure ease of selling and the best possible customer experience, we mandate delivery to all customers via our logistics partners and deduct the shipping cost from the selling price before making a payment to you. Shipping fee is calculated on actual weight or volumetric weight, whichever is higher. This is to account for items which are lightweight but occupy a lot of shipping space.
->>>>>>> 63e857a545928a3b0ae09de75d52df35b38d16f9
         </p>
         <div className="space-y-5">
           <div>
             <strong>1. Delivery charge varies with each Seller :-</strong>
             <p className="text-justify mt-1">
               Sellers incur relatively higher shipping costs on low value items. In such cases, charging a nominal delivery charge helps them offset logistics costs. Please check your order summary to understand the delivery charges for individual products.<br />
-<<<<<<< HEAD
               For Products listed as www.protosadventures.com (Website), a Rs 200 charge for delivery per item may be applied if the order value is less than Rs 1,000=00 to 2,000=00. While, orders of Rs 10,000=00 or above are delivered free based on delivery partner's fee.
-=======
-              For Products listed as www.adventureaxis.in (E Commerce Website Of Adventure Axis), a Rs 200 charge for delivery per item may be applied if the order value is less than Rs 1,000=00 to 2,000=00. While, orders of Rs 10,000=00 or above are delivered free based on delivery partner's fee.
->>>>>>> 63e857a545928a3b0ae09de75d52df35b38d16f9
             </p>
           </div>
           <div>
@@ -43,15 +35,9 @@ const ShippingPolicy = () => {
             </ul>
           </div>
           <div>
-<<<<<<< HEAD
             <strong>4. Are there any hidden costs (sales tax, octroi etc) on items sold by Sellers on www.protosadventures.com? :-</strong>
             <p className="text-justify mt-1">
               There are NO hidden charges when you make a purchase on www.protosadventures.com. List prices are final and all-inclusive. The price you see on the product page is exactly what you would pay.<br />
-=======
-            <strong>4. Are there any hidden costs (sales tax, octroi etc) on items sold by Sellers on www.adventureaxis.in? :-</strong>
-            <p className="text-justify mt-1">
-              There are NO hidden charges when you make a purchase on www.adventureaxis.in. List prices are final and all-inclusive. The price you see on the product page is exactly what you would pay.<br />
->>>>>>> 63e857a545928a3b0ae09de75d52df35b38d16f9
               Delivery charges are not hidden charges and are charged (if at all) extra depending on the Seller's shipping policy.
             </p>
           </div>
@@ -75,24 +61,15 @@ const ShippingPolicy = () => {
           {/* Additional Shipping Policy Points 7-11 */}
           <div className="space-y-5">
             <div>
-<<<<<<< HEAD
               <p className="text-justify" style={{ textAlign: 'justify' }}><b>7. Why is the CoD option not offered in my location? :-</b>
                 Availability of CoD depends on the ability of our courier partner servicing your location to accept cash as payment at the time of delivery.<br />
-=======
-              <p className="text-justify" style={{ textAlign: 'justify' }}><b>7. Why is the COD option not offered in my location? :-</b>
-                Availability of COD depends on the ability of our courier partner servicing your location to accept cash as payment at the time of delivery.<br />
->>>>>>> 63e857a545928a3b0ae09de75d52df35b38d16f9
                 Our courier partners have limits on the cash amount payable on delivery depending on the destination and your order value might have exceeded this limit.  Please enter your pin code on the product page to check if COD is available in your location.
               </p>
             </div>
             <div>
               <p className="text-justify" style={{ textAlign: 'justify' }}><b>8. I need to return an item, how do I arrange for a pick-up? :- </b>
                 Returns are easy. Contact Us to initiate a return. You will receive a call explaining the process, once you have initiated a return.<br />
-<<<<<<< HEAD
                 Wherever possible www.protosadventures.com (Website) delivery partner's Logistics will facilitate the pick-up of the item. In case, the pick-up cannot be arranged through www.protosadventures.com (Website)-delivery partner's, you can return the item through a third-party courier service. Return fees are borne by the Seller.
-=======
-                Wherever possible www.adventureaxis.in (E Commerce Website Of Adventure Axis) delivery partner's Logistics will facilitate the pick-up of the item. In case, the pick-up cannot be arranged through www.adventureaxis.in (E Commerce Website Of Adventure Axis)-delivery partner's, you can return the item through a third-party courier service. Return fees are borne by the Seller.
->>>>>>> 63e857a545928a3b0ae09de75d52df35b38d16f9
               </p>
             </div>
             <div>
@@ -123,7 +100,6 @@ const ShippingPolicy = () => {
               </p>
             </div>
             <div>
-<<<<<<< HEAD
               <p className="text-justify" style={{ textAlign: 'justify' }}>
                 www.protosadventures.com (Website) is an Internet based content and e-commerce portal, a
                 company incorporated under the laws of India. Use of the Website is offered to you conditioned on
@@ -149,41 +125,14 @@ const ShippingPolicy = () => {
                 Corporate Address: 05 ,Lajpat Rai Marg, Rishikesh-249201 ( Uttarakhand)
                 <br />
                 Store Address: 162, Badrinath Road (Opp. Divine Lakshmi Ganga Hotel)
-=======
-              <p className="text-justify" style={{ textAlign: 'justify' }}><b>11. www.adventureaxis.in (E Commerce Website Of Adventure Axis) :- </b>
-                is an Internet based content and e-commerce portal, a company
-                incorporated under the laws of India. Use of the Website is offered to you conditioned on acceptance
-                without modification of all the terms, conditions and notices contained in these Terms, as may be posted
-                on the Website from time to time. www.adventureaxis.in (Website) at its sole discretion reserves the right
-                not to accept a User from registering on the Website without assigning any reason thereof. provides a
-                number of Internet-based services through the Web Site (all such services, collectively, the "Service").
-                The products can be purchased through the Website through various methods of payments offered. The
-                purchase of products shall be additionally governed by specific policies of sale, like cancellation policy,
-                return policy, etc. and all of which are incorporated here by reference. In addition, these terms and
-                policies may be further supplemented by www.adventureaxis.in (Website) product specific conditions,
-                which may be displayed on the webpage of that product<br /> <br />
-                “www.adventureaxis.in (Website) ” is a registered trade mark..<br />
-                PAN Number :- AAKCA0262D <br />
-                GST Registration Number :-  05AAKCA0262D1Z8  <br />
-                Working Hours : 9:30 - 18:30 pm  <br />
-                Adventure Axis Equipments (Pvt.) Ltd.
-                <br />
-                Address: 162, Badrinath Road (Opp. Divine Lakshmi Ganga Hotel)
->>>>>>> 63e857a545928a3b0ae09de75d52df35b38d16f9
                 <br />
                 Tapovan Luxman Jhoola, RISHIKESH-249 192 (UK)
                 <br />
                 Ph.: +91-135-2442822 | Mo.: 7669280002, 9897468886
                 <br />
-<<<<<<< HEAD
                 E-mail : nitin.rksh@gmail.com / info@protosadventures.com
                 <br />
                 Visit us at : www.protosadventures.com
-=======
-                E-mail : <a href="mailto:info@adventureaxis.in">info@adventureaxis.in</a> / <a href="mailto:nitin.rksh@gmail.com">nitin.rksh@gmail.com</a>
-                <br />
-                Visit us at : <a href="https://www.adventureaxis.in">www.adventureaxis.in</a>
->>>>>>> 63e857a545928a3b0ae09de75d52df35b38d16f9
               </p>
             </div>
           </div>

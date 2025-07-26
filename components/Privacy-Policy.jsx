@@ -6,49 +6,31 @@ const PrivacyPolicy = () => {
       <div className="border border-black p-4 rounded-xl shadow-sm">
         <h2 className="text-3xl font-bold mb-6">Our Privacy Policy</h2>
         <p className="mb-4">
-<<<<<<< HEAD
           <span className="font-semibold">www.protosadventures.com (Website)</span> (“we”, “our”, “us”) Privacy Policy aims at safe-guarding the confidentiality of our customers and site visitors (“you”, “your”, “yours”). We hereby declare that your details will not be disclosed to any third party unless it is required to provide a service to you. Please go through the below mentioned Privacy Policy points carefully. By accessing our website, you acknowledge reading and understanding the policies, and hence agree to be bound by the terms stated below.
-=======
           <span className="font-semibold"> www.adventureaxis.in (Website)</span> (we”, “our”, “us”) Privacy Policy aims at safe-guarding the confidentiality
           of our customers and site visitors (“you”, “your”, “yours”). We hereby declare that your details will not be
           disclosed to any third party unless it is required to provide a service to you. Please go through the below
           mentioned Privacy Policy points carefully. By accessing our website, you acknowledge reading and
           understanding the policies, and hence agree to be bound by the terms stated below.
->>>>>>> 63e857a545928a3b0ae09de75d52df35b38d16f9
         </p>
         <div className="space-y-5">
           <div>
             <strong>1. Your Consent :-</strong>
             <p className="text-justify mt-1">
-<<<<<<< HEAD
               Your personal details (name, location, e-mail address, debit/credit card information) will not be sold or rented by us to any third party without your consent. Though we reserve the right to communicate your personal information to any third party that makes a legally-compliant request for its disclosure; we will not disclose your name, address and other information which identifies you personally to any third party without your consent. However, we hold no responsibility for any action of third party that may have directed you to our website.
-=======
               Your personal details (name, location, e-mail address, debit/credit card information) will not be sold or
               rented by us to any third party without your consent. Though we reserve the right to communicate your
               personal information to any third party that makes a legally-compliant request for its disclosure; we will not
               disclose your name, address and other information which identifies you personally to any third party
               without your consent. However, we hold no responsibility for any action of third party that may have
               directed you to our website.
->>>>>>> 63e857a545928a3b0ae09de75d52df35b38d16f9
             </p>
           </div>
           <div>
             <strong>2. Communication &amp; Marketing :-</strong>
             <p className="text-justify mt-1">
-<<<<<<< HEAD
               If you become a registered member of www.protosadventures.com (Website), you will be able to receive promotional emails regarding latest offers and discounts from us. You may also receive such communication if you have made a purchase as a guest user.<br /><br />
               Please note that in case you don’t wish to receive such e-mails, you have the full liberty to opt-out of such communication any time. You can unsubscribe by visiting ‘My Details’ in ‘My Account’ if you are a registered user; or simply click on “to unsubscribe” link given in the mail.
-=======
-
-              If you become a registered member of www.adventureaxis.in (Website), you will be able to receive
-              promotional emails regarding latest offers and discounts from us. You may also receive such
-              communication if you have made a purchase as a guest user.
-              <br />
-              <br />
-              Please note that in case you don’t wish to receive such e-mails, you have the full liberty to opt-out of such
-              communication any time. You can unsubscribe by visiting ‘My Details’ in ‘My Account’ if you are a
-              registered user; or simply click on “to unsubscribe” link given in the mail.
->>>>>>> 63e857a545928a3b0ae09de75d52df35b38d16f9
             </p>
           </div>
           <div>
@@ -94,7 +76,6 @@ const PrivacyPolicy = () => {
             <div>
               <p className="text-justify" style={{ textAlign: 'justify' }}><b>8. Changes to Privacy Policy :- </b>
                 We may change this Privacy Policy at any time. The revised Privacy Policy is effective immediately when posted on the Website. Hence, it is the responsibility of each user to review the website and the Privacy Policy periodically to learn of any revisions to this Privacy Policy.
-<<<<<<< HEAD
                 For any queries or support, you may get in touch with our customer support team or mail us at <a href="mailto:info@protosadventures.com"><strong><u> info@protosadventures.com </u></strong> </a>.
               </p>
             </div>
@@ -104,19 +85,6 @@ const PrivacyPolicy = () => {
                 based in Tapovan, Rishikesh, on the Badrinath Highway. As an authorized dealer for top global brands
                 like NRS, Camp, Wiley X, and Lafuma, we specialize in high-quality equipment for water sports, camping,
                 trekking, high-altitude expeditions, and safety needs.<br /><br />
-=======
-                For any queries or support, you may get in touch with our customer support team or mail us at <a href="mailto:info@adventureaxis.in"><strong><u> info@adventureaxis.in </u></strong> </a>.
-              </p>
-            </div>
-            <div>
-              <p className="text-justify" style={{ textAlign: 'justify' }}><b>9. Introduction to www.adventureaxis.in (Website)  :- </b>
-                Adventure Axis is a premier outdoor gear store
-                based in Tapovan, Rishikesh, on the Badrinath Highway. As an authorized dealer for top global brands
-                like NRS, Camp, Wiley X, and Lafuma, we specialize in high-quality equipment for water sports, camping,
-                trekking, high-altitude expeditions, and safety needs.
-                <br />
-
->>>>>>> 63e857a545928a3b0ae09de75d52df35b38d16f9
                 With over 25 years of industry experience, we are a trusted supplier to leading adventure companies
                 across India, supporting activities such as rafting, bungee jumping, camping, and mountaineering. Our
                 commitment to innovation and service excellence earned us the Great Place to Work® Certification in
@@ -132,7 +100,6 @@ const PrivacyPolicy = () => {
                 layers, fleece, insulated wear, and high-performance outdoor footwear. We also specialize in Camping &
                 Outdoor gear and Expedition Equipment, ensuring you’re fully equipped for any terrain or challenge.
                 <br />
-<<<<<<< HEAD
                 www.protosadventures.com (Website) is an Internet based content and e-commerce portal, a company
                 incorporated under the laws of India. Use of the Website is offered to you conditioned on acceptance
                 without modification of all the terms, conditions and notices contained in these Terms, as may be posted
@@ -157,40 +124,14 @@ const PrivacyPolicy = () => {
                 Corporate Address: 05 ,Lajpat Rai Marg, Rishikesh-249201 ( Uttarakhand)
                 <br />
                 Store Address: 162, Badrinath Road (Opp. Divine Lakshmi Ganga Hotel)
-=======
-                www.adventureaxis.in (Website) is an Internet based content and e-commerce portal, a company
-                incorporated under the laws of India. Use of the Website is offered to you conditioned on acceptance
-                without modification of all the terms, conditions and notices contained in these Terms, as may be posted
-                on the Website from time to time. www.adventureaxis.in (Website) at its sole discretion reserves the right
-                not to accept a User from registering on the Website without assigning any reason thereof. provides a
-                number of Internet-based services through the Web Site (all such services, collectively, the "service").
-                The products can be purchased through the website through various methods of payments offered. The
-                purchase of products shall be additionally governed by specific policies of sale, like cancellation policy,
-                return policy, etc. and all of which are incorporated here by reference. In addition, these terms and
-                policies may be further supplemented by www.adventureaxis.in (Website) product specific conditions,
-                which may be displayed on the webpage of that product.  <br /> <br />
-                “www.adventureaxis.in (Website) ” is a registered trade mark..<br />
-                PAN Number :- AAKCA0262D <br />
-                GST Registration Number :-  05AAKCA0262D1Z8  <br />
-                Working Hours : 9:30 - 18:30 pm  <br />
-                Adventure Axis Equipments (Pvt.) Ltd.
-                <br />
-                Address: 162, Badrinath Road (Opp. Divine Lakshmi Ganga Hotel)
->>>>>>> 63e857a545928a3b0ae09de75d52df35b38d16f9
                 <br />
                 Tapovan Luxman Jhoola, RISHIKESH-249 192 (UK)
                 <br />
                 Ph.: +91-135-2442822 | Mo.: 7669280002, 9897468886
                 <br />
-<<<<<<< HEAD
                 E-mail : nitin.rksh@gmail.com / info@protosadventures.com
                 <br />
                 Visit us at : www.protosadventures.com
-=======
-                E-mail : <a href="mailto:info@adventureaxis.in">info@adventureaxis.in</a> / <a href="mailto:nitin.rksh@gmail.com">nitin.rksh@gmail.com</a>
-                <br />
-                Visit us at : <a href="https://www.adventureaxis.in">www.adventureaxis.in</a>
->>>>>>> 63e857a545928a3b0ae09de75d52df35b38d16f9
               </p>
             </div>
           </div>

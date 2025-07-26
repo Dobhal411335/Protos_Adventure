@@ -211,10 +211,10 @@ const ContactUs = () => {
             {/* Google Maps */}
             <div className="w-full mt-10 flex justify-center">
                 <div className="w-full h-[200px md:h-[400px]  overflow-hidden ">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3450.807271918314!2d78.32066657501376!3d30.128327914592454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39093e6896b55a3f%3A0xe5c76dc9610b2d2d!2sAdventure%20Axis!5e0!3m2!1sen!2sin!4v1753099742860!5m2!1sen!2sin" width="100%"
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220521.13941314764!2d77.68869849453125!3d30.27575709999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39093e6896b55a3f%3A0x13b70cfe8db0c2f7!2sProtos%20Adventure%20Sports%20%26%20Security%20Suppliers!5e0!3m2!1sen!2sin!4v1753101913127!5m2!1sen!2sin" width="100%"
                         height="100%"
-                        style={{ border: 0 }} allowFullScreen="" loading="lazy" 
-                    title="Adventure Axix Location" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                        style={{ border: 0 }} allowFullScreen="" loading="lazy"
+                        title="Adventure Axix Location" referrerPolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>

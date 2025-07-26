@@ -10,33 +10,33 @@ import GoogleTranslate from "@/components/GoogleTranslate";
 
 
 export const metadata = {
-  metadataBase: new URL("https://adventureaxis.com/"),
+  metadataBase: new URL("https://protosadventures.com/"),
   title: {
-    default: "Adventure Axis is an complete outdoor shop.",
-    template: "%s | Adventure Axis",
+    default: "Protos Adventures is an complete outdoor shop.",
+    template: "%s | Protos Adventures",
   },
   description:
-    "Adventure Axis is an complete outdoor shop.Adventure Sports Equipment Store 👉 Water Sports Equipment 👉 Safety & Rescue Equipment 👉 Clothing & Footwear 👉 Camping & Outdoor 👉 Expedition GearRaft-Inflatables👉 Apparel, Dry Bag-Boxes, Life Jackets, Frame-Oars, Helmets, Raft Repair – Accessosries, Pumps, Gloves, Dry Wear, Kayaks-Accessories, Paddles, Base Layer, Fleece, Insulation, Leg Wear Safety-Rescue 👉 Rescue Devices, Retractable fall arresters, Ropes & Cords, Carabiner, Traction, Rope Tools, Harness, Harnesses accessories, Pulleys, Rope fall arresters, Protective Visors, Helmets Tactical Eye Wear 👉 Brand Footwear 👉 Clothing 👉 Camping & Outdoor Regd. Or Branch Office: Badrinath Road, Tapovan, Laxmanjhula, Uttarakhand Text : 0766-928-0002, 989-7468-886​ Email:info@adventureaxis.in Accounts@adventureaxis.in Sales@adventureaxis.in",
+    "Protos Adventures is an complete outdoor shop.Adventure Sports Equipment Store 👉 Water Sports Equipment 👉 Safety & Rescue Equipment 👉 Clothing & Footwear 👉 Camping & Outdoor 👉 Expedition GearRaft-Inflatables👉 Apparel, Dry Bag-Boxes, Life Jackets, Frame-Oars, Helmets, Raft Repair – Accessosries, Pumps, Gloves, Dry Wear, Kayaks-Accessories, Paddles, Base Layer, Fleece, Insulation, Leg Wear Safety-Rescue 👉 Rescue Devices, Retractable fall arresters, Ropes & Cords, Carabiner, Traction, Rope Tools, Harness, Harnesses accessories, Pulleys, Rope fall arresters, Protective Visors, Helmets Tactical Eye Wear 👉 Brand Footwear 👉 Clothing 👉 Camping & Outdoor Regd. Or Branch Office: Badrinath Road, Tapovan, Laxmanjhula, Uttarakhand Text : 0766-928-0002, 989-7468-886 Email:info@protosadventures.com Accounts@protosadventures.com Sales@protosadventures.com",
   keywords:
     "Adventure Sports Equipment Store, Safety & Rescue Equipment, Clothing & Footwear, Camping & Outdoor, Expedition GearRaft-Inflatables, india, India",
   icons: { apple: "/apple-touch-icon.png" },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "Adventure Axis is an complete outdoor shop.",
+    title: "Protos Adventures is an complete outdoor shop.",
     description:
-      "Adventure Axis is an complete outdoor shop.",
+      "Protos Adventures is an complete outdoor shop.",
     images: ["/logo.png"],
-    url: "https://adventureaxis.com/",
-    site_name: "Adventure Axis",
+    url: "https://protosadventures.com/",
+    site_name: "Protos Adventures",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Adventure Axis is an complete outdoor shop.",
-    description:"Adventure Axis is an complete outdoor shop.Adventure Sports Equipment Store 👉 Water Sports Equipment 👉 Safety & Rescue Equipment 👉 Clothing & Footwear 👉 Camping & Outdoor 👉 Expedition GearRaft-Inflatables👉 Apparel, Dry Bag-Boxes, Life Jackets, Frame-Oars, Helmets, Raft Repair – Accessosries, Pumps, Gloves, Dry Wear, Kayaks-Accessories, Paddles, Base Layer, Fleece, Insulation, Leg Wear Safety-Rescue 👉 Rescue Devices, Retractable fall arresters, Ropes & Cords, Carabiner, Traction, Rope Tools",
+    title: "Protos Adventures is an complete outdoor shop.",
+    description:"Protos Adventures is an complete outdoor shop.Adventure Sports Equipment Store 👉 Water Sports Equipment 👉 Safety & Rescue Equipment 👉 Clothing & Footwear 👉 Camping & Outdoor 👉 Expedition GearRaft-Inflatables👉 Apparel, Dry Bag-Boxes, Life Jackets, Frame-Oars, Helmets, Raft Repair – Accessosries, Pumps, Gloves, Dry Wear, Kayaks-Accessories, Paddles, Base Layer, Fleece, Insulation, Leg Wear Safety-Rescue 👉 Rescue Devices, Retractable fall arresters, Ropes & Cords, Carabiner, Traction, Rope Tools",
     images: ["/logo.png"],
   },
   other: {
-    "author": "Adventure Axis",
+    "author": "Protos Adventures",
     "robots": "index, follow",
     "viewport": "width=device-width, initial-scale=1",
   },

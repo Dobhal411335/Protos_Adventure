@@ -7,11 +7,7 @@ const PrivacyPolicy = () => {
         <h2 className="text-3xl font-bold mb-6">Our Privacy Policy</h2>
         <p className="mb-4">
           <span className="font-semibold">www.protosadventures.com (Website)</span> (“we”, “our”, “us”) Privacy Policy aims at safe-guarding the confidentiality of our customers and site visitors (“you”, “your”, “yours”). We hereby declare that your details will not be disclosed to any third party unless it is required to provide a service to you. Please go through the below mentioned Privacy Policy points carefully. By accessing our website, you acknowledge reading and understanding the policies, and hence agree to be bound by the terms stated below.
-          <span className="font-semibold"> www.adventureaxis.in (Website)</span> (we”, “our”, “us”) Privacy Policy aims at safe-guarding the confidentiality
-          of our customers and site visitors (“you”, “your”, “yours”). We hereby declare that your details will not be
-          disclosed to any third party unless it is required to provide a service to you. Please go through the below
-          mentioned Privacy Policy points carefully. By accessing our website, you acknowledge reading and
-          understanding the policies, and hence agree to be bound by the terms stated below.
+          <span className="font-semibold"> www.protosadventures.in (Website)</span> (we”, “our”, “us”) Privacy Policy aims at safe-guarding the confidentiality of our customers and site visitors (“you”, “your”, “yours”). We hereby declare that your details will not be disclosed to any third party unless it is required to provide a service to you. Please go through the below mentioned Privacy Policy points carefully. By accessing our website, you acknowledge reading and understanding the policies, and hence agree to be bound by the terms stated below.
         </p>
         <div className="space-y-5">
           <div>

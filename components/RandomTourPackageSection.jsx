@@ -56,7 +56,7 @@ const RandomTourPackageSection = () => {
       price: Math.round(discountedPrice),
       size: item?.quantity?.variants[0].size,
       weight: item?.quantity?.variants[0].weight,
-      color:item?.quantity?.variants[0].color,
+      color: item?.quantity?.variants[0].color,
       originalPrice: price,
       qty: 1,
       couponApplied,
@@ -155,13 +155,10 @@ const RandomTourPackageSection = () => {
         {/* Product Section */}
         <div className="w-full py-10 px-2 bg-[#ededed]">
           <h1 className="text-xl md:text-3xl lg:text-4xl font-bold text-center md:mt-10 uppercase">
-            Trending Products: The Best, Today
+            Today’s Top Picks – Fresh. Bold. In Demand.
           </h1>
           <p className=" text-gray-600 py-4 text-center font-barlow md:w-[50%] w-full mx-auto">
-            Discover the hottest deals with our Trending Products! Curated
-            daily, these top-rated picks offer the best value and quality —
-            handpicked for professionals who demand the best, today. Don’t miss
-            out — elevate your experience now!
+            Trail-Tested & Trending – Only the Best Makes the Cut.
           </p>
           <Carousel
             className={`w-full md:w-[95%] mx-auto my-4 ${products.length > 0 ? "block" : "hidden"}`}
@@ -239,7 +236,7 @@ const RandomTourPackageSection = () => {
                                   price: Math.round(discountedPrice),
                                   size: item?.quantity?.variants[0].size,
                                   weight: item?.quantity?.variants[0].weight,
-                                  color:item?.quantity?.variants[0].color,
+                                  color: item?.quantity?.variants[0].color,
                                   originalPrice: price,
                                   qty: 1,
                                   couponApplied,
@@ -355,12 +352,12 @@ const RandomTourPackageSection = () => {
             <div className="flex flex-col md:flex-row items-start gap-5">
               {/* Left: Heading and description */}
               <div className="flex-1 flex flex-col justify-center md:pr-8">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-start mb-5 uppercase">Meet Our Artisans</h2>
-                <h2 className="text-xl font-bold mb-2">Celebrating the Art of Craftsmanship. Honoring the Hands That Shape Beauty</h2>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-start mb-5 uppercase">The Minds Behind Every Reliable Move</h2>
+                {/* <h2 className="text-xl font-bold mb-2">Celebrating the Art of Craftsmanship. Honoring the Hands That Shape Beauty</h2> */}
                 <div className="text-md text-gray-700 text-justify mb-6">
-                  We are proud to recognize and celebrate your exceptional talent and dedication as a skilled handicraft artisan. Your ability to transform raw materials into beautiful, meaningful works of art speaks to your creativity, precision, and passion for the craft. Each piece you create is a testament to the enduring value of handmade artistry and the cultural richness it preserves. With deep appreciation, we commend you for achieving this milestone and look forward to witnessing your continued journey of artistic excellence.
+                Behind every product we offer is a team of seasoned professionals with deep-rooted experience in outdoor gear, adventure sports, and sustainable design. Our experts don’t just study the industry—they live it. From mountaineers and safety engineers to gear designers and field testers, each member brings real-world insight to ensure the equipment you rely on is built to perform, last, and inspire confidence on every expedition. Their knowledge drives our innovation, ensuring every product meets the demands of the wild.
                 </div>
-                <Link href="/allArtisans" className="bg-black text-white py-3 px-6 rounded-lg font-semibold text-lg w-fit mb-6">View All Artisans</Link>
+                {/* <Link href="/allArtisans" className="bg-black text-white py-3 px-6 rounded-lg font-semibold text-lg w-fit mb-6">View All Artisans</Link> */}
               </div>
               {/* Right: Top 2 artisan cards in new style */}
               <div className="hidden md:flex flex-row gap-4 justify-end">
@@ -477,7 +474,7 @@ const RandomTourPackageSection = () => {
                     {artisan.slice(2).map((item, idx) => {
                       const card = {
                         id: item._id || idx,
-                        slug:item.slug,
+                        slug: item.slug,
                         name: `${item.title ? item.title + " " : ""}${item.firstName || ''} ${item.lastName || ''}`.trim() || "Unknown Artisan",
                         date: item.createdAt ? new Date(item.createdAt).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" }).toUpperCase() : "N/A",
                         image: item.profileImage?.url || item.image || "/bg-custom-1.jpg",
@@ -699,8 +696,8 @@ const RandomTourPackageSection = () => {
                     })}
                   </CarouselContent>
                   <div className="flex items-center gap-3 mt-4 justify-center">
-                  <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 p-5" />
-                  <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 p-5" />
+                    <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 p-5" />
+                    <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 p-5" />
                   </div>
                 </Carousel>
               </div>

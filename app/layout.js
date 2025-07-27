@@ -12,11 +12,33 @@ import GoogleTranslate from "@/components/GoogleTranslate";
 export const metadata = {
   metadataBase: new URL("https://protosadventures.com/"),
   title: {
-    default: "Protos Adventures is an complete outdoor shop.",
+    default: "PROTOS ADVENTURE SPORTS & SECURITY SUPPLIES PVT LTD",
     template: "%s | Protos Adventures",
   },
   description:
-    "Protos Adventures is an complete outdoor shop.Adventure Sports Equipment Store 👉 Water Sports Equipment 👉 Safety & Rescue Equipment 👉 Clothing & Footwear 👉 Camping & Outdoor 👉 Expedition GearRaft-Inflatables👉 Apparel, Dry Bag-Boxes, Life Jackets, Frame-Oars, Helmets, Raft Repair – Accessosries, Pumps, Gloves, Dry Wear, Kayaks-Accessories, Paddles, Base Layer, Fleece, Insulation, Leg Wear Safety-Rescue 👉 Rescue Devices, Retractable fall arresters, Ropes & Cords, Carabiner, Traction, Rope Tools, Harness, Harnesses accessories, Pulleys, Rope fall arresters, Protective Visors, Helmets Tactical Eye Wear 👉 Brand Footwear 👉 Clothing 👉 Camping & Outdoor Regd. Or Branch Office: Badrinath Road, Tapovan, Laxmanjhula, Uttarakhand Text : 0766-928-0002, 989-7468-886 Email:info@protosadventures.com Accounts@protosadventures.com Sales@protosadventures.com",
+    `PROTOS ADVENTURE SPORTS & SECURITY SUPPLIES PVT LTD
+
+With over 25 years of experience, we are trusted partners to adventure companies and outdoor professionals across the country.
+We are authorized dealers of top international brands such as NRS, Camp, Wiley X, and Lafuma, providing high-performance gear for rafting, bungee jumping, camping, trekking, high-altitude expeditions, and more.
+
+Recognized as a Great Place To Work® (2025), our company is built on innovation, integrity, and a passion for the outdoors. From water sports equipment and rescue gear to clothing, footwear, and expedition essentials, we deliver dependable solutions for every explorer.
+
+“www.protosadventures.com (Website) ” is a registered trade mark.
+PAN Number :- AADCP9394E1
+GST Registration Number :- GSTIN: 05AADCP9394E1Z7
+Working Hours : 9:30 - 18:30 pm
+
+Call Us
+Ph.: +91-135-2442822 | Mo.: 7669280002, 9897468886
+E-mail........
+For Sales: info@adventureaxis.in
+For Support: Accounts@adventureaxis.in
+For Official: Sales@adventureaxis.in
+
+Corporate Address: 05 ,Lajpat Rai Marg, Rishikesh-249201 ( Uttarakhand)
+
+Store Address: 162, Badrinath Road (Opp. Divine Lakshmi Ganga Hotel)
+Tapovan Luxman Jhoola, RISHIKESH-249 192 (UK)`,
   keywords:
     "Adventure Sports Equipment Store, Safety & Rescue Equipment, Clothing & Footwear, Camping & Outdoor, Expedition GearRaft-Inflatables, india, India",
   icons: { apple: "/apple-touch-icon.png" },
@@ -24,7 +46,29 @@ export const metadata = {
   openGraph: {
     title: "Protos Adventures is an complete outdoor shop.",
     description:
-      "Protos Adventures is an complete outdoor shop.",
+      `PROTOS ADVENTURE SPORTS & SECURITY SUPPLIES PVT LTD
+
+With over 25 years of experience, we are trusted partners to adventure companies and outdoor professionals across the country.
+We are authorized dealers of top international brands such as NRS, Camp, Wiley X, and Lafuma, providing high-performance gear for rafting, bungee jumping, camping, trekking, high-altitude expeditions, and more.
+
+Recognized as a Great Place To Work® (2025), our company is built on innovation, integrity, and a passion for the outdoors. From water sports equipment and rescue gear to clothing, footwear, and expedition essentials, we deliver dependable solutions for every explorer.
+
+“www.protosadventures.com (Website) ” is a registered trade mark.
+PAN Number :- AADCP9394E1
+GST Registration Number :- GSTIN: 05AADCP9394E1Z7
+Working Hours : 9:30 - 18:30 pm
+
+Call Us
+Ph.: +91-135-2442822 | Mo.: 7669280002, 9897468886
+E-mail........
+For Sales: info@adventureaxis.in
+For Support: Accounts@adventureaxis.in
+For Official: Sales@adventureaxis.in
+
+Corporate Address: 05 ,Lajpat Rai Marg, Rishikesh-249201 ( Uttarakhand)
+
+Store Address: 162, Badrinath Road (Opp. Divine Lakshmi Ganga Hotel)
+Tapovan Luxman Jhoola, RISHIKESH-249 192 (UK)`,
     images: ["/logo.png"],
     url: "https://protosadventures.com/",
     site_name: "Protos Adventures",
@@ -32,7 +76,29 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Protos Adventures is an complete outdoor shop.",
-    description:"Protos Adventures is an complete outdoor shop.Adventure Sports Equipment Store 👉 Water Sports Equipment 👉 Safety & Rescue Equipment 👉 Clothing & Footwear 👉 Camping & Outdoor 👉 Expedition GearRaft-Inflatables👉 Apparel, Dry Bag-Boxes, Life Jackets, Frame-Oars, Helmets, Raft Repair – Accessosries, Pumps, Gloves, Dry Wear, Kayaks-Accessories, Paddles, Base Layer, Fleece, Insulation, Leg Wear Safety-Rescue 👉 Rescue Devices, Retractable fall arresters, Ropes & Cords, Carabiner, Traction, Rope Tools",
+    description: `PROTOS ADVENTURE SPORTS & SECURITY SUPPLIES PVT LTD
+
+With over 25 years of experience, we are trusted partners to adventure companies and outdoor professionals across the country.
+We are authorized dealers of top international brands such as NRS, Camp, Wiley X, and Lafuma, providing high-performance gear for rafting, bungee jumping, camping, trekking, high-altitude expeditions, and more.
+
+Recognized as a Great Place To Work® (2025), our company is built on innovation, integrity, and a passion for the outdoors. From water sports equipment and rescue gear to clothing, footwear, and expedition essentials, we deliver dependable solutions for every explorer.
+
+“www.protosadventures.com (Website) ” is a registered trade mark.
+PAN Number :- AADCP9394E1
+GST Registration Number :- GSTIN: 05AADCP9394E1Z7
+Working Hours : 9:30 - 18:30 pm
+
+Call Us
+Ph.: +91-135-2442822 | Mo.: 7669280002, 9897468886
+E-mail........
+For Sales: info@adventureaxis.in
+For Support: Accounts@adventureaxis.in
+For Official: Sales@adventureaxis.in
+
+Corporate Address: 05 ,Lajpat Rai Marg, Rishikesh-249201 ( Uttarakhand)
+
+Store Address: 162, Badrinath Road (Opp. Divine Lakshmi Ganga Hotel)
+Tapovan Luxman Jhoola, RISHIKESH-249 192 (UK)`,
     images: ["/logo.png"],
   },
   other: {

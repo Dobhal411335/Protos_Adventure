@@ -54,120 +54,263 @@ const Footer = () => {
 
     return (
         <footer className={`print:hidden ${pathName.includes('admin') && 'hidden'}
-         ${pathName.includes('artisan') && 'block'} ${pathName.includes('product') && 'block'} ${pathName.includes('customEnquiry') && 'hidden'} ${pathName.includes('checkout') && 'hidden'}  ${pathName.includes('category') && 'block'} bg-[#ededed] py-4 text-black`}>
+         ${pathName.includes('artisan') && 'block'} ${pathName.includes('product') && 'block'} ${pathName.includes('customEnquiry') && 'hidden'} ${pathName.includes('checkout') && 'hidden'}  ${pathName.includes('category') && 'block'} bg-[url('/footerBack.jpg')] bg-cover bg-center bg-no-repeat py-4 text-white`}>
             {/* <div className="w-full flex justify-center pb-8">
                 <div className="h-[3px] bg-black w-full mx-auto px-4" />
             </div> */}
-            <div className="hidden md:flex flex-wrap lg:justify-between px-10 justify-start md:gap-20 lg:gap-0 gap-12 max-w-[22rem] md:maxw-[45rem] lg:max-w-[60rem] xl:max-w-6xl mx-auto">
+            <div className="hidden md:flex flex-wrap lg:justify-between px-5 justify-start md:gap-20 lg:gap-0 gap-12 max-w-[22rem] md:max-w-[80rem] lg:max-w-[50rem] xl:max-w-6xl mx-auto">
                 <div className="flex flex-col gap-2 px-5">
                     <h1 className="font-semibold text-xl my-4">Main Menu</h1>
                     {pages.filter(page => !page?.link?.includes('policy')).map(page => (
-                        <Link key={page._id} href={page.url} className="block text-black font-barlow ">
+                        <Link key={page._id} href={page.url} className="block text-white font-barlow ">
                             {page.title}
                         </Link>
                     ))}
-                    <Link href={'/contact'} className="block text-black font-barlow ">Contact</Link>
+                    <Link href={'/contact'} className="block text-white font-barlow ">Contact</Link>
                 </div>
 
                 <div className="flex flex-col gap-2 px-6">
                     <h1 className="font-semibold text-xl my-4">Our Policy</h1>
                     {pages.filter(page => page?.link?.includes('policy')).map(page => (
-                        <Link key={page._id} href={page.url} className="block text-black font-barlow">
+                        <Link key={page._id} href={page.url} className="block text-white font-barlow">
                             {page.title}
                         </Link>
                     ))}
-                    <Link href={'/faq'} className="block text-black font-barlow ">FAQ</Link>
+                    <Link href={'/faq'} className="block text-white font-barlow ">FAQ</Link>
                 </div>
 
                 <div className="flex flex-col gap-1">
                     <h1 className="font-semibold text-xl flex items-center gap-2"> More Inquiry</h1>
-                    <Link href={'tel:+9107669280002'} className="gap-2 my-2 block rounded-full py-1 font-barlow text-black flex items-center">
-                        <Phone size={20} className="text-blue-600" />
-                        +91 0766-928-0002,
-                    </Link>
-                    <Link href={'tel:+919897468886'} className="gap-2 my-2 block rounded-full py-1 font-barlow text-black flex items-center">
-                        <Phone size={20} className="text-blue-600" />
-                        +91 9897468886,
-                    </Link>
-                    <Link href={'mailto:info@protosadventures.com'} className="gap-2 my-2 block rounded-full font-barlow text-black flex items-center">
+                    <div className="flex md:flex-row flex-col items-center gap-2">
+
+                        <Link href={'tel:+911352442822'} className="gap-2 my-2 block rounded-full py-1 font-barlow text-white flex items-center">
+                            <Phone size={20} className="text-blue-600" />
+                            +91 1352442822,
+                        </Link>
+                        <Link href={'tel:+917669280002'} className="gap-2 my-2 block rounded-full py-1 font-barlow text-white flex items-center">
+                            +91 7669280002,
+                        </Link>
+                        <Link href={'tel:+919897468886'} className="gap-2 my-2 block rounded-full py-1 font-barlow text-white flex items-center">
+                            +91 9897468886,
+                        </Link>
+                    </div>
+                    <Link href={'mailto:info@protosadventures.com'} className="gap-2 my-2 block rounded-full font-barlow text-white flex items-center">
                         <Send className="text-blue-600" size={20} />
                         info@protosadventures.com
                     </Link>
-                    <Link href={'mailto:Accounts@protosadventures.com'} className="gap-2 my-2 block rounded-full font-barlow text-black flex items-center">
+                    <Link href={'mailto:Accounts@protosadventures.com'} className="gap-2 my-2 block rounded-full font-barlow text-white flex items-center">
                         <Send className="text-blue-600" size={20} />
                         Accounts@protosadventures.com
                     </Link>
-                    <Link href={'mailto:Sales@protosadventures.com'} className="gap-2 my-2 block rounded-full font-barlow text-black flex items-center">
+                    <Link href={'mailto:Sales@protosadventures.com'} className="gap-2 my-2 block rounded-full font-barlow text-white flex items-center">
                         <Send className="text-blue-600" size={20} />
                         Sales@protosadventures.com
                     </Link>
-                    <p className="gap-2 my-2 font-barlow text-black mb-5 flex items-center">
-                        <MapPin className="text-blue-600" size={20} />
-                        Regd. Or Branch Office: Badrinath Road,
-                        <br />
-                        Tapovan, Laxmanjhula, Uttarakhand
-                    </p>
+                    <div className="flex items-start block flex-col gap-2 my-2">
+                        <p className="gap-2 font-barlow text-white flex items-start">
+                            <MapPin className="text-blue-600" size={20} />
+                            <span className="font-bold">Corporate
+
+                                Address :
+                            </span> 05 Lajpat Rai Marg, Rishikesh-249201
+                            <br />
+                            (Uttarakhand)
+                        </p>
+                        <p className="gap-2 px-8 font-barlow text-white mb-5 flex items-start">
+                            <span className="font-bold">Store Address :
+                            </span>  162, Badrinath Road (Opp. Divine Lakshmi <br /> Ganga Hotel) Tapovan Laxman Jhoola,
+                            <br />
+
+                            Rishikesh - 239192,
+                            <br />
+                            (Uttarakhand)
+                        </p>
+                    </div>
                 </div>
             </div>
             <div className="md:hidden flex items-center gap-2 lg:justify-between justify-start px-5">
                 <div className="flex flex-col gap-2 px-2">
                     <h1 className="font-semibold text-xl my-4">Main Menu</h1>
                     {pages.filter(page => !page?.link?.includes('policy')).map(page => (
-                        <Link key={page._id} href={page.url} className="text-sm block text-black font-barlow ">
+                        <Link key={page._id} href={page.url} className="text-sm block text-white font-barlow ">
                             {page.title}
                         </Link>
                     ))}
-                    <Link href={'/contact'} className="text-sm block text-black font-barlow ">Contact</Link>
+                    <Link href={'/contact'} className="text-sm block text-white font-barlow ">Contact</Link>
                 </div>
 
                 <div className="flex flex-col gap-2 px-2">
                     <h1 className="font-semibold text-xl my-4">Our Policy</h1>
                     {pages.filter(page => page?.link?.includes('policy')).map(page => (
-                        <Link key={page._id} href={page.url} className="text-sm block text-black font-barlow">
+                        <Link key={page._id} href={page.url} className="text-sm block text-white font-barlow">
                             {page.title}
                         </Link>
                     ))}
-                    <Link href={'/faq'} className="text-sm block text-black font-barlow ">FAQ</Link>
+                    <Link href={'/faq'} className="text-sm block text-white font-barlow ">FAQ</Link>
                 </div>
             </div>
             <div className="md:hidden flex flex-col gap-1 p-5">
                 <h1 className="font-semibold text-xl flex items-center gap-2"> More Inquiry</h1>
-                <Link href={'tel:+9107669280002'} className="my-2 text-sm block rounded-full py-1 font-barlow text-black flex items-center gap-2">
-                    <Phone size={20} className="text-blue-600" />
-                    +91 07669280002
-                </Link>
-                <Link href={'tel:+919897468886'} className="my-2 text-sm block rounded-full py-1 font-barlow text-black flex items-center gap-2">
-                    <Phone size={20} className="text-blue-600" />
-                    +91 9897468886
-                </Link>
-                <Link href={'mailto:support@protosadventures.com'} className="my-2 text-sm block rounded-full font-barlow text-black flex items-center gap-2">
-                    <Send className="text-blue-600" size={20} />
-                    support@protosadventures.com
-                </Link>
-                <Link href={'mailto:Accounts@protosadventures.com'} className="my-2 text-sm block rounded-full font-barlow text-black flex items-center gap-2">
-                    <Send className="text-blue-600" size={20} />
-                    Accounts@protosadventures.com
-                </Link>
-                <Link href={'mailto:Sales@protosadventures.com'} className="my-2 text-sm block rounded-full font-barlow text-black flex items-center gap-2">
-                    <Send className="text-blue-600" size={20} />
-                    Sales@protosadventures.com
-                </Link>
-                <p className="my-2 text-sm font-barlow text-black mb-5 flex items-center gap-2">
-                    <MapPin className="text-blue-600" size={20} />
-                    Regd. Or Branch Office: Badrinath Road,
-                    <br />
-                    Tapovan, Laxmanjhula, Uttarakhand
-                </p>
-            </div>
+                <div className="flex items-start gap-2 py-2">
+                    <div className="py-2">
 
+
+                        <Phone size={15} className="text-blue-600" />
+                    </div>
+                    <div className="flex flex-col items-start gap-2">
+
+                        <Link href={'tel:+911352442822'} className="gap-2  block rounded-full py-1 font-barlow text-white flex items-center">
+                            +91 1352442822,
+                        </Link>
+                        <Link href={'tel:+917669280002'} className="gap-2  block rounded-full py-1 font-barlow text-white flex items-center">
+                            +91 7669280002,
+                        </Link>
+                        <Link href={'tel:+919897468886'} className="gap-2  block rounded-full py-1 font-barlow text-white flex items-center">
+                            +91 9897468886,
+                        </Link>
+                    </div>
+                </div>
+                <div className="flex flex-row gap-2 items-start">
+                    <div className="py-2">
+                        <Send className="text-blue-600" size={15} />
+                    </div>
+                    <div className="flex items-start flex-col">
+
+                        <Link href={'mailto:support@protosadventures.com'} className="my-2 text-sm block rounded-full font-barlow text-white flex items-center gap-2">
+                            support@protosadventures.com
+                        </Link>
+                        <Link href={'mailto:Accounts@protosadventures.com'} className="my-2 text-sm block rounded-full font-barlow text-white flex items-center gap-2">
+                            Accounts@protosadventures.com
+                        </Link>
+                        <Link href={'mailto:Sales@protosadventures.com'} className="my-2 text-sm block rounded-full font-barlow text-white flex items-center gap-2">
+                            Sales@protosadventures.com
+                        </Link>
+                    </div>
+                </div>
+                <div className="flex items-start flex-row gap-2 my-2">
+                    <div className="py-2">
+
+                    <MapPin className="text-blue-600" size={15} />
+                    </div>
+                    <div className="flex items-start flex-col gap-2">
+
+                    <p className="gap-2 text-sm font-barlow text-white flex items-start">
+                        <span className="font-semibold text-sm">Corporate 
+                        <br />
+                            Address :
+                        </span> 05 Lajpat Rai Marg, Rishikesh-249201
+                        <br />
+                        (Uttarakhand)
+                    </p>
+                    <p className="gap-2 text-sm font-barlow text-white mb-5 flex items-start">
+                        <span className="font-semibold text-sm">Store 
+                        <br />
+                            Address:
+                        </span>  162, Badrinath Road (Opp. Divine Lakshmi <br /> Ganga Hotel) Tapovan Laxman Jhoola,
+                        <br />
+                        Rishikesh - 239192,
+                        (Uttarakhand)
+                    </p>
+                    </div>
+                </div>
+            </div>
             {/* Accordance Section */}
             <div className="w-full flex justify-center my-4">
                 <div className="w-[85%]">
                     <Accordion type="single" collapsible className="bg-[#fff] rounded-md  mb-8">
                         <AccordionItem value="item-1">
                             <AccordionTrigger className="text-black px-6 py-4 text-base ">IMPORTANT NOTICE</AccordionTrigger>
-                            <AccordionContent className="text-gray-900 px-6 pb-6 pt-1 text-sm">
-                                All our handicraft products are handcrafted by skilled artisans, which means each item is unique and may have slight variations in color, texture, or finish. These differences are a mark of authenticity and not defects. We ensure quality checks before dispatch, but due to the delicate nature of handmade goods, please handle them with care. Product images may slightly differ from actual items due to lighting or screen settings. Kindly review our return, shipping, and customization policies before placing an order. For any queries or special requests, feel free to contact our support team.</AccordionContent>
+                            <AccordionContent className="text-gray-900 px-6 pb-6 pt-1 text-sm space-y-3">
+                                <p>
+                                    <strong>Purchasing Policy</strong><br />
+                                    At Protos Adventures, we strive to offer a seamless and secure shopping experience. Our purchasing policy outlines everything you need to know when placing an order with us.
+                                </p>
+
+                                <ul className="list-disc list-inside space-y-2">
+                                    <li>
+                                        <strong>1. Product Availability</strong><br />
+                                        We aim to keep our inventory up-to-date. However, due to demand, some items may go out of stock. In such cases:
+                                        <ul className="list-disc list-inside ml-4">
+                                            <li>You will be notified promptly.</li>
+                                            <li>We may offer an alternative or initiate a full refund as per your preference.</li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <strong>2. Order Placement</strong>
+                                        <ul className="list-disc list-inside ml-4">
+                                            <li>Select your items and proceed to checkout.</li>
+                                            <li>Provide accurate billing and shipping details.</li>
+                                            <li>Complete payment through our secure gateway.</li>
+                                        </ul>
+                                        <p className="ml-4">Note: Orders with incomplete or incorrect information may be delayed or canceled.</p>
+                                    </li>
+
+                                    <li>
+                                        <strong>3. Payment Methods</strong>
+                                        <ul className="list-disc list-inside ml-4">
+                                            <li>Credit/Debit Cards (Visa, MasterCard, etc.)</li>
+                                            <li>UPI / Wallets / Net Banking (for India)</li>
+                                            <li>PayPal / Razorpay / Stripe (International Orders)</li>
+                                        </ul>
+                                        <p className="ml-4">All transactions are encrypted and 100% secure.</p>
+                                    </li>
+
+                                    <li>
+                                        <strong>4. Order Confirmation</strong>
+                                        <ul className="list-disc list-inside ml-4">
+                                            <li>You will receive an email confirmation with your order number and details.</li>
+                                            <li>A separate email will be sent once the order is dispatched, along with tracking info.</li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <strong>5. Pricing & Taxes</strong>
+                                        <ul className="list-disc list-inside ml-4">
+                                            <li>All prices are listed in [INR/USD] and include applicable taxes unless otherwise stated.</li>
+                                            <li>Shipping charges, if any, will be calculated at checkout based on location and package size.</li>
+                                            <li>Promotional discounts cannot be combined unless explicitly stated.</li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <strong>6. Cancellations</strong>
+                                        <ul className="list-disc list-inside ml-4">
+                                            <li>You may cancel your order within 12 hours of placing it or before shipment.</li>
+                                            <li>Once dispatched, orders cannot be canceled. Please refer to our Return Policy instead.</li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <strong>7. Fraud Prevention</strong>
+                                        <ul className="list-disc list-inside ml-4">
+                                            <li>We may verify orders manually for high-value purchases.</li>
+                                            <li>We reserve the right to cancel orders suspected of fraudulent activity, with or without notice.</li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <strong>8. Bulk or Custom Orders</strong><br />
+                                        We welcome bulk purchases or custom requests (e.g., branded adventure kits, expedition gear).<br />
+                                        Contact our team at support@protosadventures.com for quotations and lead times.
+                                    </li>
+
+                                    <li>
+                                        <strong>9. Customer Support</strong>
+                                        <ul className="list-disc list-inside ml-4">
+                                            <li>📧 Email: support@protosadventures.com</li>
+                                            <li>☎ Call/WhatsApp: +91 07669280002</li>
+                                            <li>🕒 Hours: Monday to Saturday, 10:00 AM – 6:00 PM IST</li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <strong>10. Acceptance of Policy</strong><br />
+                                        By placing an order on our website, you agree to the terms outlined in this Purchasing Policy.
+                                    </li>
+                                </ul>
+                            </AccordionContent>
+
                         </AccordionItem>
                     </Accordion>
                 </div>
@@ -176,9 +319,15 @@ const Footer = () => {
             <Card className="my-2 px-2 py-8 max-w-xl lg:max-w-4xl xl:max-w-7xl mx-auto">
                 <CardContent className="flex flex-col lg:flex-row items-start justify-between">
                     <div className="text-justify">
-                        <Image src="/logo.png" width={150} height={100} alt="footer" />
-                        <p className="text-black text-sm lg:w-[40vw] xl:w-[35vw] font-barlow mt-6">Adventure Axis offers a comprehensive range of adventure sports equipment under one roof. Our categories include Water Sports Equipment such as rafts, kayaks, dry bags, paddles, life jackets, helmets, and repair kits. In Safety & Rescue, we provide harnesses, carabiners, ropes, pulleys, fall arresters, rescue devices, and helmets. Our Clothing & Footwear range features tactical eyewear, base layers, fleece, insulated wear, and high-performance outdoor footwear. We also specialize in Camping & Outdoor gear and Expedition Equipment, ensuring you're fully equipped for any terrain or challenge.</p>
-                        <p className="text-black text-sm lg:w-[40vw] xl:w-[35vw] font-barlow mt-6">Our website is your gateway to the heart of Rishikesh, offering rich and soulful handmade creations crafted by local artisans.</p>
+                        <Image src="/logo.png" width={200} height={200} alt="footer" />
+                        <p className="text-black text-sm lg:w-[40vw] xl:w-[35vw] font-barlow mt-6">PROTOS ADVENTURE is a premier destination for high-performance outdoor gear. As an authorized dealer of globally renowned brands such as Camp, NRS, Millet, Headrush, and Valandré, we bring you world-class equipment tailored for every adventure.
+                            <br />
+
+                            Our extensive catalog includes water sports equipment, expedition gear, camping essentials, high-altitude gear, helmets, oars, harnesses, safety devices, and hiking & trekking gear—all curated to meet the highest standards of quality, durability, and functionality.
+                            <br />
+
+                            More than just a store, we offer innovative and practical solutions that support the growth of equipment-based businesses within the outdoor and adventure industry. Whether you're a solo adventurer, a professional expedition leader, or a gear retailer, PROTOS ADVENTURE equips you with the tools and expertise to succeed in the wild and in the market.</p>
+                        <p className="text-black text-sm lg:w-[40vw] xl:w-[35vw] font-barlow mt-5">Our website is your gateway to the heart of Rishikesh, offering rich and soulful handmade creations crafted by local artisans.</p>
                     </div>
                     <div className="font-barlow mt-10 lg:mt-0">
                         <h1 className="font-semibold text-xl ">Subscribe to our newsletter</h1>
@@ -215,8 +364,8 @@ const Footer = () => {
                 </CardFooter>
             </Card>
             <div className="flex flex-col lg:flex-row items-center justify-center max-w-[25rem] md:max-w-[60rem] xl:max-w-6xl mx-auto font-barlow">
-                <p className="text-black font-bold text-center my-4">
-                    &copy; <CurrentYear /> <Link href={'/'} className="font-bold text-black">Adventure Axis</Link>. All rights reserved
+                <p className="text-white font-bold text-center my-4">
+                    &copy; <CurrentYear /> <Link href={'/'} className="font-bold text-white px-2">Protos Adventures</Link>. All rights reserved
                 </p>
             </div>
         </footer >

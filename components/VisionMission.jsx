@@ -17,20 +17,19 @@ const VisionMission = () => {
           />
           <div className="relative z-10 text-center text-white">
             <h1 className="text-4xl md:text-5xl font-bold mb-2 drop-shadow-lg">Our Vision & Mission</h1>
-            </div>
+          </div>
         </div>
-        <div className="w-full px-2 container mx-auto flex gap-10 items-center mt-10">
+        <div className="w-full container mx-auto flex gap-5 md:gap-10 items-center mt-10 px-5 md:px-20">
           {/* Left: Intro & Image */}
           <div className="w-full flex flex-col items-start">
-            <h2 className="text-xl md:text-4xl font-bold mb-6 text-gray-800 text-start lg:text-start">“Rooted in Nature, Crafted by Tradition.”</h2>
+            <h2 className="text-xl md:text-4xl font-bold mb-6 text-gray-800 text-start lg:text-start">“Equipping Every Adventure, Empowering Every Explorer.”</h2>
             <p className="text-md md:text-lg text-gray-700 leading-relaxed mb-6 text-start lg:text-justify">
-              At Rishikesh Handmade Craft, we are more than just an e-commerce platform — we are a movement to revive, support, and celebrate the timeless heritage of Rishikesh through handcrafted art. Nestled in the foothills of the Himalayas, Rishikesh is a land known not only for its spiritual aura but also for its deeply rooted artistic traditions. Our mission is to bring these soulful creations to a global audience while uplifting the lives of the skilled artisans behind them.<br /><br />
-              We partner directly with local craftsmen and women from Rishikesh and nearby villages who specialize in traditional art forms passed down through generations. These artisans pour their heart and soul into every product — whether it's an intricately carved wooden artifact, a hand-painted canvas, ethically made jewelry, or eco-friendly home décor. Each piece reflects the essence of Indian culture, spirituality, and sustainability.
+              At PROTOS ADVENTURE, our journey is fueled by a passion for exploration and a commitment to excellence. As a leading force in the adventure equipment industry, we believe that every expedition begins with trust—in your gear, your team, and your purpose. Our vision and mission reflect our unwavering dedication to equipping explorers with the tools they need, and empowering businesses with solutions that go beyond products. Together, we aim to build a safer, stronger, and more inspired outdoor community.
             </p>
           </div>
 
         </div> {/* Right: Vision & Mission */}
-        <div className="container mx-auto w-full flex flex-col md:flex-row gap-8 px-2">
+        <div className="container mx-auto w-full flex flex-col md:flex-row gap-8 px-5 md:px-20">
           <div className="w-full md:w-2/3 flex justify-center mb-6 ">
             <Image src="/Vision.jpg" alt="Vision" width={300} height={300} className="rounded-xl shadow-lg object-cover w-fit h-auto " />
           </div>
@@ -39,35 +38,25 @@ const VisionMission = () => {
             <div className="rounded-xl  p-6 mb-4 border border-gray-400">
               <h3 className="text-2xl font-bold mb-2 text-amber-700">Our Vision</h3>
               <p className="text-gray-700 text-base">
-                To become a globally recognized platform that celebrates and sustains the timeless art of Rishikesh by empowering local artisans, promoting eco-conscious living, and connecting the world to the soul of Indian craftsmanship through natural, handmade creations.
+                To be the most trusted and innovative leader in outdoor adventure equipment, empowering individuals and organizations to explore the world safely, sustainably, and with confidence.
+                <br />
+
+                At PROTOS ADVENTURE, our vision is to inspire and support a global community of adventurers by delivering gear that meets the highest standards of safety, durability, and performance. We envision a world where outdoor exploration is accessible, responsible, and transformative—powered by reliable equipment and a deep respect for nature.
               </p>
             </div>
             {/* Mission */}
             <div className=" rounded-xl  p-6 border border-gray-400">
               <h3 className="text-2xl font-bold mb-2 text-amber-700">Our Mission</h3>
               <ul className="list-disc pl-6 text-gray-700 text-base space-y-2">
-                <li>To preserve and promote traditional handicrafts of Rishikesh and nearby regions by supporting skilled artisans and their generational knowledge.</li>
-                <li>To create a sustainable ecosystem for handmade goods, with a special focus on natural fiber products such as jute, hemp, cotton, bamboo, and banana fiber.</li>
-                <li>To provide fair trade opportunities, ensuring artisans receive the respect, recognition, and remuneration they deserve.</li>
-                <li>To deliver authentic, eco-friendly, and ethically made products that align with conscious consumer values.</li>
-                <li>To bridge the gap between local craft communities and global markets, making handcrafted products accessible to people who value culture, sustainability, and craftsmanship.</li>
-                <li>To inspire a movement of responsible shopping, where every purchase supports a story of heritage, nature, and human connection.</li>
+                <li>To provide world-class adventure equipment and solutions through global brand partnerships, expert guidance, and customer-first service—helping adventurers and businesses achieve excellence in every expedition.
+                </li>
+                <li>Our mission is to equip outdoor enthusiasts, professionals, and organizations with the finest gear available—while offering practical, innovative solutions that elevate their experience. With over 25 years of industry expertise, a commitment to sustainable practices, and a team driven by passion, we strive to be more than just a supplier—we’re your trusted adventure partner at every step of the journey.</li>
               </ul>
             </div>
           </div>
 
         </div>
       </div>
-   {/* Get In Touch Section */}
-   <section className="w-full bg-black py-5 text-white flex flex-col md:flex-row items-center justify-between  md:px-24 gap-6 ">
-        <div className="md:mb-6 md:mb-0 md:px-3">
-          <h3 className="text-xl md:text-3xl font-bold gap-2 text-center md:text-start">Questions?
-            <br className="md:hidden" />
-            <span className="text-sm md:text-lg font-normal px-2">Our experts will help find the gear that’s right for you</span>
-          </h3>
-        </div>
-        <Link href="/contact" className="btn bg-white text-black font-bold px-8 py-3 rounded-lg shadow transition">Get In Touch</Link>
-      </section>
     </section>
 
   );

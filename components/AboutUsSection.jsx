@@ -10,30 +10,16 @@ const AboutUsSection = () => {
     const [featuredPackages, setFeaturedPackages] = useState([]);
     const [loading, setLoading] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
-
-    const dummyPackages = [
-        {
-            _id: "1",
-            link: "#",
-            image: { url: "https://dummyimage.com/1280x720/000/fff" },
-            headerText: "Spiritual Retreat",
-            title: "Himalayan Pilgrimage",
-            subTitle: "Find peace in the mountains",
-            location: "Uttarakhand, India",
-            footertext: "A journey to rejuvenate your soul",
-        },
-    ];
-
     useEffect(() => {
         const fetchPackages = async () => {
             try {
                 const response = await fetch('/api/featured-packages');
                 const data = await response.json();
                 // console.log(data);
-                setFeaturedPackages(data?.length ? data : dummyPackages); // Use dummy data if API returns empty
+                setFeaturedPackages(data); // Use dummy data if API returns empty
             } catch (error) {
                 // console.error('Error fetching data:', error);
-                setFeaturedPackages(dummyPackages); // Use dummy data on error
+                setFeaturedPackages([]); // Use dummy data on error
             } finally {
                 setIsLoading(false);
                 setLoading(false);
@@ -83,21 +69,17 @@ const AboutUsSection = () => {
         <section className="bg-[#ededed] relative py-10 w-full px-5 overflow-hidden max-w-screen overflow-x-hidden">
             <div className="w-full">
                 <h2 className="font-bold text-2xl md:text-4xl text-center mt-2 md:mt-7 uppercase">
-                    <span className="italic"> Your Partner in Every Expedition.</span>
+                    <span className="italic"> Trusted. Competitive. Reliable.</span>
                 </h2>
                 {/* <p className=" text-xl font-lg md:text-xl text-center mt-2">
                     emphasizes uniqueness, tradition, artistry, and authentic
                 </p> */}
-                <hr className="h-[2px] w-[50%] mx-auto bg-black" />
+                <hr className="h-[2px] w-[45%] mx-auto bg-black" />
 
                 <p className="text-gray-600 md:py-8 py-4 text-center font-barlow md:w-[50%] w-full mx-auto">
-                    Adventure Axis is a premier outdoor gear store based in Tapovan, Rishikesh, on the Badrinath Highway. As an authorized dealer for top global brands like NRS, Camp, Wiley X, and Lafuma, we specialize in high-quality equipment for water sports, camping, trekking, high-altitude expeditions, and safety needs.
+                We provide expert consulting and financial tools to help you build your dream outdoor sports business—strategically, confidently, and in alignment with your goals and investors' expectations.
                     <br />
-                    With over 25 years of industry experience, we are a trusted supplier to leading adventure companies across India, supporting activities such as rafting, bungee jumping, camping, and mountaineering. Our commitment to innovation and service excellence earned us the Great Place to Work® Certification in 2025.
-                    <br />
-
-                    We don’t just provide equipment — we deliver complete outdoor solutions, backed by expert leadership and a vision to elevate the adventure gear industry.
-                </p>
+                    </p>
                 <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-auto">
                     {loading ? (
                         // Loading skeletons

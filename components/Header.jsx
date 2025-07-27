@@ -117,7 +117,7 @@ const Header = () => {
          ${showHeader ? "translate-y-0" : "-translate-y-full"}`}
     >
       <div className="md:flex hidden items-center justify-between gap-8 border-b py-1 border-gray-400 md:px-8 ">
-        <p className="text-md">Crafted by Hand, Cherished by Heart</p>
+        <p className="text-md">Equipping Every Adventure, Empowering Every Explorer.</p>
         <div className="flex flex-row justify-center items-center gap-4">
           <div className="items-center z-50 gap-4 flex">
             <div className="flex items-center gap-3">
@@ -211,54 +211,7 @@ const Header = () => {
                   </div>
                 )}
               </div>
-              {/* Wishlist Button */}
-              <div className="relative group">
-                <button
-                  onClick={() => { setInitialCartTab('wishlist'); setIsCartOpen(true); }}
-                  className="flex flex-col items-center p-2 rounded-lg hover:bg-neutral-100 transition-colors"
-                  aria-label="Wishlist"
-                >
-                  <div className="relative">
-                    <Heart size={20} />
-                    {wishlist.length > 0 && (
-                      <span className="absolute -top-3 -right-3 bg-pink-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center shadow">
-                        {wishlist.length}
-                      </span>
-                    )}
-                  </div>
-                  <span className="text-xs font-medium mt-1">Wishlist</span>
-                </button>
-              </div>
-
-              {/* Cart Button */}
-              <div className="relative group">
-                <button
-                  onClick={() => { setInitialCartTab('cart'); setIsCartOpen(true); }}
-                  className="flex flex-col items-center p-2 rounded-lg hover:bg-neutral-100 transition-colors"
-                  aria-label="Cart"
-                >
-                  <div className="relative">
-                    <ShoppingCart size={20} />
-                    {cart.length > 0 && (
-                      <span className="absolute -top-3 -right-3 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center shadow">
-                        {cart.length}
-                      </span>
-                    )}
-                  </div>
-                  <span className="text-xs font-medium mt-1">Cart</span>
-                </button>
-              </div>
-
-              {/* Track Order Button */}
-              <div className="group">
-                <Link 
-                  href="/dashboard?section=track"
-                  className="flex flex-col items-center p-2 rounded-lg hover:bg-neutral-100 transition-colors"
-                >
-                  <Truck size={20} />
-                  <span className="text-xs font-medium mt-1">Track Order</span>
-                </Link>
-              </div>
+                      
 
               {/* Language Selector */}
               <div className="group relative">

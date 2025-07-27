@@ -104,7 +104,7 @@ const ContactUs = () => {
                     <div className="lg:w-1/2 w-full flex flex-col justify-center text-black">
                         <h2 className="text-2xl md:text-5xl font-bold mb-4">DISCOVER US</h2>
                         <p className="mb-6 text-base w-[90%] ">
-                            <span className="underline text-xl md:text-3xl">Adventure Axis is an complete outdoor shop. </span>
+                            <span className="underline text-xl md:text-3xl">PROTOS ADVENTURES, is an complete outdoor shop.</span>
                             <br />
                             <span className='text-xl md:text-3xl'> Our experts are available to answer any questions you might have. We’ve got the answers.</span>
                         </p>
@@ -112,7 +112,8 @@ const ContactUs = () => {
                             <h3 className="font-bold text-xl md:text-2xl mb-2">Call Us</h3>
                             <ul className="mb-2">
                                 <li className='flex flex-row gap-2'>
-                                    <a href="tel:+9107669280002" className="hover:underline text-xl">+91 07669280002</a>
+                                    <a href="tel:+911352442822" className="hover:underline text-xl">+91 1352442822</a>
+                                    <a href="tel:+917669280002" className="hover:underline text-xl">+91 7669280002</a>
                                     <a href="tel:+919897468886" className="hover:underline text-xl">+91 9897468886</a>
                                 </li>
                             </ul>
@@ -122,15 +123,36 @@ const ContactUs = () => {
                             <ul className="mb-2">
                                 <li className='text-xl'>
                                     For Sales:
-                                    <a href="mailto:info@adventureaxis.in" className="hover:underline text-md md:text-xl"> info@adventureaxis.in</a>
+                                    <a href="mailto:info@adventureaxis.in" className="hover:underline text-md md:text-xl"> info@protosadventures.in</a>
                                 </li>
                                 <li className='text-xl'>
                                     For Support:
-                                    <a href="mailto:Accounts@adventureaxis.in" className="hover:underline text-md md:text-xl"> Accounts@adventureaxis.in</a>
+                                    <a href="mailto:Accounts@adventureaxis.in" className="hover:underline text-md md:text-xl"> Accounts@protosadventures.in</a>
                                 </li>
                                 <li className='text-xl'>
                                     For Official:
-                                    <a href="mailto:Sales@adventureaxis.in" className="hover:underline text-md md:text-xl"> Sales@adventureaxis.in</a>
+                                    <a href="mailto:Sales@adventureaxis.in" className="hover:underline text-md md:text-xl"> Sales@protosadventures.in</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className=''>
+                            <h3 className="font-bold text-xl md:text-2xl mb-2 ">E-mail</h3>
+                            <ul className="mb-2">
+                                <li className='text-xl'>
+                                   <span className="font-semibold">Corporate Address:</span>
+                                    05 ,Lajpat Rai Marg, Rishikesh-249201 
+                                    <br/>
+                                     ( Uttarakhand)
+                                </li>
+                                <li className='text-xl'>
+                                <span className="font-semibold">Store Address:</span>162, Badrinath Road (Opp. Divine Lakshmi
+                                        <br/>
+                                     Ganga Hotel)
+                                    Tapovan Luxman Jhoola, 
+                                    <br/>
+                                    RISHIKESH-249192 
+                               
+                                    (UK)
                                 </li>
                             </ul>
                         </div>

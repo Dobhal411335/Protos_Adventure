@@ -35,27 +35,21 @@ const Team = () => {
         />
         <div className="relative z-10 text-center text-white">
           <h1 className="text-4xl md:text-5xl font-bold mb-2 drop-shadow-lg">Team of Experts</h1>
-          {/* <nav aria-label="breadcrumb" className="flex justify-center">
-            <ul className="flex gap-2 text-lg">
-              <li>
-                <Link href="/" className="hover:underline">Home</Link>
-              </li>
-              <li>/</li>
-              <li className="text-amber-300">Our Team</li>
-            </ul>
-          </nav> */}
         </div>
       </div>
 
       {/* Main Content */}
-      <section className="content-inner py-10 md:py-16">
-        <div className="container mx-auto px-4">
+      <section className="content-inner md:p-20 px-5 py-2">
+        <div className="container mx-auto">
           <div className="flex flex-col lg:flex-row gap-8 mb-10 items-start">
             {/* Left: Heading and Paragraph */}
             <div className="w-full lg:w-[57%]">
-              <h2 className="text-xl md:text-5xl font-semibold mb-4 text-gray-800 leading-tight">Behind Rishikesh Handmade Craft is a dedicated team of experienced professionals and industry veterans who share a deep passion for traditional Indian craftsmanship.</h2>
-              <p className="text-md md:text-xl text-gray-700 mb-4">
-                Our core team includes expert artisans, designers, curators, and community leaders — many of whom have over 20 years of hands-on experience in the handicraft and cottage industry.
+              <h2 className="text-xl md:text-4xl font-semibold mb-4 text-gray-800 leading-tight">Leadership That Goes Beyond Gear</h2>
+              <p className="text-md text-justify md:text-xl text-gray-700 mb-4">
+                At PROTOS ADVENTURES, we believe that delivering high-quality gear is only part of the mission. What comes next—service, support, and strategy—is where our leadership truly stands apart. Our leaders are seasoned professionals who not only understand the needs of the adventure community but also help shape the future of the industry through vision, collaboration, and innovation.
+                <br />
+
+                From supplying premium equipment to offering industry-best practices, we’re more than just an outdoor shop—we’re your long-term partner in adventure.
               </p>
             </div>
             {/* Right: Two Images in a row (first two team members) */}
@@ -74,9 +68,7 @@ const Team = () => {
                     </div>
                   </div>
                 ))
-              ) : (
-                <div>No team members found.</div>
-              )}
+              ) : null}
             </div>
           </div>
 
@@ -117,20 +109,30 @@ const Team = () => {
               ))
             ) : null}
           </div>
-
+          {/* 
           <div className="mb-10 text-base text-gray-700">
             These individuals have not only mastered their craft but have also played a pivotal role in shaping the future of local artisans. Through years of dedication, they have created opportunities, launched training initiatives, and set new benchmarks in quality and innovation. Their deep understanding of cultural artistry, sustainable practices, and market trends ensures that every product we offer meets the highest standards while staying true to its roots.
-          </div>
+          </div> */}
 
           {/* Contributions Section */}
           <div className="rounded-xl p-4 md:p-8 border border-gray-400">
             <h2 className="text-xl md:text-3xl font-bold mb-4 text-gray-800">Our Team’s Contributions Include:</h2>
             <ul className="list-decimal pl-6 text-sm md:text-lg text-gray-700 space-y-2">
-              <li><span className="font-bold">Mentoring and Training:</span> Providing skill development and mentorship to hundreds of young and emerging artisans in and around Rishikesh.</li>
-              <li><span className="font-bold">Empowering Communities:</span> Helping local craftspeople access fair markets, increase income, and gain financial independence.</li>
-              <li><span className="font-bold">Innovation with Tradition:</span> Blending ancient techniques with contemporary design to make traditional products appealing to modern audiences.</li>
-              <li><span className="font-bold">Creating Global Milestones:</span> Leading successful exhibitions, collaborations, and export initiatives that brought Rishikesh’s art to global recognition.</li>
-              <li><span className="font-bold">Sustainable Future:</span> Our team is committed to continuing this journey — one that not only preserves heritage but also builds a sustainable future for the artisan community. With their guidance and expertise, Rishikesh Handmade Craft continues to be a trusted bridge between tradition and the global marketplace.</li>
+              <li><span className="font-bold">Product Expertise & Guidance:</span> Recommending the most suitable gear for diverse terrains, climates, and expedition needs — from water sports to high-altitude adventures.
+              </li>
+              <li><span className="font-bold">Expedition Planning Support : </span> Assisting clients in selecting complete equipment kits tailored to specific challenges such as Himalayan treks, rescue missions, or survival training.
+              </li>
+              <li><span className="font-bold">Technical Knowledge & Safety Assurance :</span> Providing insights into the safe use of gear, compliance with global safety standards, and training support where needed .</li>
+              <li><span className="font-bold">Field-Tested Innovation:</span> Testing products in real-world conditions to ensure durability, functionality, and performance before they reach our customers.
+              </li>
+              <li><span className="font-bold">Customer Service & After-Sales Support : </span> Delivering responsive, personalized service that builds long-term trust with adventure companies, guides, and individual explorers.
+              </li>
+              <li><span className="font-bold">Community Engagement & Local Upliftment : </span> Collaborating with local suppliers, trainers, and eco-tourism partners to strengthen grassroots businesses and promote sustainable practices
+              </li>
+              <li><span className="font-bold">Operations & Logistics Management : </span>  Ensuring timely delivery, inventory control, and seamless coordination — from warehouse to wilderness.
+              </li>
+              <li><span className="font-bold">Leadership & Training Development :  </span> Empowering new team members and clients through mentorship, internal training sessions, and a culture of shared growth.
+              </li>
             </ul>
           </div>
         </div>

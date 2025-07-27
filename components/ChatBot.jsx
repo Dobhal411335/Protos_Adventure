@@ -34,7 +34,7 @@ const productQnA = [
   },
   {
     q: "🧑‍💬 Chat With Admin",
-    a: `Yes, our customer support is available [Days & Hours]. You can also email us at support@rishikeshhandmade.com or call +91 7351009107, 9411571947.`
+    a: `Yes, our customer support is available [Days & Hours]. You can also email us at support@protosadventures.com or call +91 7351009107, 9411571947.`
   }
 ];
 
@@ -105,21 +105,21 @@ export default function ChatBot() {
   // Load chat history from DB (or localStorage fallback)
   useEffect(() => {
     async function loadHistory() {
-      if (session?.user?.id) {
-        try {
-          const res = await fetch(`/api/getMessages?userId=${session.user.id}`);
-          const data = await res.json();
+      // if (session?.user?.id) {
+      //   try {
+      //     const res = await fetch(`/api/getMessages?userId=${session.user.id}`);
+      //     const data = await res.json();
 
-          if (data.messages && Array.isArray(data.messages)) {
-            setMessages((prev) => (JSON.stringify(prev) !== JSON.stringify(data.messages) ? data.messages : prev));
-            return;
-          } else {
-            setMessages([]);
-          }
-        } catch (error) {
-          setMessages([]);
-        }
-      }
+      //     if (data.messages && Array.isArray(data.messages)) {
+      //       setMessages((prev) => (JSON.stringify(prev) !== JSON.stringify(data.messages) ? data.messages : prev));
+      //       return;
+      //     } else {
+      //       setMessages([]);
+      //     }
+      //   } catch (error) {
+      //     setMessages([]);
+      //   }
+      // }
       // fallback to localStorage
       const localHistory = localStorage.getItem("chatbot_history");
       if (localHistory) {
@@ -132,7 +132,7 @@ export default function ChatBot() {
           {
             from: "Bot",
             sender: "bot",
-            text: "Hi there! 👋 Welcome to Rishikesh Handmade!\n\nI’m AI Support Intelligence from our online store – your virtual assistant here to help you with anything you need.\n\nHow can I assist you today?",
+            text: "Hi there! 👋 Welcome to Protos Adventures!\n\nI’m AI Support Intelligence from our online store – your virtual assistant here to help you with anything you need.\n\nHow can I assist you today?",
             createdAt: new Date().toISOString(),
           },
         ]);
@@ -147,7 +147,7 @@ export default function ChatBot() {
       {
         from: "Bot",
         sender: "bot",
-        text: "Hi there! 👋 Welcome to Rishikesh Handmade!\n\nI’m AI Support Intelligence from our online store – your virtual assistant here to help you with anything you need.\n\nHow can I assist you today?",
+        text: "Hi there! 👋 Welcome to Protos Adventures!\n\nI’m AI Support Intelligence from our online store – your virtual assistant here to help you with anything you need.\n\nHow can I assist you today?",
         createdAt: new Date().toISOString(),
       },
     ]);
@@ -178,7 +178,7 @@ export default function ChatBot() {
           {
             from: "Bot",
             sender: "bot",
-            text: `Hi there! 👋 Welcome to Rishikesh Handmade!\n\nI’m AI Support Intelligence from our online store – your virtual assistant here to help you with anything you need.\n\nHow can I assist you today?`,
+            text: `Hi there! 👋 Welcome to Protos Adventures!\n\nI’m AI Support Intelligence from our online store – your virtual assistant here to help you with anything you need.\n\nHow can I assist you today?`,
             createdAt: new Date().toISOString()
           }
         ]);
@@ -335,7 +335,7 @@ export default function ChatBot() {
         {
           from: "Bot",
           sender: "bot",
-          text: `Hi there! 👋 Welcome to Rishikesh Handmade!\n\nI’m AI Support Intelligence from our online store – your virtual assistant here to help you with anything you need.\n\nHow can I assist you today?`,
+          text: `Hi there! 👋 Welcome to Protos Adventures!\n\nI’m AI Support Intelligence from our online store – your virtual assistant here to help you with anything you need.\n\nHow can I assist you today?`,
           createdAt: new Date().toISOString()
         }
       ]);
@@ -356,7 +356,7 @@ export default function ChatBot() {
     setMessages((msgs) => [
       ...msgs,
       { from: "You", sender: session?.user?.id || "user", text: qna.q, createdAt: new Date().toISOString() },
-      { from: "Bot", sender: "bot", text: qna.a + "\n\nFor more help, contact us at support@rishikeshhandmade.com or call +91 7351009107, 9411571947.", createdAt: new Date().toISOString() },
+      { from: "Bot", sender: "bot", text: qna.a + "\n\nFor more help, contact us at support@protosadventures.com or call +91 7669280002, 9897468886.", createdAt: new Date().toISOString() },
     ]);
   };
 

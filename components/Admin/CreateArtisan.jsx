@@ -35,7 +35,6 @@ import { Plus } from "lucide-react";
 
 const CreateArtisan = () => {
   // ...existing state
-  const [fatherHusbandType, setFatherHusbandType] = useState("Father");
   const [selectedImage, setSelectedImage] = useState(null);
   const [uploadedImage, setUploadedImage] = useState(null); // { url, key }
   // ...other state
@@ -154,7 +153,7 @@ const CreateArtisan = () => {
     try {
       setLoading(true);
       const res = await fetch("/api/createArtisan");
-      if (!res.ok) throw new Error("Failed to fetch artisans");
+      if (!res.ok) throw new Error("Failed to fetch management");
       const data = await res.json();
       setUsers(data);
     } catch (err) {
@@ -170,8 +169,6 @@ const CreateArtisan = () => {
       pincode: '',
       city: '',
       title: "Mr.",
-      fatherHusbandType: "Father",
-      fatherHusbandTitle: "Mr.",
       // Add other defaults if needed
     },
   });
@@ -194,7 +191,7 @@ const CreateArtisan = () => {
         setAllSpecializations(data.map((s) => s.name));
       } else if (Array.isArray(data) && data.length === 0) {
         setAllSpecializations([]);
-        toast.error("No specializations found.");
+        // toast.error("No specializations found.");
       } else {
         setAllSpecializations([]);
         toast.error("Specialization API returned unexpected data.");
@@ -226,12 +223,6 @@ const CreateArtisan = () => {
       slug: slugify(`${data.firstName} ${data.lastName}`),
       firstName: data.firstName,
       lastName: data.lastName,
-      fatherHusbandType: data.fatherHusbandType,
-      fatherHusbandTitle: data.fatherHusbandTitle,
-      fatherHusbandName: data.fatherHusbandName,
-      fatherHusbandLastName: data.fatherHusbandLastName,
-      shgName: data.shgName,
-      artisanNumber: data.artisanNumber,
       yearsOfExperience: data.yearsOfExperience,
       specializations: selectedSpecs,
       callNumber: data.callNumber,
@@ -259,11 +250,11 @@ const CreateArtisan = () => {
         if (
           (err.error && err.error.includes("duplicate key")) ||
           err.code === 11000 ||
-          (err.message && err.message.includes("Artisan number already exists"))
+          (err.message && err.message.includes("Management number already exists"))
         ) {
-          toast.error("Artisan number already exists");
+          toast.error("Management number already exists");
         } else {
-          toast.error(err.message || "Failed to create artisan");
+          toast.error(err.message || "Failed to create management");
           toast.error(err.message || "Data not submitted! Please try again.");
         }
       }
@@ -273,7 +264,6 @@ const CreateArtisan = () => {
       reset();
       setUploadedImage(null);
       setSelectedImage(null);
-      setFatherHusbandType("Father");
       setSelectedSpecs([]);
       setEditForm({});
       setEditingUser(null);
@@ -324,7 +314,7 @@ const CreateArtisan = () => {
           a._id === artisan._id ? { ...a, active: !a.active } : a
         )
       );
-      toast.success(`Artisan ${!artisan.active ? 'activated' : 'deactivated'} successfully!`);
+      toast.success(`Management ${!artisan.active ? 'activated' : 'deactivated'} successfully!`);
     } catch (err) {
       toast.error("Failed to update status");
     }
@@ -369,12 +359,6 @@ const CreateArtisan = () => {
     setValue("order", artisan.order || 1, { shouldValidate: true });
     setValue("firstName", artisan.firstName || "");
     setValue("lastName", artisan.lastName || "");
-    setValue("fatherHusbandType", artisan.fatherHusbandType || "Father");
-    setValue("fatherHusbandTitle", artisan.fatherHusbandTitle || "Mr.");
-    setValue("fatherHusbandName", artisan.fatherHusbandName || "");
-    setValue("fatherHusbandLastName", artisan.fatherHusbandLastName || "");
-    setValue("shgName", artisan.shgName || "");
-    setValue("artisanNumber", artisan.artisanNumber || "");
     setValue("yearsOfExperience", artisan.yearsOfExperience || "");
     setValue(
       "specialization",
@@ -444,12 +428,6 @@ const CreateArtisan = () => {
       title: formData.title,
       firstName: formData.firstName,
       lastName: formData.lastName,
-      fatherHusbandType: formData.fatherHusbandType,
-      fatherHusbandTitle: formData.fatherHusbandTitle,
-      fatherHusbandName: formData.fatherHusbandName,
-      fatherHusbandLastName: formData.fatherHusbandLastName,
-      shgName: formData.shgName,
-      artisanNumber: formData.artisanNumber,
       yearsOfExperience: formData.yearsOfExperience,
       specializations: selectedSpecs,
       contact: {
@@ -555,7 +533,7 @@ const CreateArtisan = () => {
         <div className="flex-1 space-y-4">
           {/* Artisan Name & Father/Husband Info */}
           <div>
-            <div className="font-semibold mb-1">Artisan Name</div>
+            <div className="font-semibold mb-1">Management Name</div>
             {/* Name/Title Row */}
             <div className="flex gap-2 mb-3">
               <Select
@@ -584,76 +562,10 @@ const CreateArtisan = () => {
               />
               {renderError("lastName")}
             </div>
-            <div className="font-semibold mb-1">Father/Husband Details</div>
-            {/* Father/Husband Row */}
-            <div className="flex gap-2 mb-2">
-              <Select
-                value={watch("fatherHusbandType") || fatherHusbandType}
-                onValueChange={(val) => {
-                  setFatherHusbandType(val);
-                  setValue("fatherHusbandType", val, { shouldValidate: true });
-                }}
-              >
-                <SelectTrigger className="w-32">
-                  <SelectValue placeholder="Father/Husband" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="Father">Father</SelectItem>
-                  <SelectItem value="Husband">Husband</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            {/* Father/Husband Details Row */}
-            <div className="flex gap-2 mb-2">
-              <Select
-                value={watch("fatherHusbandTitle") || ""}
-                onValueChange={(val) =>
-                  setValue("fatherHusbandTitle", val, { shouldValidate: true })
-                }
-              >
-                <SelectTrigger className="w-24">
-                  <SelectValue placeholder="Mr." />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="Mr.">Mr.</SelectItem>
-                  <SelectItem value="Mrs.">Late.</SelectItem>
-                </SelectContent>
-              </Select>
-              <Input
-                placeholder={
-                  fatherHusbandType === "Husband"
-                    ? "Husband First Name"
-                    : "Father First Name"
-                }
-                {...register("fatherHusbandName", { required: "Father/Husband Name is required" })}
-              />
-              {renderError("fatherHusbandName")}
-              <Input
-                placeholder={
-                  fatherHusbandType === "Husband"
-                    ? "Husband Last Name"
-                    : "Father Last Name"
-                }
-                {...register("fatherHusbandLastName", { required: "Father/Husband Last Name is required" })}
-              />
-              {renderError("fatherHusbandLastName")}
-            </div>
           </div>
-          {/* Artisan Detail */}
+          {/* Management Detail */}
           <div>
-            <div className="font-semibold mb-1">Artisan Detail</div>
-            <div className="flex gap-2 mb-2">
-              <Input
-                placeholder="SHG Name"
-                {...register("shgName", { required: "SHG Name is required" })}
-              />
-              {renderError("shgName")}
-              <Input
-                placeholder="Artisan Number"
-                {...register("artisanNumber", { required: "Artisan Number is required" })}
-              />
-              {renderError("artisanNumber")}
-            </div>
+            <div className="font-semibold mb-1">Management Detail</div>
             <div className="flex gap-2">
               <Input
                 placeholder="Year's Of Experience"
@@ -967,10 +879,7 @@ const CreateArtisan = () => {
                   Order
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Artisan Name
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Artisan Number
+                  Management Name
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Status
@@ -987,7 +896,7 @@ const CreateArtisan = () => {
                     colSpan={4}
                     className="px-6 py-4 whitespace-nowrap text-center"
                   >
-                    No artisans found.
+                    No management found.
                   </td>
                 </tr>
               ) : (
@@ -996,9 +905,6 @@ const CreateArtisan = () => {
                     <td className="px-6 py-4 whitespace-nowrap">{artisan.order}</td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       {artisan.firstName} {artisan.lastName}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      {artisan.artisanNumber}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <Switch
@@ -1036,8 +942,8 @@ const CreateArtisan = () => {
           {showDeleteModal && (
             <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
               <div className="bg-white rounded shadow-lg p-8">
-                <h2 className="text-lg font-semibold mb-4">Delete Artisan</h2>
-                <p>Are you sure you want to delete this artisan?</p>
+                <h2 className="text-lg font-semibold mb-4">Delete Management</h2>
+                <p>Are you sure you want to delete this management?</p>
                 <div className="flex justify-end mt-6 gap-3">
                   <button
                     className="px-4 py-2 border rounded"
@@ -1066,7 +972,7 @@ const CreateArtisan = () => {
             style={{ maxHeight: "90vh" }}
           >
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-bold">Artisan Profile</h2>
+              <h2 className="text-xl font-bold">Management Profile</h2>
               <button
                 onClick={closeUserModal}
                 className="text-gray-500 hover:text-black text-4xl leading-none focus:outline-none transition-transform duration-150 transform hover:scale-110"
@@ -1124,19 +1030,6 @@ const CreateArtisan = () => {
                   <DetailBox
                     label="Full Name"
                     value={`${selectedUser.title} ${selectedUser.firstName} ${selectedUser.lastName}`}
-                  />
-                  <DetailBox
-                    label="Relationship Type"
-                    value={selectedUser.fatherHusbandType}
-                  />
-                  <DetailBox
-                    label={`${selectedUser.fatherHusbandType} Name`}
-                    value={`${selectedUser.fatherHusbandTitle} ${selectedUser.fatherHusbandName} ${selectedUser.fatherHusbandLastName}`}
-                  />
-                  <DetailBox label="SHG Name" value={selectedUser.shgName} />
-                  <DetailBox
-                    label="Artisan Number"
-                    value={selectedUser.artisanNumber}
                   />
                   <DetailBox
                     label="Years of Experience"
@@ -1202,7 +1095,7 @@ const CreateArtisan = () => {
             style={{ maxHeight: "90vh" }}
           >
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-bold">Edit Artisan</h2>
+              <h2 className="text-xl font-bold">Edit Management</h2>
               <button
                 onClick={closeEditModal}
                 className="text-gray-500 hover:text-black"
@@ -1274,62 +1167,6 @@ const CreateArtisan = () => {
                 <Input
                   name="title"
                   value={editForm.title || ""}
-                  onChange={handleEditFormChange}
-                  required
-                />
-              </div>
-              <div>
-                <label className="font-semibold">Father/Husband Type</label>
-                <Input
-                  name="fatherHusbandType"
-                  value={editForm.fatherHusbandType || ""}
-                  onChange={handleEditFormChange}
-                  required
-                />
-              </div>
-              <div>
-                <label className="font-semibold">Father/Husband Title</label>
-                <Input
-                  name="fatherHusbandTitle"
-                  value={editForm.fatherHusbandTitle || ""}
-                  onChange={handleEditFormChange}
-                  required
-                />
-              </div>
-              <div>
-                <label className="font-semibold">Father/Husband Name</label>
-                <Input
-                  name="fatherHusbandName"
-                  value={editForm.fatherHusbandName || ""}
-                  onChange={handleEditFormChange}
-                  required
-                />
-              </div>
-              <div>
-                <label className="font-semibold">
-                  Father/Husband Last Name
-                </label>
-                <Input
-                  name="fatherHusbandLastName"
-                  value={editForm.fatherHusbandLastName || ""}
-                  onChange={handleEditFormChange}
-                  required
-                />
-              </div>
-              <div>
-                <label className="font-semibold">SHG Name</label>
-                <Input
-                  name="shgName"
-                  value={editForm.shgName || ""}
-                  onChange={handleEditFormChange}
-                  required
-                />
-              </div>
-              <div>
-                <label className="font-semibold">Artisan Number</label>
-                <Input
-                  name="artisanNumber"
-                  value={editForm.artisanNumber || ""}
                   onChange={handleEditFormChange}
                   required
                 />

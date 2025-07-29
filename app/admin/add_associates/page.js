@@ -1,8 +1,10 @@
-import EditArtisan from "@/components/Admin/EditArtisan"
+import Team from "@/components/Admin/Team"
 import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
 
+// export const dynamic = "force-dynamic"
 
-const  EditArtisanPage = () => {
+const AddTeamPage = async () => {
+
     return (
         <SidebarInset>
             <header className="flex h-16 shrink-0 items-center gap-2">
@@ -11,11 +13,11 @@ const  EditArtisanPage = () => {
                 </div>
             </header>
             <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-                <h1 className="text-4xl px-12 font-semibold">Edit Artisan</h1>
-                <EditArtisan />
+                <h1 className="text-4xl px-12 font-semibold">Add Associates</h1>
+                <Team />
             </div>
         </SidebarInset>
     )
 }
 
-export default EditArtisanPage
+export default AddTeamPage

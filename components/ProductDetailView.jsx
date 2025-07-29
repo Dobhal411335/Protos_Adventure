@@ -104,7 +104,8 @@ export default function ProductDetailView({ product }) {
 
   // console.log(product)
   const [selectedImage, setSelectedImage] = React.useState(product?.gallery?.mainImage?.url || []);
-
+  const [showPdfModal, setShowPdfModal] = useState(false);
+  const [pdfPreviewUrl, setPdfPreviewUrl] = useState(null);
   const [quantity, setQuantity] = React.useState(1);
   const [showSizeChart, setShowSizeChart] = React.useState(false);
   const [selectedSize, setSelectedSize] = React.useState(null);
@@ -113,12 +114,9 @@ export default function ProductDetailView({ product }) {
   const [showFullDesc, setShowFullDesc] = React.useState(false);
   const desc = product.description?.overview || "No Description";
   const words = desc.split(' ');
-  const [shippingTierLabel, setShippingTierLabel] = useState("");
-  const [FinalShipping, setFinalShipping] = useState(0);
+
   const [pincodeResult, setPincodeResult] = React.useState(null);
   const [pincodeError, setPincodeError] = React.useState("");
-  const [stateInput, setStateInput] = React.useState("");
-  const [districtInput, setDistrictInput] = React.useState("");
   const [statesList, setStatesList] = useState([]);
   const [pincodeInput, setPincodeInput] = React.useState("");
   const [loadingShipping, setLoadingShipping] = useState(false);
@@ -188,12 +186,11 @@ export default function ProductDetailView({ product }) {
   const price = selectedVariant ? formatNumeric(selectedVariant.price) : 0;
   const total = hasDiscount ? (discountedPrice * quantity).toFixed(2) : (selectedVariant ? (selectedVariant.price * quantity).toFixed(2) : 0);
 
-  const { cart, addToCart, setCart, addToWishlist, removeFromWishlist, wishlist } = useCart();
   // Gather all images (main + sub) at the top-level
   // Gather all images, filter out empty/undefined/null, and fallback to placeholder if empty
   const allImagesRaw = [product.gallery?.mainImage?.url, ...(product.gallery?.subImages?.map(img => img.url) || [])];
   const allImages = allImagesRaw.filter(img => typeof img === 'string' && img.trim().length > 0);
-  if (allImages.length === 0) allImages.push('/placeholder.png');
+  if (allImages.length === 0) allImages.push('/placeholder.jpeg');
   // Debug main image array and index
   // Embla carousel API and active image index for main image gallery
   const [carouselApi, setCarouselApi] = React.useState(null);
@@ -324,16 +321,6 @@ export default function ProductDetailView({ product }) {
             })()} Rating</span>
           <span className="text-gray-700 text-sm">({product.reviews?.length || 0} customer reviews)</span>
         </div>
-        {/* Artisan Bar */}
-        {product.artisan && (
-          <div
-            className="bg-gray-200 gap-2 px-2 py-1 text-black w-fit flex items-center cursor-pointer rounded"
-            onClick={() => setShowArtisanModal(true)}
-          >
-            <span className="font-bold">Artisan Name : {product.artisan?.title + " " + product.artisan?.firstName + " " + product.artisan?.lastName || ""}</span>
-            <span className="text-xl font-bold">▼</span>
-          </div>
-        )}
         {(() => {
 
           if (desc === "No Description") {
@@ -811,320 +798,76 @@ export default function ProductDetailView({ product }) {
             </div>
             <h2 className="font-bold mx-auto">"Shop with Confidence - 100% Money-Back Guarantee!"</h2>
           </div>
-          {/* Action Buttons */}
-          <div className="flex gap-4 mb-6 items-center">
-            {(() => {
-              const hasAnyVariantInStock = product?.quantity?.variants?.some(v => v.qty > 0) ||
-                product?.quantity?.varients?.some(v => v.qty > 0);
-              const currentVariantInStock = selectedVariant?.qty > 0;
-
-              if (hasAnyVariantInStock) {
-                return (
-                  <button
-                    className={`bg-black text-white py-3 px-8 font-semibold hover:bg-gray-800 w-full ${!currentVariantInStock ? 'opacity-75 cursor-not-allowed' : ''
-                      }`}
-                    onClick={() => {
-                      if (!selectedVariant) {
-                        toast.error("Please select a variant");
-                        return;
-                      }
-                      if (!currentVariantInStock) {
-                        toast.error("Selected variant is out of stock");
-                        return;
-                      }
-                      addToCart({
-                        id: product._id,
-                        name: product.title,
-                        image: typeof selectedImage === "string" ? selectedImage : selectedImage?.url || product.gallery?.mainImage?.url || '/placeholder.png',
-                        price: hasDiscount ? Math.round(discountedPrice) : selectedVariant.price,
-                        originalPrice: selectedVariant.price,
-                        couponApplied: hasDiscount,
-                        couponCode: coupon ? coupon.couponCode : '',
-                        size: selectedSize,
-                        weight: selectedWeight,
-                        color: selectedColor,
-                        qty: quantity,
-                        productCode: product.code || product.productCode || '',
-                        discountPercent: coupon && typeof coupon.percent === 'number' ? coupon.percent : undefined,
-                        discountAmount: coupon && typeof coupon.amount === 'number' ? coupon.amount : undefined,
-                        cgst: (product.taxes && product.taxes.cgst) || product.cgst || (product.tax && product.tax.cgst) || 0,
-                        sgst: (product.taxes && product.taxes.sgst) || product.sgst || (product.tax && product.tax.sgst) || 0,
-                        igst: (product.taxes && product.taxes.igst) || product.igst || (product.tax && product.tax.igst) || 0,
-                        totalQuantity: selectedVariant.qty || 0,
-                      });
-                      toast.success("Added to cart!");
-                    }}
-                  >
-                    {currentVariantInStock ? 'ADD TO CART' : 'SELECT AVAILABLE VARIANT'}
-                  </button>
-                );
-              } else {
-                return (
-                  <div className="w-full py-3 px-4 bg-gray-300 text-gray-600 font-medium text-center rounded-lg cursor-not-allowed">
-                    OUT OF STOCK
-                  </div>
-                );
-              }
-            })()}
-
-            {/* Keep the wishlist button outside the condition so it's always visible */}
-            <button
-              className={`p-2 rounded-full border hover:bg-gray-50 ${wishlist && wishlist.some(i => i.id === product._id) ? "bg-pink-600 border-pink-600" : ""}`}
-              onClick={() => {
-                if (!selectedVariant) return;
-                if (wishlist && wishlist.some(i => i.id === product._id)) {
-                  removeFromWishlist(product._id);
-                  toast.success("Removed from wishlist!");
-                } else {
-                  addToWishlist({
-                    id: product._id,
-                    name: product.title,
-                    image: typeof selectedImage === "string" ? selectedImage : selectedImage?.url || product.gallery?.mainImage?.url || '/placeholder.png',
-                    price: hasDiscount ? Math.round(discountedPrice) : selectedVariant.price,
-                    originalPrice: selectedVariant.price,
-                    couponApplied: hasDiscount,
-                    couponCode: coupon ? coupon.couponCode : '',
-                    size: selectedSize,
-                    weight: selectedWeight,
-                    color: selectedColor,
-                    qty: 1,
-                    productCode: product.code || product.productCode || '',
-                    discountPercent: coupon && typeof coupon.percent === 'number' ? coupon.percent : undefined,
-                    discountAmount: coupon && typeof coupon.amount === 'number' ? coupon.amount : undefined,
-                    cgst: (product.taxes && product.taxes.cgst) || product.cgst || (product.tax && product.tax.cgst) || 0,
-                    sgst: (product.taxes && product.taxes.sgst) || product.sgst || (product.tax && product.tax.sgst) || 0,
-                    igst: (product.taxes && product.taxes.igst) || product.igst || (product.tax && product.tax.igst) || 0,
-                    totalQuantity: selectedVariant.qty || 0,
-                  });
-                  toast.success("Added to wishlist!");
-                }
-              }}
-            >
-              <Heart className={wishlist && wishlist.some(i => i.id === product._id) ? "text-white" : "text-pink-600"} />
-            </button>
-
-            {/* Share Button with Popover */}
-            <div className="relative">
-              <button
-                className="p-2 rounded-full border hover:bg-gray-50"
-                onClick={() => setShowShareBox((prev) => !prev)}
-                aria-label="Share Product"
-                type="button"
-              >
-                <Share2 />
-              </button>
-              {showShareBox && (
-                <div id="share-popover" className="absolute right-0 mt-2 w-80 bg-white border border-gray-200 rounded-xl shadow-xl z-50 p-5 flex flex-col gap-3">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="font-bold text-base">Share Product</span>
-                    <button className="text-gray-400 hover:text-black text-xl" onClick={() => setShowShareBox(false)} aria-label="Close share box">&times;</button>
-                  </div>
-                  <div className="mb-2">
-                    <span className="text-sm font-semibold text-gray-700">Share via...</span>
-                    <div className="flex gap-4 mt-2">
-                      <a
-                        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(productUrl)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-[#3b5998] hover:bg-[#334f88] rounded-full w-12 h-12 flex items-center justify-center transition-colors"
-                        title="Share on Facebook"
-                      >
-                        <svg width="26" height="26" fill="white" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.6 0 0 .6 0 1.326v21.348C0 23.4.6 24 1.326 24h11.495v-9.294H9.691V11.01h3.13V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.31h3.587l-.467 3.696h-3.12V24h6.116C23.4 24 24 23.4 24 22.674V1.326C24 .6 23.4 0 22.675 0" /></svg>
-                      </a>
-                      <a
-                        href={`https://wa.me/?text=${encodeURIComponent(productUrl)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-[#25D366] hover:bg-[#1da851] rounded-full w-12 h-12 flex items-center justify-center transition-colors"
-                        title="Share on WhatsApp"
-                      >
-                        <svg width="26" height="26" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.447-.52.151-.174.2-.298.3-.497.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.207-.242-.58-.487-.501-.669-.51-.173-.007-.372-.009-.571-.009-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.099 3.2 5.077 4.366.709.306 1.262.489 1.694.626.712.227 1.36.195 1.87.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.617h-.001a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.999-3.646-.235-.374a9.86 9.86 0 0 1-1.51-5.204c.001-5.455 4.436-9.89 9.892-9.89 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.896 6.991c-.003 5.456-4.437 9.891-9.892 9.891m8.413-18.304A11.815 11.815 0 0 0 12.05.001C5.495.001.06 5.436.058 11.992c0 2.115.553 4.178 1.602 5.993L.057 24l6.184-1.646a11.94 11.94 0 0 0 5.809 1.479h.005c6.555 0 11.892-5.437 11.893-11.994a11.86 11.86 0 0 0-3.487-8.413" /></svg>
-                      </a>
-                    </div>
-                  </div>
-                  <span className="text-sm font-semibold text-gray-700 mt-2">Or copy link</span>
-                  <div className="flex gap-2 mt-1">
-                    <input
-                      id="share-url"
-                      type="text"
-                      className="border rounded px-2 py-1 flex-1 text-sm bg-[#f5f6fa]"
-                      value={productUrl}
-                      readOnly
-                    />
-                    <button
-                      className="bg-[#6c47ff] text-white px-4 py-1.5 rounded font-semibold text-sm hover:bg-[#4f2eb8]"
-                      onClick={() => {
-                        navigator.clipboard.writeText(productUrl);
-                        toast.success('Copied to clipboard!');
-                      }}
-                      type="button"
-                    >
-                      Copy
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-          {/* Buy Now Button */}
+          <div className="py-2">
           <button
-            className={`border border-black py-3 font-semibold w-full ${selectedVariant?.qty > 0
-              ? 'hover:bg-gray-100'
-              : 'bg-gray-200 text-gray-500 cursor-not-allowed'
-              }`}
-            onClick={async () => {
-              if (!selectedVariant) return;
-              // Block if pincode is not entered
-              if (!pincodeInput) {
-                toast.error('Please enter your pincode before proceeding.');
-                return;
-              }
-              try {
-                // Prepare the buy-now product
-                const price = selectedVariant.price;
-                const couponObj = coupon || (product.coupons && product.coupons.coupon);
-                let discountedPrice = price;
-                let couponApplied = false;
-                let couponCode = "";
-                if (couponObj && typeof couponObj.percent === 'number' && couponObj.percent > 0) {
-                  discountedPrice = price - (price * couponObj.percent) / 100;
-                  couponApplied = true;
-                  couponCode = couponObj.couponCode;
-                } else if (couponObj && typeof couponObj.amount === 'number' && couponObj.amount > 0) {
-                  discountedPrice = price - couponObj.amount;
-                  couponApplied = true;
-                  couponCode = couponObj.couponCode;
-                }
-                const totalWeight = (selectedVariant?.weight || 0) * quantity;
-                // console.log(totalWeight);
-                // Fetch shipping charge from API before proceeding
-                let shippingCharge = 0;
-                let shippingTierLabel = '';
-                let shippingPerUnit = null;
-                try {
-                  const res = await fetch('/api/checkShipping', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ weight: totalWeight })
-                  });
-                  const data = await res.json();
-                  // console.log(data);
-                  if (data.available && data.shippingCharge != null) {
-                    // CartDetails logic: use per-unit for extra weight
-                    shippingCharge = Number(data.shippingCharge);
-                    shippingTierLabel = data.tierLabel || '';
-                    shippingPerUnit = data.perUnitCharge || null;
-                    // If per-unit charge is present and totalWeight > 1kg, add extra per-unit
-                    if (shippingPerUnit && totalWeight > 1) {
-                      // Example: base charge for 1kg, add per-unit for each extra kg (ceil)
-                      const extraUnits = Math.ceil(totalWeight) - 1;
-                      shippingCharge += extraUnits * Number(shippingPerUnit);
-                    }
-                    setFinalShipping(shippingCharge);
-                    setShippingTierLabel(shippingTierLabel);
-                    setShippingPerUnit(shippingPerUnit);
-                  } else {
-                    setFinalShipping(0);
-                    setShippingTierLabel("");
-                    setShippingPerUnit(null);
-                    toast.error('Shipping not available to this pincode or failed to fetch shipping charge.');
-                    return;
-                  }
-                } catch (err) {
-                  setFinalShipping(0);
-                  setShippingTierLabel("");
-                  setShippingPerUnit(null);
-                  toast.error('Failed to fetch shipping charge.');
-                  return;
-                }
+              className="bg-black text-white py-3 px-8 font-semibold hover:bg-gray-800 w-full"
+              onClick={() => setShowPdfModal(true)}
+            >
+              Get Package PDF
+            </button>
+            {/* PDF Modal */}
+            <Dialog open={showPdfModal} onOpenChange={setShowPdfModal}>
+              <DialogContent className="max-w-lg">
+                <DialogTitle>Package PDFs</DialogTitle>
+                {Array.isArray(product.pdfs) && product.pdfs.length > 0 ? (
+                  <div className="divide-y divide-gray-200">
+                    {product.pdfs.map((pdf, idx) => (
+                      <div key={pdf._id || pdf.key || idx} className="flex items-center justify-between py-2 gap-2">
+                        <span className="font-medium text-gray-800">{pdf.name}</span>
+                        <div className="flex gap-2">
+                          <button
+                            className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 text-sm font-semibold"
+                            onClick={() => setPdfPreviewUrl(pdf.url)}
+                          >
+                            Preview
+                          </button>
+                        </div>
+                      </div>
+                    ))}
 
-                const buyNowProduct = {
-                  id: product._id,
-                  name: product.title,
-                  image: selectedImage || product.gallery?.mainImage?.url || '/placeholder.jpeg',
-                  price: Math.round(discountedPrice),
-                  size: selectedSize,
-                  weight: selectedWeight,
-                  color: selectedColor,
-                  originalPrice: price,
-                  qty: quantity,
-                  totalWeight,
-                  couponApplied,
-                  finalShipping: FinalShipping,
-                  pincode: pincodeResult?.pincode || null,
-                  city: pincodeResult?.city || null,
-                  state: pincodeResult?.state || null,
-                  district: pincodeResult?.district || null,
-                  couponCode: couponApplied ? couponCode : undefined,
-                  productCode: product.code || product.productCode || '',
-                  discountPercent: couponObj && typeof couponObj.percent === 'number' ? couponObj.percent : undefined,
-                  discountAmount: couponObj && typeof couponObj.amount === 'number' ? couponObj.amount : undefined,
-                  cgst: Number((product.taxes && product.taxes.cgst) || product.cgst || (product.tax && product.tax.cgst) || 0),
-                  sgst: Number((product.taxes && product.taxes.sgst) || product.sgst || (product.tax && product.tax.sgst) || 0),
-                  // quantity: product.quantity || {},
-                };
-
-                // Store the product in localStorage
-                localStorage.setItem('buyNowProduct', JSON.stringify(buyNowProduct));
-
-                // Redirect to checkout with buy-now mode
-                router.push(`/checkout?mode=buy-now`);
-              } catch (error) {
-                // console.error('Error preparing buy-now product:', error);
-                toast.error('Failed to prepare product. Please try again.');
-              }
-            }}
-            disabled={!selectedVariant || selectedVariant.qty <= 0}
-          >
-            {selectedVariant?.qty > 0 ? 'BUY IT NOW' : 'OUT OF STOCK'}
-          </button>
-          <Dialog open={showArtisanModal} onOpenChange={setShowArtisanModal}>
-            <DialogContent className="max-w-md h-[80vh] md:h-fit overflow-y-auto w-full p-0 md:overflow-hidden">
-              <VisuallyHidden>
-                <DialogTitle>Artisan Details</DialogTitle>
-              </VisuallyHidden>
-              {/* Custom Close Button */}
-              <button
-                onClick={() => setShowArtisanModal(false)}
-                className="absolute top-4 right-4 z-20 p-2 bg-white text-black rounded-full shadow-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-black"
-                aria-label="Close"
-                type="button"
-              >
-                <X size={20} />
-              </button>
-              <div>
-                {/* Top image */}
-                <img
-                  src={product.artisan?.profileImage?.url || "/placeholder.jpeg"}
-                  alt={product.artisan?.artisanName}
-                  className="w-full h-42 md:h-56 object-cover"
-                />
-                {/* Card body */}
-                <div className="bg-white p-6">
-                  <div className="text-xs text-gray-500 mb-1">( Credit Goes To )</div>
-                  <div className="text-xl font-bold mb-2">Artisan Name : {product.artisan?.title + " " + product.artisan?.firstName + " " + product.artisan?.lastName || ""}</div>
-                  <div className="mb-2">
-                    <span className="font-semibold">Artisan Number:{product.artisan?.artisanNumber || ""}</span> | SHG Group:{product.artisan?.shgName || ""}
+                    {/* PDF Preview Modal */}
+                    <Dialog open={!!pdfPreviewUrl} onOpenChange={() => setPdfPreviewUrl(null)}>
+                      <DialogContent className="md:max-w-2xl">
+                        <DialogTitle>PDF Preview</DialogTitle>
+                        {pdfPreviewUrl && (
+                          <iframe
+                          className="h-[500px]"
+                            src={pdfPreviewUrl}
+                            width="100%"
+                            height="600px"
+                            style={{ border: '1px solid #ccc', borderRadius: 8 }}
+                            title="Package PDF Preview"
+                          />
+                        )}
+                        <DialogFooter>
+                          <DialogClose asChild>
+                            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded">Close</button>
+                          </DialogClose>
+                        </DialogFooter>
+                      </DialogContent>
+                    </Dialog>
                   </div>
-                  <div className="mb-2">{product.artisan?.yearsOfExperience || "0"} Year’s Of Experience</div>
-                  <div className="text-gray-600 text-sm mb-4">
-                    {product.artisan?.artisanStories?.shortDescription || "No Description"}
-                  </div>
-                  <button
-                    className="w-full bg-black text-white py-2 rounded font-semibold text-lg"
-                    onClick={() => {
-                      setShowArtisanModal(false);
-                      if (product.artisan && product.artisan.slug) {
-                        router.push(`/artisan/${product.artisan.slug}`);
-                      }
-                    }}
-                  >
-                    Explore
-                  </button>
-                </div>
-              </div>
-            </DialogContent>
-          </Dialog>
+                ) : (
+                  <div className="text-gray-500 py-4">No PDFs available for this package.</div>
+                )}
+                <DialogFooter>
+                  <DialogClose asChild>
+                    <button className="bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded">Close</button>
+                  </DialogClose>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
+          </div>
+          <div className="py-2">
+          <button
+              className="bg-black text-white py-3 px-8 font-semibold hover:bg-gray-800 w-full"
+              onClick={() => setShowPdfModal(true)}
+            >
+              Enquiry Now
+            </button>
+          </div>
+   
+     
         </div>
       </div>
     </div >

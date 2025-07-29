@@ -12,7 +12,6 @@ import ProductDetailView from "@/components/ProductDetailView";
 import ProductVideo from "@/components/ProductVideo";
 import ProductInfoTabs from "@/components/ProductInfoTabs";
 import StickyAddToCartBar from "@/components/StickyAddToCartBar";
-import Artisan from '@/models/Artisan';
 import Price from '@/models/Price';
 import Gallery from '@/models/Gallery';
 import Video from '@/models/Video';
@@ -25,16 +24,15 @@ import ProductTax from '@/models/ProductTax';
 import ProductCoupons from '@/models/ProductCoupons';
 import Quantity from '@/models/Quantity';
 import Color from '@/models/Color';
+import PackagePdf from "@/models/PackagePdf"
 import ProductTagLine from '@/models/ProductTagLine';
-import ArtisanStory from '@/models/ArtisanStory';
 const ProductDetailPage = async ({ params }) => {
     await connectDB();
   
     const { slug } = await params;
 const decodedId = decodeURIComponent(slug);
     const rawProduct = await Product.findOne({ slug: decodedId })
-    .populate('size price gallery video description info categoryTag productTagLine reviews quantity coupons taxes')
-    .populate({ path: 'artisan', populate: { path: 'artisanStories' } })
+    .populate('size price gallery video description info categoryTag productTagLine reviews quantity coupons taxes pdfs')
     .lean();
   
   // ✅ Convert to plain JSON
@@ -94,7 +92,7 @@ const decodedId = decodeURIComponent(slug);
         </div>
 
         {frequentlyBoughtTogether.length > 0 && (
-          <div className="mt-8 px-4 py-10 bg-[#ededed]">
+          <div className="mt-8 px-4 py-10 bg-[#FCF7F1]">
             <h2 className="text-2xl underline md:text-3xl font-semibold px-5 md:px-10">Frequently Bought Together</h2>
             <ResponsiveFeaturedCarousel products={frequentlyBoughtTogether} />
           </div>

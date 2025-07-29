@@ -85,7 +85,7 @@ const AboutMe = () => {
             <div className="lg:w-1/2 flex flex-col justify-start overflow-y-auto py-5">
               <div className="mb-8">
                 <h2 className="text-xl md:text-4xl font-bold mb-6 text-gray-800">“PROTOS ADVENTURES”</h2>
-                <p className="text-md text-gray-700 leading-relaxed mb-6">
+                <p className="text-md text-gray-700 text-justify leading-relaxed mb-6">
                   India’s Premier Outdoor & Adventure Equipment Store
                   <br />
                   is a complete one-stop shop for high-performance outdoor gear and equipment. Corporate office and store in Tapovan, Badrinath Highway, Rishikesh—India’s leading hub for adventure activities—we have proudly served countless adventure companies nationwide, supplying essential gear for rafting, camping, bungee jumping, trekking, and expeditions.

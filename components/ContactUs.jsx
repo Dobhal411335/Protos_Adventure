@@ -98,7 +98,7 @@ const ContactUs = () => {
     };
     return (
         <div className="bg-[#fdf7f2] min-h-screen w-full flex flex-col items-center justify-start pt-5">
-            <div className="container mx-auto px-5 md:px-10">
+            <div className="container mx-auto px-5 md:px-32">
                 <div className="flex flex-col lg:flex-row gap-8 w-full justify-center mt-10">
                     {/* Contact Info */}
                     <div className="lg:w-1/2 w-full flex flex-col justify-center text-black">
@@ -106,52 +106,54 @@ const ContactUs = () => {
                         <p className="mb-6 text-base w-[90%] ">
                             <span className="underline text-xl md:text-3xl">PROTOS ADVENTURES, is an complete outdoor shop.</span>
                             <br />
-                            <span className='text-xl md:text-3xl'> Our experts are available to answer any questions you might have. We’ve got the answers.</span>
+                            <span className='text-md md:text-3xl'> Our experts are available to answer any questions you might have. We’ve got the answers.</span>
                         </p>
                         <div className="mb-4">
-                            <h3 className="font-bold text-xl md:text-2xl mb-2">Call Us</h3>
+                            <h3 className="font-bold text-md md:text-2xl mb-2">Call Us</h3>
                             <ul className="mb-2">
-                                <li className='flex flex-row gap-2'>
-                                    <a href="tel:+911352442822" className="hover:underline text-xl">+91 1352442822</a>
-                                    <a href="tel:+917669280002" className="hover:underline text-xl">+91 7669280002</a>
-                                    <a href="tel:+919897468886" className="hover:underline text-xl">+91 9897468886</a>
+                                <li className='flex flex-col md:flex-row gap-2'>
+                                    <a href="tel:+911352442822" className="hover:underline text-md md:text-xl">+91 1352442822</a>
+                                    <a href="tel:+917669280002" className="hover:underline text-md md:text-xl">+91 7669280002</a>
+                                    <a href="tel:+919897468886" className="hover:underline text-md md:text-xl">+91 9897468886</a>
                                 </li>
                             </ul>
                         </div>
                         <div className=''>
-                            <h3 className="font-bold text-xl md:text-2xl mb-2 ">E-mail</h3>
+                            <h3 className="font-bold text-md md:text-2xl mb-2 ">E-mail</h3>
                             <ul className="mb-2">
-                                <li className='text-xl'>
+                                <li className='text-md md:text-xl'>
+                                    <span className="font-semibold">
                                     For Sales:
+                                    </span>
                                     <a href="mailto:info@adventureaxis.in" className="hover:underline text-md md:text-xl"> info@protosadventures.in</a>
                                 </li>
-                                <li className='text-xl'>
+                                <li className='text-md md:text-xl'>
+                                    <span className="font-semibold">
                                     For Support:
+                                    </span>
                                     <a href="mailto:Accounts@adventureaxis.in" className="hover:underline text-md md:text-xl"> Accounts@protosadventures.in</a>
                                 </li>
-                                <li className='text-xl'>
+                                <li className='text-md md:text-xl'>
+                                    <span className="font-semibold">
                                     For Official:
+                                    </span>
                                     <a href="mailto:Sales@adventureaxis.in" className="hover:underline text-md md:text-xl"> Sales@protosadventures.in</a>
                                 </li>
                             </ul>
                         </div>
                         <div className=''>
-                            <h3 className="font-bold text-xl md:text-2xl mb-2 ">E-mail</h3>
+                            <h3 className="font-bold pt-2 text-md md:text-2xl mb-2 ">Address</h3>
                             <ul className="mb-2">
-                                <li className='text-xl'>
-                                   <span className="font-semibold">Corporate Address:</span>
-                                    05 ,Lajpat Rai Marg, Rishikesh-249201 
-                                    <br/>
-                                     ( Uttarakhand)
+                                <li className='text-md md:text-xl'>
+                                   <span className="font-semibold">Corporate
+                                     Address:</span>
+                                    05 ,Lajpat Rai Marg, Rishikesh-249201 ,&nbsp;
+                                     (Uttarakhand)
                                 </li>
-                                <li className='text-xl'>
-                                <span className="font-semibold">Store Address:</span>162, Badrinath Road (Opp. Divine Lakshmi
-                                        <br/>
-                                     Ganga Hotel)
+                                <li className='text-md md:text-xl'>
+                                <span className="font-semibold">Store Address:</span>162, Badrinath Road (Opp. Divine Lakshmi Ganga Hotel)
                                     Tapovan Luxman Jhoola, 
-                                    <br/>
                                     RISHIKESH-249192 
-                               
                                     (UK)
                                 </li>
                             </ul>
@@ -159,7 +161,7 @@ const ContactUs = () => {
                     </div>
                     {/* Contact Form */}
                     <div className="lg:w-1/2 w-full flex justify-center items-center">
-                        <div className="bg-white/95 rounded-xl shadow-lg p-8 w-full max-w-md flex flex-col gap-4">
+                        <div className="bg-white/95 rounded-xl shadow-lg md:p-8 p-4 w-full max-w-md flex flex-col gap-4">
                             <form className="space-y-6 font-barlow" onSubmit={handleSubmit}>
                                 <div className="space-y-2">
                                     <Label htmlFor="name" className="flex items-center gap-2 text-blue-600"><span><House className="h-5 w-5" /></span>Full Name</Label>
@@ -232,7 +234,7 @@ const ContactUs = () => {
             </div>
             {/* Google Maps */}
             <div className="w-full mt-10 flex justify-center">
-                <div className="w-full h-[200px md:h-[400px]  overflow-hidden ">
+                <div className="w-full h-[200px] md:h-[400px] overflow-hidden ">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220521.13941314764!2d77.68869849453125!3d30.27575709999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39093e6896b55a3f%3A0x13b70cfe8db0c2f7!2sProtos%20Adventure%20Sports%20%26%20Security%20Suppliers!5e0!3m2!1sen!2sin!4v1753101913127!5m2!1sen!2sin" width="100%"
                         height="100%"
                         style={{ border: 0 }} allowFullScreen="" loading="lazy"

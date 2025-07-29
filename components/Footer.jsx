@@ -79,50 +79,56 @@ const Footer = () => {
                     <Link href={'/faq'} className="block text-white font-barlow ">FAQ</Link>
                 </div>
 
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-2">
                     <h1 className="font-semibold text-xl flex items-center gap-2"> More Inquiry</h1>
                     <div className="flex md:flex-row flex-col items-center gap-2">
-
-                        <Link href={'tel:+911352442822'} className="gap-2 my-2 block rounded-full py-1 font-barlow text-white flex items-center">
+                        <Link href={'tel:+911352442822'} className="gap-2 block rounded-full py-1 font-barlow text-white flex items-center">
                             <Phone size={20} className="text-blue-600" />
-                            +91 1352442822,
+                            +91 1352442822 ,
                         </Link>
-                        <Link href={'tel:+917669280002'} className="gap-2 my-2 block rounded-full py-1 font-barlow text-white flex items-center">
-                            +91 7669280002,
+                        <Link href={'tel:+917669280002'} className="gap-2 block rounded-full py-1 font-barlow text-white flex items-center">
+                            +91 7669280002 ,
                         </Link>
-                        <Link href={'tel:+919897468886'} className="gap-2 my-2 block rounded-full py-1 font-barlow text-white flex items-center">
-                            +91 9897468886,
+                        <Link href={'tel:+919897468886'} className="gap-2 block rounded-full py-1 font-barlow text-white flex items-center">
+                            +91 9897468886 ,
                         </Link>
                     </div>
-                    <Link href={'mailto:info@protosadventures.com'} className="gap-2 my-2 block rounded-full font-barlow text-white flex items-center">
-                        <Send className="text-blue-600" size={20} />
-                        info@protosadventures.com
-                    </Link>
-                    <Link href={'mailto:Accounts@protosadventures.com'} className="gap-2 my-2 block rounded-full font-barlow text-white flex items-center">
-                        <Send className="text-blue-600" size={20} />
-                        Accounts@protosadventures.com
-                    </Link>
-                    <Link href={'mailto:Sales@protosadventures.com'} className="gap-2 my-2 block rounded-full font-barlow text-white flex items-center">
-                        <Send className="text-blue-600" size={20} />
-                        Sales@protosadventures.com
-                    </Link>
-                    <div className="flex items-start block flex-col gap-2 my-2">
+                    <div className="flex items-start gap-2">
+                        <div className=" py-1">
+                            <Send className="text-blue-600" size={20} />
+                        </div>
+                        <div className="flex flex-col items-start gap-1">
+
+                            <Link href={'mailto:info@protosadventures.com'} className="gap-2 block rounded-full font-barlow text-white flex items-center">
+                                info@protosadventures.com
+                            </Link>
+                            <Link href={'mailto:Accounts@protosadventures.com'} className="gap-2 block rounded-full font-barlow text-white flex items-center">
+
+                                Accounts@protosadventures.com
+                            </Link>
+                            <Link href={'mailto:Sales@protosadventures.com'} className="gap-2 block rounded-full font-barlow text-white flex items-center">
+
+                                Sales@protosadventures.com
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="flex pt-2 items-start block flex-col gap-2">
                         <p className="gap-2 font-barlow text-white flex items-start">
                             <MapPin className="text-blue-600" size={20} />
                             <span className="font-bold">Corporate
-
+                                <br />
                                 Address :
                             </span> 05 Lajpat Rai Marg, Rishikesh-249201
                             <br />
                             (Uttarakhand)
                         </p>
                         <p className="gap-2 px-8 font-barlow text-white mb-5 flex items-start">
-                            <span className="font-bold">Store Address :
+                            <span className="font-bold">Store
+                                <br />
+                                Address: &nbsp;
                             </span>  162, Badrinath Road (Opp. Divine Lakshmi <br /> Ganga Hotel) Tapovan Laxman Jhoola,
                             <br />
-
-                            Rishikesh - 239192,
-                            <br />
+                            Rishikesh - 239192, &nbsp;
                             (Uttarakhand)
                         </p>
                     </div>
@@ -153,64 +159,60 @@ const Footer = () => {
                 <h1 className="font-semibold text-xl flex items-center gap-2"> More Inquiry</h1>
                 <div className="flex items-start gap-2 py-2">
                     <div className="py-2">
-
-
                         <Phone size={15} className="text-blue-600" />
                     </div>
-                    <div className="flex flex-col items-start gap-2">
-
-                        <Link href={'tel:+911352442822'} className="gap-2  block rounded-full py-1 font-barlow text-white flex items-center">
+                    <div className="flex flex-col items-start gap-1">
+                        <Link href={'tel:+911352442822'} className="gap-2 block rounded-full font-barlow text-white flex items-center">
                             +91 1352442822,
                         </Link>
-                        <Link href={'tel:+917669280002'} className="gap-2  block rounded-full py-1 font-barlow text-white flex items-center">
+                        <Link href={'tel:+917669280002'} className="gap-2 block rounded-full font-barlow text-white flex items-center">
                             +91 7669280002,
                         </Link>
-                        <Link href={'tel:+919897468886'} className="gap-2  block rounded-full py-1 font-barlow text-white flex items-center">
+                        <Link href={'tel:+919897468886'} className="gap-2 block rounded-full font-barlow text-white flex items-center">
                             +91 9897468886,
                         </Link>
                     </div>
                 </div>
-                <div className="flex flex-row gap-2 items-start">
+                <div className="flex flex-row gap-2 items-start py-2">
                     <div className="py-2">
-                        <Send className="text-blue-600" size={15} />
+                        <Send className="text-blue-600" size={18} />
                     </div>
                     <div className="flex items-start flex-col">
 
-                        <Link href={'mailto:support@protosadventures.com'} className="my-2 text-sm block rounded-full font-barlow text-white flex items-center gap-2">
+                        <Link href={'mailto:support@protosadventures.com'} className="text-sm block rounded-full font-barlow text-white flex items-center gap-2">
                             support@protosadventures.com
                         </Link>
-                        <Link href={'mailto:Accounts@protosadventures.com'} className="my-2 text-sm block rounded-full font-barlow text-white flex items-center gap-2">
+                        <Link href={'mailto:Accounts@protosadventures.com'} className="text-sm block rounded-full font-barlow text-white flex items-center gap-2">
                             Accounts@protosadventures.com
                         </Link>
-                        <Link href={'mailto:Sales@protosadventures.com'} className="my-2 text-sm block rounded-full font-barlow text-white flex items-center gap-2">
+                        <Link href={'mailto:Sales@protosadventures.com'} className="text-sm block rounded-full font-barlow text-white flex items-center gap-2">
                             Sales@protosadventures.com
                         </Link>
                     </div>
                 </div>
-                <div className="flex items-start flex-row gap-2 my-2">
+                <div className="flex items-start flex-row gap-2">
                     <div className="py-2">
 
-                    <MapPin className="text-blue-600" size={15} />
+                        <MapPin className="text-blue-600" size={15} />
                     </div>
                     <div className="flex items-start flex-col gap-2">
-
-                    <p className="gap-2 text-sm font-barlow text-white flex items-start">
-                        <span className="font-semibold text-sm">Corporate 
-                        <br />
-                            Address :
-                        </span> 05 Lajpat Rai Marg, Rishikesh-249201
-                        <br />
-                        (Uttarakhand)
-                    </p>
-                    <p className="gap-2 text-sm font-barlow text-white mb-5 flex items-start">
-                        <span className="font-semibold text-sm">Store 
-                        <br />
-                            Address:
-                        </span>  162, Badrinath Road (Opp. Divine Lakshmi <br /> Ganga Hotel) Tapovan Laxman Jhoola,
-                        <br />
-                        Rishikesh - 239192,
-                        (Uttarakhand)
-                    </p>
+                        <p className="gap-2 text-sm font-barlow text-white flex items-start">
+                            <span className="font-semibold text-sm">Corporate
+                                <br />
+                                Address :
+                            </span> 05 Lajpat Rai Marg, Rishikesh-249201
+                            <br />
+                            (Uttarakhand)
+                        </p>
+                        <p className="gap-2 text-sm font-barlow text-white mb-5 flex items-start">
+                            <span className="font-semibold text-sm">Store
+                                <br />
+                                Address:
+                            </span>  162, Badrinath Road (Opp. Divine Lakshmi <br /> Ganga Hotel) Tapovan Laxman Jhoola,
+                            <br />
+                            Rishikesh - 239192,
+                            (Uttarakhand)
+                        </p>
                     </div>
                 </div>
             </div>

@@ -69,48 +69,7 @@ const CertificateSectionCarousel = ({ certificates, onImageClick }) => {
 
 const ArtisanDetails = ({ artisan }) => {
   // console.log(artisan)
-  const { addToCart, addToWishlist, removeFromWishlist, wishlist } = useCart();
   // --- Helper for Add to Cart with discount/coupon logic ---
-  const handleAddToCart = (item) => {
-    const price = item?.quantity?.variants[0]?.price;
-    const coupon = item.coupon || item.coupons?.coupon;
-    let discountedPrice = price;
-    let couponApplied = false;
-    let couponCode = "";
-    if (coupon && typeof coupon.percent === 'number' && coupon.percent > 0) {
-      discountedPrice = price - (price * coupon.percent) / 100;
-      couponApplied = true;
-      couponCode = coupon.couponCode;
-    } else if (coupon && typeof coupon.amount === 'number' && coupon.amount > 0) {
-      discountedPrice = price - coupon.amount;
-      couponApplied = true;
-      couponCode = coupon.couponCode;
-    }
-    addToCart({
-      id: item._id,
-      name: item.title,
-      image: item?.gallery?.mainImage || "/placeholder.jpeg",
-      price: Math.round(discountedPrice),
-      size: item?.quantity?.variants[0].size,
-      weight: item?.quantity?.variants[0].weight,
-      color: item?.quantity?.variants[0].color,
-      originalPrice: price,
-      qty: 1,
-      couponApplied,
-      couponCode: couponApplied ? couponCode : undefined,
-      productCode: item.code || item.productCode || '',
-      discountPercent: coupon && typeof coupon.percent === 'number' ? coupon.percent : undefined,
-      discountAmount: coupon && typeof coupon.amount === 'number' ? coupon.amount : undefined,
-      cgst: (item.taxes && item.taxes.cgst) || item.cgst || (item.tax && item.tax.cgst) || 0,
-      sgst: (item.taxes && item.taxes.sgst) || item.sgst || (item.tax && item.tax.sgst) || 0,
-      totalQuantity: item?.quantity?.variants[0]?.qty || 0,
-    });
-    toast.success("Added to cart!");
-  };
-  const formatNumeric = (num) => {
-    if (typeof num !== 'number') return num;
-    return num.toLocaleString('en-IN');
-  }
 
   // ...existing state
   const [otherArtisans, setOtherArtisans] = useState([]);
@@ -168,13 +127,6 @@ const ArtisanDetails = ({ artisan }) => {
     }
     return () => document.body.classList.remove("overflow-hidden");
   }, [quickViewProduct]);
-  // Sample carousel data for products if not present
-  const products = artisan.products && artisan.products.length > 0 ? artisan.products : [
-    { _id: 1, title: 'Sample Product 1', image: 'https://via.placeholder.com/120x120?text=Product+1' },
-    { _id: 2, title: 'Sample Product 2', image: 'https://via.placeholder.com/120x120?text=Product+2' },
-    { _id: 3, title: 'Sample Product 3', image: 'https://via.placeholder.com/120x120?text=Product+3' },
-  ];
-  // console.log(products)
 
   const [showExpertModal, setShowExpertModal] = useState(false);
 
@@ -199,7 +151,7 @@ const ArtisanDetails = ({ artisan }) => {
   const handleExpertSubmit = async (e) => {
     e.preventDefault();
     try {
-      const payload = { ...expertForm, type: 'artisan', artisanId: artisan._id, queryName: artisan.title + artisan.firstName + artisan.lastName };
+      const payload = { ...expertForm, type: 'management', artisanId: artisan._id, queryName: artisan.title + artisan.firstName + artisan.lastName };
       const res = await fetch('/api/askExpertsEnquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -304,7 +256,7 @@ const ArtisanDetails = ({ artisan }) => {
           <img src={artisan.artisanBanner?.image?.url || artisan.artisanBanner?.image || "/placeholder.jpeg"} className="w-full h-full object-cover brightness-100 " alt="Office" />
         </div>
         {/* Overlay Content */}
-        <div className="relative bg-[#ededed] w-full px-2 md:w-full justify-center mx-auto flex flex-col md:flex-row md:items-start items-center pt-0 px-0 pb-8">
+        <div className="relative bg-[##FCF7F1] w-full px-2 md:w-full justify-center mx-auto flex flex-col md:flex-row md:items-start items-center pt-0 px-0 pb-8">
           {/* Profile Image: Overlapping Banner */}
           <div className="hidden md:flex absoute flex-shrink-0 -mt-32 ml-12 mr-10">
             <div className="bg-white rounded-lg shadow-xl border-4 border-white overflow-hidden w-72 md:h-[350px] flex items-center justify-center">
@@ -830,178 +782,6 @@ const ArtisanDetails = ({ artisan }) => {
           </div>
         </div>
       )}
-      {/* Products Carousel */}
-      {Array.isArray(artisan.products) && artisan.products.length > 0 && (
-        <div className="w-full py-10 px-2 md:p-20 bg-[#ededed]">
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-800">
-            <span className='border-t-4 border-black'>
-              Product We Develop
-            </span></h3>
-          <Carousel className={`w-full mx-auto my-4 ${products.length > 0 ? "block" : "hidden"}`} plugins={[Autoplay({ delay: 4000 })]}>
-            <CarouselContent className="w-full gap-2">
-              {products.length > 0 &&
-                products.map((item, index) => (
-                  <CarouselItem
-                    key={index}
-                    className="pl-5 md:basis-1/2 lg:basis-1/4 min-w-0 snap-start"
-                  >
-                    <div className="flex flex-col w-full md:w-[290px]">
-                      {/* Image Section */}
-                      <div className="relative w-full h-96 rounded-3xl overflow-hidden flex items-center justify-center group/image">
-                        {/* --- Dynamic Coupon Tag --- */}
-                        {(() => {
-                          const coupon = item.coupon || item.coupons?.coupon;
-                          if (!coupon?.couponCode) return null;
-                          const { percent, amount, couponCode } = coupon;
-                          let offerText;
-                          if (typeof percent === 'number' && percent > 0) {
-                            offerText = <>GET {percent}% OFF</>;
-                          } else if (typeof amount === 'number' && amount > 0) {
-                            offerText = <>GET ₹{amount} OFF</>;
-                          } else {
-                            offerText = <>Special Offer</>;
-                          }
-                          return (
-                            <div className="absolute top-6 left-4 z-10 bg-white rounded-full px-4 py-1 text-sm font-bold shadow text-black tracking-tight" style={{ letterSpacing: 0 }}>
-                              {offerText}
-                            </div>
-                          );
-                        })()}
-                        {/* Heart/Wishlist & Cart Buttons - Top Right */}
-                        <div className="absolute top-6 right-6 z-10 flex flex-col gap-4 items-end">
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            className={`rounded-full transition-colors duration-300 h-12 w-12 shadow-none ${wishlist.some(i => i.id === item._id) ? "bg-pink-600 hover:bg-pink-700" : "bg-white hover:bg-[#b3a7a3]"}`}
-                            onClick={() => {
-                              if (wishlist.some(i => i.id === item._id)) {
-                                removeFromWishlist(item._id);
-                                toast.success("Removed from wishlist!");
-                              } else {
-                                const price = item?.quantity?.variants[0].price;
-                                const coupon = item.coupon || item.coupons?.coupon;
-                                let discountedPrice = price;
-                                let couponApplied = false;
-                                let couponCode = "";
-                                if (coupon && typeof coupon.percent === 'number' && coupon.percent > 0) {
-                                  discountedPrice = price - (price * coupon.percent) / 100;
-                                  couponApplied = true;
-                                  couponCode = coupon.couponCode;
-                                } else if (coupon && typeof coupon.amount === 'number' && coupon.amount > 0) {
-                                  discountedPrice = price - coupon.amount;
-                                  couponApplied = true;
-                                  couponCode = coupon.couponCode;
-                                }
-                                addToWishlist({
-                                  id: item._id,
-                                  name: item.title,
-                                  image: item?.gallery?.mainImage || "/placeholder.jpeg",
-                                  price: Math.round(discountedPrice),
-                                  size: item?.quantity?.variants[0].size,
-                                  weight: item?.quantity?.variants[0].weight,
-                                  color: item?.quantity?.variants[0].color,
-                                  originalPrice: price,
-                                  qty: 1,
-                                  couponApplied,
-                                  couponCode: couponApplied ? couponCode : undefined,
-                                  productCode: item.code || item.productCode || '',
-                                  discountPercent: coupon && typeof coupon.percent === 'number' ? coupon.percent : undefined,
-                                  discountAmount: coupon && typeof coupon.amount === 'number' ? coupon.amount : undefined,
-                                  cgst: (item.taxes && item.taxes.cgst) || item.cgst || (item.tax && item.tax.cgst) || 0,
-                                  sgst: (item.taxes && item.taxes.sgst) || item.sgst || (item.tax && item.tax.sgst) || 0,
-                                  totalQuantity: item?.quantity?.variants[0]?.qty || 0,
-                                });
-                                toast.success("Added to wishlist!");
-                              }
-                            }}
-                          >
-                            <Heart size={28} className={wishlist.some(i => i.id === item._id) ? "text-white" : "text-pink-600"} />
-                          </Button>
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            className="rounded-full bg-[#b3a7a3]/80 hover:bg-[#b3a7a3] transition-colors duration-300 h-12 w-12 shadow-none"
-                            onClick={() => handleAddToCart(item)}
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="28"
-                              height="28"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="white"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="text-white"
-                            >
-                              <circle cx="8" cy="21" r="1" />
-                              <circle cx="19" cy="21" r="1" />
-                              <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
-                            </svg>
-                          </Button>
-                        </div>
-                        <Image
-                          src={item?.gallery?.mainImage?.url || "/placeholder.jpeg"}
-                          alt={item?.title || "Product image"}
-                          width={400}
-                          height={500}
-                          quality={60}
-                          className="object-cover w-full h-full rounded-3xl transition-transform duration-300 group-hover/image:scale-105"
-                        />
-                        {/* Quick View Button - Slide Up from Bottom on Hover (image only) */}
-                        <div className="absolute left-0 right-0 bottom-0 flex items-center justify-center translate-y-10 opacity-0 group-hover/image:translate-y-0 group-hover/image:opacity-100 transition-all duration-300 py-4 ">
-                          <Button
-                            className="bg-black text-white hover:bg-gray-800 transition-colors duration-300 uppercase text-sm font-bold px-8 py-3 rounded-full shadow-lg border border-2 border-white"
-                            onClick={() => setQuickViewProduct(item.product ? item.product : item)}
-                          >
-                            QUICK VIEW
-                          </Button>
-                        </div>
-                      </div>
-                      {/* Name and Price Section */}
-                      <div className="flex flex-col items-start justify-between px-1 pt-4 pb-2 mt-0">
-                        <Link
-                          href={`/product/${item?.slug}`}
-                          className="font-bold hover:underline text-lg md:text-xl text-gray-900 leading-tight md:max-w-[200px] truncate cursor-pointer"
-                        >
-                          {item?.title}
-                        </Link>
-                        {(() => {
-                          const price = item?.quantity?.variants[0]?.price;
-                          const coupon = item.coupon || item.coupons?.coupon;
-                          let discountedPrice = price;
-                          let hasDiscount = false;
-                          if (coupon && typeof coupon.percent === 'number' && coupon.percent > 0) {
-                            discountedPrice = price - (price * coupon.percent) / 100;
-                            hasDiscount = true;
-                          } else if (coupon && typeof coupon.amount === 'number' && coupon.amount > 0) {
-                            discountedPrice = price - coupon.amount;
-                            hasDiscount = true;
-                          }
-                          if (hasDiscount && discountedPrice < price) {
-                            return (
-                              <span>
-                                <del className="text-black font-bold text-md md:text-xl mr-2">₹{formatNumeric(price)}</del>
-                                <span className="font-bold text-md md:text-xl text-black px-2">₹{formatNumeric(Math.round(discountedPrice))}</span>
-                              </span>
-                            );
-                          } else {
-                            return (
-                              <span className="font-bold text-md md:text-xl text-black">₹{formatNumeric(price)}</span>
-                            );
-                          }
-                        })()}
-                      </div>
-                    </div>
-                  </CarouselItem>
-                ))}
-            </CarouselContent>
-            <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 p-5" />
-            <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 p-5" />
-          </Carousel>
-        </div>
-      )}
       {/* Blogs Section */}
       {Array.isArray(artisan.artisanBlogs) && artisan.artisanBlogs.length > 0 && (
         <div className="w-full md:px-20 px-2 py-10 mb-5">
@@ -1116,7 +896,7 @@ const ArtisanDetails = ({ artisan }) => {
       )}
       {/* Certificate And Awards Section */}
       {Array.isArray(artisan.certificates) && artisan.certificates.length > 0 && (
-        <div className="w-full md:px-20 py-10 px-2 mx-auto bg-[#ededed]">
+        <div className="w-full md:px-20 py-10 px-2 mx-auto bg-[#FCF7F1]">
           <div className="w-full h-full md:h-[500px] mx-auto flex flex-col md:flex-row items-start justify-center px-5 py-1 gap-8">
             {/* Left Column: Text */}
             <div className="w-full md:w-1/2 flex flex-col justify-center gap-5 md:gap-10 h-full">
@@ -1569,7 +1349,7 @@ const ArtisanDetails = ({ artisan }) => {
             </Carousel>
           </div>
           {/* Review Card Overlay */}
-          <div className="md:hidden py-10 flex flex-col justify-start w-full items-start bg-[#ededed]">
+          <div className="md:hidden py-10 flex flex-col justify-start w-full items-start bg-[#FCF7F1]">
             <h3 className="text-2xl font-bold mb-4 px-2 text-gray-800">
               <span className='border-t-4 border-black '>
                 Review Section

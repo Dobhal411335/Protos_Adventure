@@ -324,13 +324,16 @@ const Footer = () => {
                 <CardContent className="flex flex-col lg:flex-row items-start justify-between">
                     <div className="text-justify">
                         <Image src="/logo.png" width={200} height={200} alt="footer" />
-                        <p className="text-black text-sm lg:w-[40vw] xl:w-[35vw] font-barlow mt-6">PROTOS ADVENTURE is a premier destination for high-performance outdoor gear. As an authorized dealer of globally renowned brands such as Camp, NRS, Millet, Headrush, and Valandré, we bring you world-class equipment tailored for every adventure.
+                        <p className="text-black text-sm lg:w-[40vw] xl:w-[35vw] font-barlow mt-6">
+                            PROTOS ADVENTURE is your go-to source for premium outdoor gear. As an authorized dealer of top global brands like Camp, NRS, Millet, Headrush, and Valandré, we offer high-performance equipment for every kind of adventure—water sports, expeditions, camping, and more.
                             <br />
 
-                            Our extensive catalog includes water sports equipment, expedition gear, camping essentials, high-altitude gear, helmets, oars, harnesses, safety devices, and hiking & trekking gear—all curated to meet the highest standards of quality, durability, and functionality.
+                            Beyond gear, we support outdoor businesses with smart, practical solutions. Whether you're exploring the wild or growing your gear shop, we've got you covered.
                             <br />
 
-                            More than just a store, we offer innovative and practical solutions that support the growth of equipment-based businesses within the outdoor and adventure industry. Whether you're a solo adventurer, a professional expedition leader, or a gear retailer, PROTOS ADVENTURE equips you with the tools and expertise to succeed in the wild and in the market.</p>
+                            Explore our site for top-tier gear and handcrafted creations from the heart of Rishikesh.
+
+                        </p>
                         <p className="text-black text-sm lg:w-[40vw] xl:w-[35vw] font-barlow mt-5">Our website is your gateway to the heart of Rishikesh, offering rich and soulful handmade creations crafted by local artisans.</p>
                     </div>
                     <div className="font-barlow mt-10 lg:mt-0">

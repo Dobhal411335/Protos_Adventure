@@ -40,7 +40,7 @@ export const getReviewsById = async (id) => {
             },
         }));
     } catch (error) {
-        console.error("Error fetching reviews:", error);
+        // console.error("Error fetching reviews:", error);
         return []; // Always return an empty array on error
     }
 };

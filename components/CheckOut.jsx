@@ -1433,7 +1433,7 @@ const CheckOut = () => {
       Thank you for shopping with us! You can check your order status anytime in your dashboard.
     </p>
 
-    <a href="https://rishikeshhandmade.com/dashboard?section=orders" class="dashboard-btn">View Order in Dashboard</a>
+    <a href="https://www.protosadventures.com/dashboard?section=orders" class="dashboard-btn">View Order in Dashboard</a>
   </div>
 </body>
 </html>`

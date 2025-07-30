@@ -47,7 +47,6 @@ const OrderDetail = ({ order, onBack }) => {
       </div>
     );
   }
-  console.log(order)
   const orderData = order;
   const isShipped = orderData.status === 'Shipped' || orderData.status === 'Delivered';
   const hasTracking = orderData.trackingNumber && orderData.trackingUrl;

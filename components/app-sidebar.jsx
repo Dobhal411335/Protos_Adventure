@@ -33,7 +33,7 @@ import { useSession } from "next-auth/react"
 const data = {
   user: {
     name: "Welcome, Admin",
-    email: "info@protosadventure.com",
+    email: "info@protosadventures.com",
   },
   projects: [
     // First group: Admin management
@@ -175,22 +175,7 @@ const data = {
       name: "Enquiry Order",
       url: "/admin/enquiry_order",
       icon: ShoppingCart,
-    },
-    {
-      name: "COD Order Log",
-      url: "/admin/cod_order_log",
-      icon: ShoppingCart,
-    },
-    {
-      name: "Online Order Log",
-      url: "/admin/online_order_log",
-      icon: ShoppingCart,
-    },
-    {
-      name: "Cancel Order",
-      url: "/admin/cancel_orders",
-      icon: ClipboardList,
-    },
+    }, 
     // Space (empty item)
     { divider: true },
     {
@@ -206,7 +191,6 @@ const data = {
       url: "/admin/manage_webpage",
       icon: StickyNote,
     },
-
     // Space (empty item)
     { divider: true },
 

@@ -42,6 +42,58 @@ export default function ProductDetailView({ product }) {
       [name]: type === 'radio' ? value : value,
     }));
   };
+  const handleEnquiryChange = (e) => {
+    const { name, value } = e.target;
+    setEnquiryForm(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleEnquirySubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('/api/enquiryOrder', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...enquiryForm,
+          status: 'new',
+          productId: product?._id,
+          productPrice: product?.quantity?.variants[0].price,
+          productImage: product?.gallery?.mainImage?.url || '',
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Failed to submit enquiry');
+      }
+
+      // Show thank you message
+      setShowEnquiryModal(false);
+      setShowThankYou(true);
+
+      // Reset form
+      setEnquiryForm({
+        fullName: '',
+        email: '',
+        phone: '',
+        productName: product?.title || '',
+        message: '',
+        contactMethod: 'Email',
+      });
+
+      toast.success('Enquiry submitted successfully!');
+
+    } catch (error) {
+            toast.error(error.message || 'Failed to submit enquiry. Please try again.');
+    }
+  };
+
   const handleExpertSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -106,6 +158,16 @@ export default function ProductDetailView({ product }) {
   const [selectedImage, setSelectedImage] = React.useState(product?.gallery?.mainImage?.url || []);
   const [showPdfModal, setShowPdfModal] = useState(false);
   const [pdfPreviewUrl, setPdfPreviewUrl] = useState(null);
+  const [showEnquiryModal, setShowEnquiryModal] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
+  const [enquiryForm, setEnquiryForm] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    productName: product?.title || '',
+    message: '',
+    contactMethod: 'Email',
+  });
   const [quantity, setQuantity] = React.useState(1);
   const [showSizeChart, setShowSizeChart] = React.useState(false);
   const [selectedSize, setSelectedSize] = React.useState(null);
@@ -255,7 +317,7 @@ export default function ProductDetailView({ product }) {
                           width: '100%',
                           height: '100%',
                           transition: 'transform 0.3s',
-                          
+
                         }}
                       />
                     </div>
@@ -799,7 +861,7 @@ export default function ProductDetailView({ product }) {
             <h2 className="font-bold mx-auto">"Shop with Confidence - 100% Money-Back Guarantee!"</h2>
           </div>
           <div className="py-2">
-          <button
+            <button
               className="bg-black text-white py-3 px-8 font-semibold hover:bg-gray-800 w-full"
               onClick={() => setShowPdfModal(true)}
             >
@@ -831,7 +893,7 @@ export default function ProductDetailView({ product }) {
                         <DialogTitle>PDF Preview</DialogTitle>
                         {pdfPreviewUrl && (
                           <iframe
-                          className="h-[500px]"
+                            className="h-[500px]"
                             src={pdfPreviewUrl}
                             width="100%"
                             height="600px"
@@ -859,15 +921,237 @@ export default function ProductDetailView({ product }) {
             </Dialog>
           </div>
           <div className="py-2">
-          <button
+            <button
               className="bg-black text-white py-3 px-8 font-semibold hover:bg-gray-800 w-full"
-              onClick={() => setShowPdfModal(true)}
+              onClick={() => setShowEnquiryModal(true)}
             >
               Enquiry Now
             </button>
           </div>
-   
-     
+
+          {/* Enquiry Modal */}
+          <Dialog open={showEnquiryModal} onOpenChange={(open) => !open && setShowEnquiryModal(false)}>
+            <DialogContent
+              className="max-w-4xl"
+              onInteractOutside={(e) => e.preventDefault()}
+            >
+              <DialogTitle className="text-2xl font-bold mb-2">Enquiry Form for {product?.title}</DialogTitle>
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* Left Side - Form */}
+                <form onSubmit={handleEnquirySubmit} className="space-y-2">
+                  <div>
+                    <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="fullName"
+                      name="fullName"
+                      value={enquiryForm.fullName}
+                      onChange={handleEnquiryChange}
+                      placeholder="Enter your name"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={enquiryForm.email}
+                      onChange={handleEnquiryChange}
+                      placeholder="Enter your email address"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                      Phone Number (optional)
+                    </label>
+                    <input
+                      type="number"
+                      pattern="[0-9]*"
+                      id="phone"
+                      name="phone"
+                      value={enquiryForm.phone}
+                      onChange={handleEnquiryChange}
+                      placeholder="Enter your contact number"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="productName" className="block text-sm font-medium text-gray-700 mb-1">
+                      Product of Interest *
+                    </label>
+                    <input
+                      type="text"
+                      id="productName"
+                      name="productName"
+                      value={enquiryForm.productName}
+                      onChange={handleEnquiryChange}
+                      placeholder="Enter the product name or ID"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black cursor-not-allowed"
+                      required
+                      disabled
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                      Your Enquiry *
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={enquiryForm.message}
+                      onChange={handleEnquiryChange}
+                      placeholder="Please describe your enquiry or requirements"
+                      rows="4"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                      required
+                    ></textarea>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Preferred Contact Method (optional)
+                    </label>
+                    <div className="space-y-2">
+                      {['Email', 'Phone', 'WhatsApp'].map((method) => (
+                        <label key={method} className="flex items-center">
+                          <input
+                            type="radio"
+                            name="contactMethod"
+                            value={method}
+                            checked={enquiryForm.contactMethod === method}
+                            onChange={handleEnquiryChange}
+                            className="h-4 w-4 text-black focus:ring-black"
+                          />
+                          <span className="ml-2 text-gray-700">{method}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full bg-black text-white py-3 px-6 font-semibold hover:bg-gray-800 rounded-md transition-colors"
+                  >
+                    Submit Enquiry
+                  </button>
+                </form>
+
+                {/* Right Side - Product Info */}
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold mb-4">Product Details</h3>
+                  <div className="flex gap-4">
+                    {product?.gallery?.mainImage?.url && (
+                      <div className="mb-4">
+                        <Image
+                          src={product.gallery?.mainImage?.url}
+                          alt={product.title || 'Product Image'}
+                          width={300}
+                          height={100}
+                          className="w-44 h-44 rounded-md object-cover"
+                        />
+                      </div>
+                    )}
+                    <div className="flex flex-col gap-2">
+
+                      {product.code && (
+                        <span className="text-sm text-black my-2 w-fit font-mono bg-gray-100 px-2 py-1 rounded border border-gray-200">Code: {product.code}</span>
+                      )}
+                      <h4 className="font-semibold text-xl text-gray-900 flex-wrap">Name: {product?.title || 'Product Name'}</h4>
+                      {product?.quantity && (
+                        <p className="text-lg font-semibold text-gray-900 mt-2">Price: 
+                          {new Intl.NumberFormat('en-IN', {
+                            style: 'currency',
+                            currency: 'INR',
+                            maximumFractionDigits: 0,
+                          }).format(product.quantity?.variants[0]?.price)}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="mt-6">
+                    <h4 className="font-medium text-gray-900 mb-2">Need Help?</h4>
+                    <p className="text-sm text-gray-600">
+                      Our team is here to help with any questions you have about this product.
+                    </p>
+                    <div className="mt-4 space-y-2">
+                      <p className="text-sm">
+                        <span className="font-medium">Call Us:</span> <a href="tel:+911352442822" className="text-blue-600 hover:underline">+91 1352442822</a>, <a href="tel:+917669280002" className="text-blue-600 hover:underline">+91 7669280002</a>, <a href="tel:+919897468886" className="text-blue-600 hover:underline">+91 9897468886</a>
+                      </p>
+                      <p className="text-sm">
+                        <span className="font-medium">Email:</span> <a href="mailto:info@protosadventures.com" className="text-blue-600 hover:underline">info@protosadventures.com</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
+
+          {/* Thank You Modal */}
+          <Dialog open={showThankYou} onOpenChange={(open) => !open && setShowThankYou(false)}>
+            <DialogContent
+              className="max-w-md"
+              onInteractOutside={(e) => e.preventDefault()}
+            >
+              <DialogTitle className="sr-only">Thank You</DialogTitle>
+              <div className="text-center py-2">
+                <div className="mx-auto flex items-center justify-center h-14 w-14 rounded-full bg-green-100 mb-4">
+                  <svg
+                    className="h-10 w-10 text-green-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-medium text-gray-900 mb-2">Thank You!</h3>
+                <p className="text-gray-600 mb-6">
+                  Thank you for submitting your product enquiry.
+                  We appreciate your interest and want to assure you that one of our support executives
+                  will get back to you shortly with the information you need. If you have any additional
+                  questions in the meantime, feel free to reach out.
+                </p>
+                <div className="bg-gray-50 p-4 rounded-md text-left">
+                  <h4 className="font-medium text-gray-900 mb-2">For More Info</h4>
+                  <p className="text-sm text-gray-600">
+                    <span className="font-medium">Call Us:</span> <a href="tel:+911352442822" className="text-blue-600 hover:underline">+91 1352442822</a>, <a href="tel:+917669280002" className="text-blue-600 hover:underline">+91 7669280002</a>, <a href="tel:+919897468886" className="text-blue-600 hover:underline">+91 9897468886</a>
+                  </p>
+                  <p className="text-sm text-gray-600">
+                    <span className="font-medium">Or Email:</span> <a href="mailto:info@protosadventures.com" className="text-blue-600 hover:underline">info@protosadventures.com</a>
+                  </p>
+                </div>
+                <div className="mt-6">
+                  <button
+                    type="button"
+                    className="inline-flex justify-center rounded-md border border-transparent bg-black px-4 py-2 text-sm font-medium text-white hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black"
+                    onClick={() => setShowThankYou(false)}
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
+
         </div>
       </div>
     </div >

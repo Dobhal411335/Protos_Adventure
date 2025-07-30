@@ -18,7 +18,7 @@ export const getReviews = async () => {
 
         return formattedReviews;
     } catch (error) {
-        console.error("Error fetching reviews:", error);
+        // console.error("Error fetching reviews:", error);
         return [];
     }
 };

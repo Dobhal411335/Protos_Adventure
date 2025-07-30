@@ -142,7 +142,7 @@ const page = async ({ params }) => {
             <InvoicePage orders={orders.length > 0 ? orders : customOrders} />
         );
     } catch (error) {
-        console.error('Error fetching order data:', error);
+        // console.error('Error fetching order data:', error);
         return (
             <p className="text-red-500 p-20 text-2xl">An error occurred while fetching the invoice data.</p>
         );

@@ -26,7 +26,7 @@ export default function Chat({
     className,
     userId,
     isAdmin = false,
-    recipientName = "RishikeshHandMade",
+    recipientName = "ProtosAdventure",
     showBackButton = false,
     onBack,
     type = "chatbot",

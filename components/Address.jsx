@@ -131,7 +131,7 @@ const Address = () => {
     setLoading(false);
   };
   return (
-    <div className="bg-[#fcf7f1] min-h-[400px] p-6 rounded-2xl">
+    <div className="bg-white min-h-[400px] p-6 rounded-2xl">
       <div className="mb-4 flex items-center text-gray-700">
         <span className="w-3 h-3 rounded-full bg-pink-500 mr-2 inline-block"></span>
         <span className="text-sm">The following addresses will be used on the checkout page by default.</span>

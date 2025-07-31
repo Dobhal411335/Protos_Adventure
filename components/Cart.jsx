@@ -117,7 +117,7 @@ export default function Cart({ open, onClose, initialTab = "cart" }) {
 
         {/* Cart Sidebar */}
         <div
-          className={`fixed top-0 right-0 h-full w-[370px] bg-[#fcf7f1] shadow-lg z-[999] flex flex-col border-l border-neutral-200 
+          className={`fixed top-0 right-0 h-full w-[370px] bg-white shadow-lg z-[999] flex flex-col border-l border-neutral-200 
           transition-all duration-500 ease-in-out transform-gpu
           ${open ? 'translate-x-0 opacity-100 scale-100' : 'translate-x-full opacity-0 scale-95'}`}
           style={{ maxWidth: "100vw" }}

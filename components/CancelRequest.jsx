@@ -33,7 +33,7 @@ const CancelRequest = () => {
   const [selectedReason, setSelectedReason] = useState("");
 
   return (
-    <div className="bg-[#fcf7f1] min-h-[400px] p-6 rounded-2xl">
+    <div className="bg-white min-h-[400px] p-6 rounded-2xl">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         {mockProducts.map((item, idx) => (
           <div key={idx} className="bg-white border border-dashed rounded-xl p-5 flex flex-col gap-2 shadow-sm">

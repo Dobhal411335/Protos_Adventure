@@ -30,7 +30,7 @@ const AboutUsSection = () => {
 
     if (isLoading) {
         return (
-            <section className="bg-[#fcf7f1] py-14 md:py-36 xl:py-20">
+            <section className="bg-white py-14 md:py-36 xl:py-20">
                 <div className="relative">
                     <img className="absolute -top-32 left-0 -z-10 lg:scale-[2]" src="/bg-shape.png" alt="background gradient shape" />
                 </div>
@@ -66,7 +66,7 @@ const AboutUsSection = () => {
         );
     }
     return (
-        <section className="bg-[#ededed] relative py-10 w-full px-5 overflow-hidden max-w-screen overflow-x-hidden">
+        <section className="bg-white relative py-10 w-full px-5 overflow-hidden max-w-screen overflow-x-hidden">
             <div className="w-full">
                 <h2 className="font-bold text-2xl md:text-4xl text-center mt-2 md:mt-7 uppercase">
                     <span className="italic"> Trusted. Competitive. Reliable.</span>

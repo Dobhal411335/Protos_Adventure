@@ -12,7 +12,7 @@ export default function BlogQuickViewModal({ open, onClose, blog }) {
   }
   return (
     <div className="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center">
-      <div className="bg-[#fcf7f1] rounded-3xl shadow-lg max-w-xl w-full relative flex flex-col p-0">
+      <div className="bg-white rounded-3xl shadow-lg max-w-xl w-full relative flex flex-col p-0">
         {/* Close button */}
         <button onClick={onClose} className="absolute top-4 right-4 z-20 bg-gray-200 hover:bg-gray-300 rounded-full p-2 shadow-md">
           <X size={24} />

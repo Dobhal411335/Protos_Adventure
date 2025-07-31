@@ -54,7 +54,7 @@ const Footer = () => {
 
     return (
         <footer className={`print:hidden ${pathName.includes('admin') && 'hidden'}
-         ${pathName.includes('artisan') && 'block'} ${pathName.includes('product') && 'block'} ${pathName.includes('customEnquiry') && 'hidden'} ${pathName.includes('checkout') && 'hidden'}  ${pathName.includes('category') && 'block'} bg-[url('/footerBack.jpg')] bg-cover bg-center bg-no-repeat py-4 text-white`}>
+         ${pathName.includes('artisan') && 'block'} ${pathName.includes('product') && 'block'} ${pathName.includes('customEnquiry') && 'hidden'} ${pathName.includes('checkout') && 'hidden'}  ${pathName.includes('category') && 'block'} bg-green-900 py-4 text-white`}>
             {/* <div className="w-full flex justify-center pb-8">
                 <div className="h-[3px] bg-black w-full mx-auto px-4" />
             </div> */}
@@ -324,7 +324,7 @@ const Footer = () => {
                 <CardContent className="flex flex-col lg:flex-row items-start justify-between">
                     <div className="text-justify">
                         <Image src="/logo.png" width={200} height={200} alt="footer" />
-                        <p className="text-black text-sm lg:w-[40vw] xl:w-[35vw] font-barlow mt-6">
+                        <p className="text-green-900 font-semibold text-sm lg:w-[40vw] xl:w-[35vw] font-barlow mt-6">
                             PROTOS ADVENTURE is your go-to source for premium outdoor gear. As an authorized dealer of top global brands like Camp, NRS, Millet, Headrush, and Valandré, we offer high-performance equipment for every kind of adventure—water sports, expeditions, camping, and more.
                             <br />
 
@@ -334,7 +334,7 @@ const Footer = () => {
                             Explore our site for top-tier gear and handcrafted creations from the heart of Rishikesh.
 
                         </p>
-                        <p className="text-black text-sm lg:w-[40vw] xl:w-[35vw] font-barlow mt-5">Our website is your gateway to the heart of Rishikesh, offering rich and soulful handmade creations crafted by local artisans.</p>
+                        <p className="text-green-900 font-semibold text-sm lg:w-[40vw] xl:w-[35vw] font-barlow mt-5">Our website is your gateway to the heart of Rishikesh, offering rich and soulful handmade creations crafted by local artisans.</p>
                     </div>
                     <div className="font-barlow mt-10 lg:mt-0">
                         <h1 className="font-semibold text-xl ">Subscribe to our newsletter</h1>
@@ -348,15 +348,15 @@ const Footer = () => {
                             />
                             <button
                                 type="submit"
-                                className="bg-red-600 text-white text-sm p-2 h-full"
+                                className="bg-green-900 text-white text-sm p-2 h-full"
                             >
                                 Subscribe
                             </button>
                         </form>
 
 
-                        <p className="text-black text-sm lg:w-[30vw] xl:w-[20vw]  mt-6">Stay Informed. Stay Ahead.</p>
-                        <p className="text-black text-sm lg:w-[30vw] xl:w-[23vw]">Subscribe to our newsletter to get the latest updates.</p>
+                        <p className="text-green-900 text-sm lg:w-[30vw] xl:w-[20vw]  mt-6 font-semibold">Stay Informed. Stay Ahead.</p>
+                        <p className="text-green-900 text-sm lg:w-[30vw] xl:w-[23vw] font-semibold">Subscribe to our newsletter to get the latest updates.</p>
                     </div>
                 </CardContent>
                 <CardFooter className="mt-8 flex flex-col items-start md:w-fit">
@@ -372,7 +372,7 @@ const Footer = () => {
             </Card>
             <div className="flex flex-col lg:flex-row items-center justify-center max-w-[25rem] md:max-w-[60rem] xl:max-w-6xl mx-auto font-barlow">
                 <p className="text-white font-bold text-center my-4">
-                    &copy; <CurrentYear /> <Link href={'/'} className="font-bold text-white px-2">Protos Adventures</Link>. All rights reserved
+                    &copy; <CurrentYear /> <Link href={'/'} className="font-bold text-white px-2">Protos Adventures.</Link>All rights reserved
                 </p>
             </div>
         </footer >

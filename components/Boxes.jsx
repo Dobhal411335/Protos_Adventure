@@ -7,16 +7,16 @@ const Boxes = () => {
         
     <div className="w-full px-2">
     {/* Promo Bar - Top */}
-    <div className="w-full bg-[#F9EDE1] border-b border-neutral-200 my-3">
+    <div className="w-full bg-green-900 border-b border-neutral-200 my-3">
       <div className="flex flex-col md:flex-row items-center justify-between max-w-5xl mx-auto py-4 px-2 gap-5">
         <div className="flex-1 flex flex-col items-center md:items-start">
-          <span className="font-bold text-lg md:text-2xl">Gear That Goes Beyond the Trai</span>
-          <span className="text-md text-gray-900">25+ years of industry expertise and innovation.</span>
+          <span className="font-bold text-lg md:text-2xl text-white">Gear That Goes Beyond the Trai</span>
+          <span className="text-md text-gray-900 text-white">25+ years of industry expertise and innovation.</span>
         </div>
         <div className="hidden md:block w-[1px] h-8 bg-black mx-6"></div>
         <div className="flex-1 flex flex-col items-center md:items-end">
-          <span className="font-bold text-lg md:text-2xl">Your Adventure Starts With Us.</span>
-          <span className="text-md text-gray-900">Top global brands, field-tested gear—all under one roof.</span>
+          <span className="font-bold text-lg md:text-2xl text-white">Your Adventure Starts With Us.</span>
+          <span className="text-md text-gray-900 text-white">Top global brands, field-tested gear—all under one roof.</span>
         </div>
       </div>
     </div>

@@ -896,7 +896,7 @@ const ArtisanDetails = ({ artisan }) => {
       )}
       {/* Certificate And Awards Section */}
       {Array.isArray(artisan.certificates) && artisan.certificates.length > 0 && (
-        <div className="w-full md:px-20 py-10 px-2 mx-auto bg-[#FCF7F1]">
+        <div className="w-full md:px-20 py-10 px-2 mx-auto bg-white">
           <div className="w-full h-full md:h-[500px] mx-auto flex flex-col md:flex-row items-start justify-center px-5 py-1 gap-8">
             {/* Left Column: Text */}
             <div className="w-full md:w-1/2 flex flex-col justify-center gap-5 md:gap-10 h-full">
@@ -1349,7 +1349,7 @@ const ArtisanDetails = ({ artisan }) => {
             </Carousel>
           </div>
           {/* Review Card Overlay */}
-          <div className="md:hidden py-10 flex flex-col justify-start w-full items-start bg-[#FCF7F1]">
+          <div className="md:hidden py-10 flex flex-col justify-start w-full items-start bg-white">
             <h3 className="text-2xl font-bold mb-4 px-2 text-gray-800">
               <span className='border-t-4 border-black '>
                 Review Section

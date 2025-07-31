@@ -16,7 +16,7 @@ const Wishlist = () => {
   const loading = false; // context is always available
 
   return (
-    <div className="bg-[#fcf7f1]">
+    <div className="bg-white">
       {/* Banner */}
       <div className="w-full h-60 bg-gradient-to-r from-[#9e7a5b] to-[#fff0] relative flex items-stretch justify-start">
         <div className="z-10 flex flex-col justify-center items-center w-full min-w-[320px]">

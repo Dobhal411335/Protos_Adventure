@@ -54,7 +54,7 @@ const Banner = () => {
         fetchFeaturedOffer();
     }, [])
     return (
-        <div className="bg-[#fcf7f1] w-full overflow-hidden max-w-screen overflow-x-hidden">
+        <div className="bg-white w-full overflow-hidden max-w-screen overflow-x-hidden">
             {/* Promotional Banner Section */}
             {promotinalBanner.length > 0 && (
                 <div className="w-full py-10 px-2 md:py-20 bg-[#ededed]">
@@ -78,7 +78,7 @@ const Banner = () => {
             {featuredOffer.length > 0 && (
                 <div className="w-full md:py-20 py-10 px-2 md:px-10">
                     <h2 className="text-2xl md:text-3xl font-bold text-center mb-5 uppercase">Featured Offer For You</h2>
-                    <Carousel className="w-full">
+                    <Carousel className="w-full">   
                         <CarouselContent>
                             {featuredOffer.map((item, idx) => (
                                 <CarouselItem key={idx} className="md:basis-1/3 lg:basis-1/4">

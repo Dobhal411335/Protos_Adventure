@@ -89,7 +89,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="bg-[#fcf7f1] min-h-[600px] p-6 rounded-2xl max-w-5xl mx-auto">
+    <div className="bg-white min-h-[600px] p-6 rounded-2xl max-w-5xl mx-auto">
       {/* Header */}
       <div className="flex flex-col md:flex-row items-center gap-5 mb-6 border-b pb-6">
         <div className="relative">

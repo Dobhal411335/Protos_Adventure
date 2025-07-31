@@ -54,11 +54,11 @@ When you shop with Adventure Axis, you’re not just buying gear — you’re su
 const WhatWeDo = () => {
   const [openIndex, setOpenIndex] = useState(0);
   return (
-    <div className="w-full min-h-screen bg-[#fcf7f1]">
+    <div className="w-full min-h-screen bg-white">
       {/* Banner */}
       <div className="relative w-full md:h-[320px] h-[150px] flex items-center justify-center">
         <Image src="/bg7.jpg" alt="Banner" layout="fill" className="z-0 md:object-cover object-contain" priority />
-        <div className="hidden md:flex absolute left-[10%] top-10 z-10 container w-fit mx-auto px-4 flex-col justify-center h-full bg-[#fcf7f1] rounded-xl">
+        <div className="hidden md:flex absolute left-[10%] top-10 z-10 container w-fit mx-auto px-4 flex-col justify-center h-full bg-white rounded-xl">
           <div className="max-w-2xl flex flex-col items-center justify-center px-10">
             <h1 className="text-3xl  font-semibold text-black mb-2 drop-shadow-lg">The Impact of What We Do How <br /> We Make a Difference</h1>
             <div className="w-96 rounded-lg overflow-hidden">

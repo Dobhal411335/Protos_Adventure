@@ -113,7 +113,7 @@ const Header = () => {
         pathName.includes("customEnquiry")
         ? "hidden"
         : "block"
-        } bg-[#fcf7f1] text-black border-b sticky top-0 left-0 right-0 transition-all duration-300 font-barlow tracking-wider ease-in-out z-50 mx-auto w-full py-2
+        } bg-white text-black border-b sticky top-0 left-0 right-0 transition-all duration-300 font-barlow tracking-wider ease-in-out z-50 mx-auto w-full py-2
          ${showHeader ? "translate-y-0" : "-translate-y-full"}`}
     >
       <div className="md:flex hidden items-center justify-between gap-8 border-b py-1 border-gray-400 md:px-8 ">

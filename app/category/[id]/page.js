@@ -84,7 +84,7 @@ const CategoryPage = async ({ params }) => {
 
   return (
     <SidebarInset>
-      <div className="min-h-screen bg-[#fcf7f1]">
+      <div className="min-h-screen bg-white">
         {/* Category Banner at the top */}
         <CategoryBanner 
         title={categoryData.title} 

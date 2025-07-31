@@ -150,14 +150,14 @@ const RandomTourPackageSection = () => {
 
 
   return (
-    <section className="bg-[#fcf7f1] md:mt-19 w-full overflow-hidden max-w-screen overflow-x-hidden">
+    <section className="bg-white md:mt-19 w-full overflow-hidden max-w-screen overflow-x-hidden">
       <div className=" w-full h-full overflow-hidden max-w-screen">
         {/* Product Section */}
-        <div className="w-full py-10 px-2 bg-[#ededed]">
-          <h1 className="text-xl md:text-3xl lg:text-4xl font-bold text-center md:mt-10 uppercase">
+        <div className="w-full py-10 px-2 bg-green-900">
+          <h1 className="text-xl md:text-3xl lg:text-4xl text-white font-bold text-center md:mt-10 uppercase">
             Today’s Top Picks – Fresh. Bold. In Demand.
           </h1>
-          <p className=" text-gray-600 py-4 text-center font-barlow md:w-[50%] w-full mx-auto">
+          <p className=" text-gray-600 py-4 text-center font-barlow text-white md:w-[50%] w-full mx-auto">
             Trail-Tested & Trending – Only the Best Makes the Cut.
           </p>
           <Carousel
@@ -302,7 +302,7 @@ const RandomTourPackageSection = () => {
                       <div className="flex items-center justify-between px-1 pt-4 pb-2 mt-0">
                         <Link
                           href={`/product/${item.slug}`}
-                          className="font-bold hover:underline text-lg md:text-xl text-gray-900 leading-tight max-w-[200px] truncate cursor-pointer"
+                          className="font-bold hover:underline text-lg md:text-xl text-white text-gray-900 leading-tight max-w-[200px] truncate cursor-pointer"
                         >
                           {item?.title}
                         </Link>
@@ -324,13 +324,13 @@ const RandomTourPackageSection = () => {
                           if (hasDiscount && discountedPrice < price) {
                             return (
                               <span>
-                                <del className="text-black font-bold text-md md:text-xl">₹{formatNumeric(price)}</del>
-                                <span className="font-bold text-md md:text-xl text-black px-2">₹{formatNumeric(Math.round(discountedPrice))}</span>
+                                <del className="text-white font-bold text-md md:text-xl">₹{formatNumeric(price)}</del>
+                                <span className="font-bold text-md md:text-xl text-white px-2">₹{formatNumeric(Math.round(discountedPrice))}</span>
                               </span>
                             );
                           } else {
                             return (
-                              <span className="font-bold text-lg md:text-xl text-black">₹{formatNumeric(price)}</span>
+                              <span className="font-bold text-lg md:text-xl text-white">₹{formatNumeric(price)}</span>
                             );
                           }
                         })()}
@@ -403,11 +403,7 @@ const RandomTourPackageSection = () => {
                     ],
                   };
                   return (
-                    <div key={card.id} className="relative rounded-2xl shadow-md group transition-all h-full w-[340px] flex flex-col bg-[#fbeff2] overflow-hidden">
-                      {/* Date Badge */}
-                      <div className="absolute top-5 left-5 z-20 flex items-center gap-2">
-                        <span className="bg-white rounded px-3 py-1 text-md font-bold shadow text-gray-800">{card.subtitle}</span>
-                      </div>
+                    <div key={card.id} className="relative rounded-2xl shadow-md group transition-all h-full w-[340px] flex flex-col bg-white overflow-hidden">
                       {/* Card Image */}
                       <div className="relative w-full h-96">
                         <img
@@ -515,10 +511,7 @@ const RandomTourPackageSection = () => {
                       return (
                         <CarouselItem key={card.id} className="pl-5 md:basis-1/2 lg:basis-1/4 min-w-0 snap-start">
                           <div className="relative rounded-2xl overflow-hidden shadow-md group transition-all h-full flex flex-col bg-[#fbeff2]">
-                            {/* Date Badge */}
-                            <div className="absolute top-5 left-5 z-20 flex items-center gap-2">
-                              <span className="bg-white rounded px-3 py-1 text-md font-bold shadow text-gray-800">{card.subtitle}</span>
-                            </div>
+                            
                             {/* Card Image */}
                             <div className="relative w-full h-96">
                               <img
@@ -633,10 +626,7 @@ const RandomTourPackageSection = () => {
                       return (
                         <CarouselItem key={card.id} className="pl-5 md:basis-1/2 lg:basis-1/4 min-w-0 snap-start">
                           <div className="relative rounded-2xl overflow-hidden shadow-md group transition-all h-full flex flex-col bg-[#fbeff2]">
-                            {/* Date Badge */}
-                            <div className="absolute top-5 left-5 z-20 flex items-center gap-2">
-                              <span className="bg-white rounded px-3 py-1 text-md font-bold shadow text-gray-800">{card.subtitle}</span>
-                            </div>
+                            
                             {/* Card Image */}
                             <div className="relative w-full h-96">
                               <img

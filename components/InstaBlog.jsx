@@ -43,7 +43,7 @@ const InstaBlog = () => {
     // Normalize reviews to a standard format
     function normalizeReview(review) {
         // console.log('Raw review data:', review);
-      
+
         let imageUrl = '';
         if (review.thumb?.url) {
             imageUrl = review.thumb.url.startsWith('http') ? review.thumb.url : `https:${review.thumb.url}`;
@@ -235,15 +235,15 @@ const InstaBlog = () => {
         allPosts.length <= 3 ? `basis-1/${allPosts.length}` : "md:basis-1/5";
 
     return (
-        <div className='bg-[#fcf7f1] w-full overflow-hidden max-w-screen overflow-x-hidden'>
+        <div className='bg-white w-full overflow-hidden max-w-screen overflow-x-hidden'>
             {/*Blogs /  News & Announcement Section */}
-            <div className="w-full flex flex-col items-center md:py-20 py-10 bg-[#ededed]">
+            <div className="w-full flex flex-col items-center md:py-20 py-10 bg-green-900">
                 <div className="w-full flex flex-col md:flex-row gap-8 min-h-[350px]">
                     <div className="flex flex-col md:flex-row w-full gap-8 px-2">
                         {/* Blogs Section */}
 
                         {!isBlogsLoading && blogs && blogs.length > 0 && (
-                            <div className="flex-1 bg-[#fcf7f1] rounded-lg flex flex-col justify-between min-h-[350px] px-5 py-5 md:px-10">
+                            <div className="flex-1 bg-white rounded-lg flex flex-col justify-between min-h-[350px] px-5 py-5 md:px-10">
                                 <div className="font-bold text-xl md:text-3xl mb-4 p-2">
                                     <span className='border-b-2 border-black'>
                                         <span className='italic'>Blog</span> and Events
@@ -336,7 +336,7 @@ const InstaBlog = () => {
                         )}
                         {/* News box */}
                         {news && news.length > 0 && (
-                            <div className="flex-1 bg-[#fcf7f1] rounded-lg p-4 flex flex-col min-h-[350px] border-[1px] border-black">
+                            <div className="flex-1 bg-white rounded-lg p-4 flex flex-col min-h-[350px] border-[1px] border-black">
                                 <div className="flex-1 pr-2 mb-4">
                                     <div className="font-bold text-2xl mb-4 px-2">
                                         <span className='border-b-2 border-black'>
@@ -468,8 +468,8 @@ const InstaBlog = () => {
                     </div>
                 </div>
             )}
-     {/* Reviews Section */}
-     <div className="w-full mx-auto relative md:min-h-[650px] min-h-[450px] flex items-center justify-end relative">
+            {/* Reviews Section */}
+            <div className="w-full mx-auto relative md:min-h-[650px] min-h-[450px] flex items-center justify-end relative">
                 {/* Background Image */}
                 <div className="hidden md:flex absolute inset-0 w-full h-full z-0">
                     <img

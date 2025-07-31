@@ -118,7 +118,7 @@ const HeroSection = () => {
   }
 
   return (
-    <section className="bg-[#fcf7f1] relative xl:h-screen h-full w-full p-2 overflow-hidden z-0 group">
+    <section className="bg-white relative xl:h-screen h-full w-full p-2 overflow-hidden z-0 group">
       <div className="hidden xl:block w-full h-screen ">
         <div className="hidden xl:block w-full h-full">
           <Carousel

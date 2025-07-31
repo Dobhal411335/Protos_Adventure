@@ -273,7 +273,7 @@ export default function Chat({
     return (
         <Card
             className={cn(
-                "flex flex-col md:h-[75vh] bg-[#fcf7f1] font-barlow w-full max-w-6xl md:my-0 border-2 border-blue-600 shadow-lg"
+                "flex flex-col md:h-[75vh] bg-white font-barlow w-full max-w-6xl md:my-0 border-2 border-blue-600 shadow-lg"
             )}
         >
             <CardHeader className="lg:flex-row p-4 border-b flex justify-between items-center lg:items-start">

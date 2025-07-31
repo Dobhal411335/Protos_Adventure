@@ -206,7 +206,7 @@ const Dashboard = () => {
   if (status === "loading") return <div>Loading...</div>;
 
   return (
-    <div className="flex min-h-screen bg-[#fcf7f1] relative overflow-hidden">
+    <div className="flex min-h-screen bg-white relative overflow-hidden">
       {/* Mobile menu button */}
       <button
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

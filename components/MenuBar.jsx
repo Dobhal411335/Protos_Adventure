@@ -131,7 +131,7 @@ const MenuBar = (props) => {
     const toggleFixedMenu = (index) => {
         setOpenFixedMenu(openFixedMenu === index ? null : index);
     };
-    
+
     // Close mobile menu when a link is clicked
     const closeMobileMenu = () => {
         setIsOpen(false);
@@ -170,8 +170,8 @@ const MenuBar = (props) => {
                                     .sort((a, b) => a.order - b.order)
                                     .map((subItem, subIndex) => (
                                         <li key={subIndex} className="py-1">
-                                            <Link 
-                                                href={`/category/${subItem.url}`} 
+                                            <Link
+                                                href={`/category/${subItem.url}`}
                                                 className="text-sm text-gray-700 block py-1"
                                                 onClick={closeMobileMenu}
                                             >
@@ -186,9 +186,16 @@ const MenuBar = (props) => {
 
                 {allMenuItems.length > 0 && allMenuItems.map((cat, index) => (
                     <div key={index} className="border-b">
+                        <Link
+                            href="/"
+                            className="w-full block p-3 text-sm font-medium hover:bg-gray-100"
+
+                        >
+                            Home
+                        </Link>
                         {cat.catTitle === "Contact Us" ? (
-                            <Link 
-                                href="/contact" 
+                            <Link
+                                href="/contact"
                                 className="w-full block p-3 text-sm font-medium hover:bg-gray-100"
                                 onClick={closeMobileMenu}
                             >
@@ -234,6 +241,13 @@ const MenuBar = (props) => {
             {/* Desktop Navigation */}
             <NavigationMenu.Root className="hidden lg:flex relative justify-center" >
                 <NavigationMenu.List className="flex space-x-4">
+                    {/* <Link
+                        href="/"
+                        className="w-full block p-3 text-sm font-medium hover:bg-gray-100"
+
+                    >
+                        Home
+                    </Link> */}
                     {menuItems.map((item, index) => (
                         <NavigationMenu.Item key={index} className="relative flex justify-center">
                             <NavigationMenu.Trigger className="flex items-center px-4 py-2 text-sm font-semibold  data-[state=open]:text-black rounded-md">
@@ -274,6 +288,7 @@ const MenuBar = (props) => {
                     ))}
                     {allMenuItems.length > 0 && allMenuItems.map((cat, index) => (
                         <NavigationMenu.Item key={index} className="relative flex justify-center">
+
                             {cat.catTitle === "Contact Us" ? (
                                 <Link href="/contact" className="flex items-center px-4 py-2 text-sm font-semibold hover:bg-blue-500 data-[state=open]:bg-blue-300 data-[state=open]:text-black rounded-md">
                                     {cat.catTitle}

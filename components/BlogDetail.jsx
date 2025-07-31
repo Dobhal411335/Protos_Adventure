@@ -97,7 +97,7 @@ const BlogDetail = () => {
         </div>
       )}
       {!loading && (
-        <div className="w-full mx-auto md:p-4 my-4 mb-4 bg-[#fcf7f1]">
+        <div className="w-full mx-auto md:p-4 my-4 mb-4 bg-white">
           <div className="w-full px-5 flex flex-col md:flex-row gap-8">
             {/* Left: Blog Details (scrollable) */}
             <div className="md:w-2/3 w-full md:h-screen md:overflow-y-auto pr-0 md:pr-2 scrollbar-none" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
@@ -156,7 +156,7 @@ const BlogDetail = () => {
             {/* Right: News Section (sticky/fixed on desktop) */}
             <div className="hidden md:flex md:w-1/3 w-full">
               <div className="sticky bottom-0 h-screen w-full flex flex-col">
-                <div className="bg-[#fcf7f1] rounded-lg p-4 flex flex-col h-full">
+                <div className="bg-white rounded-lg p-4 flex flex-col h-full">
                   <div className="flex-1 pr-2">
                     <div className="font-bold text-2xl mb-4">Latest News</div>
                     <div className="h-[calc(100vh-150px)] overflow-y-auto p-4 border border-black rounded-xl scrollbar-none" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
@@ -200,7 +200,7 @@ const BlogDetail = () => {
             </div>
             {/* News Section for mobile (below blog on small screens) */}
             <div className="md:hidden w-full flex flex-col mt-8">
-              <div className="bg-[#fcf7f1] rounded-lg p-4 flex flex-col min-h-[350px]">
+              <div className="bg-white rounded-lg p-4 flex flex-col min-h-[350px]">
                 <div className="flex-1 pr-2">
                   <div className="font-bold text-2xl mb-4">Latest News</div>
                   <div className="h-[380px] overflow-y-auto p-4 border border-black rounded-xl scrollbar-none" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>

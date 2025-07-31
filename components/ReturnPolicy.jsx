@@ -2,7 +2,7 @@ import React from 'react'
 
 const ReturnPolicy = () => {
   return (
-    <section className="bg-[#fffaf3] py-10 px-4 md:px-12 w-full mx-auto rounded-lg shadow-sm">
+    <section className="bg-white py-10 px-4 md:px-12 w-full mx-auto rounded-lg shadow-sm">
       <div className="border border-black p-4 md:p-8 rounded-xl shadow-sm">
         <h2 className="text-xl md:text-2xl font-bold mb-6 text-center">Return Policy & Procedure</h2>
         <div className="space-y-6">
@@ -115,9 +115,9 @@ const ReturnPolicy = () => {
           </div>
 
           <div className="border-t border-gray-300 pt-6">
-            <div className="bg-yellow-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-yellow-800">Special Note:</h4>
-              <ul className="list-disc ml-6 mt-2 space-y-1 text-yellow-700">
+            <div className="p-4 rounded-lg">
+              <h4 className="font-semibold">Special Note:</h4>
+              <ul className="list-disc ml-6 mt-2 space-y-1">
                 <li>Please ensure the item is properly packed to avoid damage during transit (if applicable).</li>
                 <li>Our team reserves the right to reject a return if the item does not meet return policy conditions.</li>
               </ul>

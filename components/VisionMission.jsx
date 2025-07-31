@@ -4,9 +4,9 @@ import Link from "next/link";
 
 const VisionMission = () => {
   return (
-    <section className="w-full bg-[#fcf7f1] min-h-screen">
+    <section className="w-full bg-white min-h-screen">
       <div className="w-full">
-        <div className="relative w-full h-[100px] md:h-[250px] flex items-center justify-center bg-[#fcf7f1] overlay-black-light">
+        <div className="relative w-full h-[100px] md:h-[250px] flex items-center justify-center bg-white overlay-black-light">
           <Image
             src="/bg1.jpg"
             alt="About Banner"

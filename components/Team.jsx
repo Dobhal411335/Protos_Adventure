@@ -22,7 +22,7 @@ const Team = () => {
     fetchTeam();
   }, []);
   return (
-    <div className="w-full min-h-screen bg-[#fcf7f1]">
+    <div className="w-full min-h-screen bg-white">
       {/* Banner */}
       <div className="relative w-full h-[100px] md:h-[250px] flex items-center justify-center">
         <Image

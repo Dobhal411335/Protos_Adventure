@@ -117,23 +117,34 @@ const Header = () => {
          ${showHeader ? "translate-y-0" : "-translate-y-full"}`}
     >
       <div className="md:flex hidden items-center justify-between gap-8 border-b py-1 border-gray-400 md:px-8 ">
-        <p className="text-md">Equipping Every Adventure, Empowering Every Explorer.</p>
-        <div className="flex flex-row justify-center items-center gap-4">
-          <div className="items-center z-50 gap-4 flex">
-            <div className="flex items-center gap-3">
-              {/* Language Selector */}
-              <div className="group relative">
-                <div
-                  className="flex flex-col items-center p-2 rounded-lg hover:bg-neutral-100 transition-colors cursor-pointer"
-                  aria-label="Language"
-                >
-                  <div className="flex flex-col items-start justify-start">
-                    <LanguageSelector size={20} />
-                    <span className="text-sm font-medium">Language</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <p className="text-md">Equipping Every Adventure, Empowering Every Explorer.</p>
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4">
+            <Mail size={20} />
+            <Link href={"mailto:nitin.rksh@gmail.com"}>
+              <p className="text-sm font-semibold hover:underline">nitin.rksh@gmail.com</p>
+            </Link> <Link href={"mailto:info@protosadventures.com"}>
+              <p className="text-sm font-semibold hover:underline">info@protosadventures.com</p>
+            </Link>
+          </div>
+
+          <div className="h-4 w-0.2 bg-white rounded-full"></div>
+
+          <div className="flex items-center gap-2">
+            <Phone size={20} />
+            <Link href={"tel:+911352442822"}>
+              <p className="text-sm font-semibold tracking-widest hover:underline">+91-135-2442822</p>
+            </Link>
+            <Link href={"tel:+917669280002"}>
+              <p className="text-sm font-semibold tracking-widest hover:underline">7669280002</p>
+            </Link>
+            <Link href={"tel:+919897468886"}>
+              <p className="text-sm font-semibold tracking-widest hover:underline">9897468886</p>
+            </Link>
+          </div>
+          <div className="flex flex-col items-start justify-start">
+            <LanguageSelector size={20} />
+            <span className="text-sm font-medium">Language</span>
           </div>
         </div>
 

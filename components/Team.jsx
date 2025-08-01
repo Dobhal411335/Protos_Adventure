@@ -34,7 +34,7 @@ const Team = () => {
           priority
         />
         <div className="relative z-10 text-center text-white">
-          <h1 className="text-4xl md:text-5xl font-bold mb-2 drop-shadow-lg">Team of Experts</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-2 drop-shadow-lg">Our Associate Partner</h1>
         </div>
       </div>
 
@@ -55,7 +55,7 @@ const Team = () => {
             {/* Right: Two Images in a row (first two team members) */}
             <div className=" hidden md:flex w-full lg:w-[43%] flex-row gap-8 items-start justify-center">
               {loading ? (
-                <div>Loading Team Member...</div>
+                <div>Loading Associate Partner...</div>
               ) : teamMembers.length > 0 ? (
                 teamMembers.slice(0, 2).map((member, idx) => (
                   <div key={member._id || idx} className="flex flex-col items-center">
@@ -94,7 +94,7 @@ const Team = () => {
           {/* Team Grid (remaining team members for mobile) */}
           <div className="md:hidden grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 md:gap-8 gap-4 mb-10">
             {loading ? (
-              <div>Loading Team Members...</div>
+              <div>Loading Associate Partner...</div>
             ) : teamMembers.length > 0 ? (
               teamMembers.map((member, idx) => (
                 <div key={member._id || idx} className="flex flex-col items-center">
@@ -116,7 +116,7 @@ const Team = () => {
 
           {/* Contributions Section */}
           <div className="rounded-xl p-4 md:p-8 border border-gray-400">
-            <h2 className="text-xl md:text-3xl font-bold mb-4 text-gray-800">Our Team’s Contributions Include:</h2>
+            <h2 className="text-xl md:text-3xl font-bold mb-4 text-gray-800">Our Associate Partner’s Contributions Include:</h2>
             <ul className="list-decimal pl-6 text-sm md:text-lg text-gray-700 space-y-2">
               <li><span className="font-bold">Product Expertise & Guidance:</span> Recommending the most suitable gear for diverse terrains, climates, and expedition needs — from water sports to high-altitude adventures.
               </li>

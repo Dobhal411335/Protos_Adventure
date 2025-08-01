@@ -97,7 +97,7 @@ const ContactUs = () => {
         }
     };
     return (
-        <div className="bg-[#fdf7f2] min-h-screen w-full flex flex-col items-center justify-start pt-5">
+        <div className="bg-white min-h-screen w-full flex flex-col items-center justify-start pt-5">
             <div className="container mx-auto px-5 md:px-32">
                 <div className="flex flex-col lg:flex-row gap-8 w-full justify-center mt-10">
                     {/* Contact Info */}

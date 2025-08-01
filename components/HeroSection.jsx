@@ -24,24 +24,15 @@ const HeroSection = () => {
   const [mobileSelectedIndex, setMobileSelectedIndex] = useState(0);
   const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: false }));
 
-  const dummyBanners = [
-    {
-      title: "Welcome",
-      subTitle: "Explore Our Collection",
-      image: { url: "https://dummyimage.com/1280x720/000/fff" },
-      link: "/"
-    },
-  ];
-
   useEffect(() => {
     const fetchBanners = async () => {
       try {
         const response = await fetch("/api/addBanner");
         const data = await response.json();
-        setBanners(data.length ? data : dummyBanners);
+        setBanners(data);
       } catch (error) {
         toast.error("Failed to fetch banners");
-        setBanners(dummyBanners);
+        setBanners([]);
       } finally {
         setIsLoading(false);
       }
@@ -167,7 +158,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="block xl:hidden w-full h-full pt-4 pb-12 relative max-h-[90vh]">
+      <div className="block xl:hidden w-full h-full py-4  relative max-h-[90vh]">
         {/* Mobile Carousel: Only show first image, center content over image, add to cart above image */}
         <Carousel className="w-full max-w-md mx-auto" plugins={[plugin.current]} onMouseLeave={plugin.current.reset} setApi={setMobileApi} >
           <CarouselContent>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import Link from "next/link";
 import { ArrowDown, Menu, X } from "lucide-react";
@@ -14,7 +14,7 @@ const staticMenuItems = [
                 subCatPackage: [
                     { title: "About Us", url: "/about-us", active: true },
                     { title: "Vision & Mission", url: "/vision-mission", active: true },
-                    { title: "Team", url: "/team", active: true },
+                    { title: "Our Associate Partner", url: "/team", active: true },
                     { title: "What We Do ", url: "/what-we-do", active: true }
                 ],
                 active: true,
@@ -30,7 +30,6 @@ const staticMenuItems = [
                     { title: "Privacy Policy", url: "/privacy-policy", active: true },
                     { title: "Return Policy", url: "/return-policy", active: true },
                     { title: "Refund & Cancellation", url: "/refund-cancellation", active: true },
-                    // { title: "Return Policy", url: "/return-policy", active: true },
                     { title: "Shipping Policy", url: "/shipping-policy", active: true },
                     { title: "Terms & Conditions", url: "/terms-condition", active: true }
                 ],
@@ -152,47 +151,50 @@ const MenuBar = (props) => {
                 "absolute top-8  md:top-12 mt-4 rounded-xl left-0 w-[90vw] text-black bg-white shadow-md lg:hidden transition-all duration-300 overflow-hidden",
                 isOpen ? "max-h-[500px]" : "max-h-0"
             )} ref={menuRef}>
+
                 {menuItems.map((item, index) => (
-                    <div key={index} className="border-b">
-                        <button
-                            onClick={() => toggleMenu(index)}
-                            className="w-full text-left p-3 text-sm font-medium  hover:bg-gray-100"
-                        >
-                            {item.title}
-                        </button>
-                        <div className={clsx(
-                            "transition-all duration-300 overflow-hidden",
-                            openMenu === index ? "max-h-[300px]" : "max-h-0"
-                        )}>
-                            <ul className="pl-4 pb-2">
-                                {item.subMenu
-                                    .filter(sub => sub.active)
-                                    .sort((a, b) => a.order - b.order)
-                                    .map((subItem, subIndex) => (
-                                        <li key={subIndex} className="py-1">
-                                            <Link
-                                                href={`/category/${subItem.url}`}
-                                                className="text-sm text-gray-700 block py-1"
-                                                onClick={closeMobileMenu}
-                                            >
-                                                {subItem.title}
-                                            </Link>
-                                        </li>
-                                    ))}
-                            </ul>
+                    <React.Fragment key={`menu-item-${index}`}>
+                        <div className="border-b">
+                            <Link
+                                href="/"
+                                className="w-full block p-3 text-sm font-medium hover:bg-gray-100"
+                                onClick={closeMobileMenu}
+                            >
+                                Home
+                            </Link>
+                            <button
+                                onClick={() => toggleMenu(index)}
+                                className="w-full text-left p-3 text-sm font-medium  hover:bg-gray-100"
+                            >
+                                {item.title}
+                            </button>
+                            <div className={clsx(
+                                "transition-all duration-300 overflow-hidden",
+                                openMenu === index ? "max-h-[300px]" : "max-h-0"
+                            )}>
+                                <ul className="pl-4 pb-2">
+                                    {item.subMenu
+                                        .filter(sub => sub.active)
+                                        .sort((a, b) => a.order - b.order)
+                                        .map((subItem, subIndex) => (
+                                            <li key={subIndex} className="py-1">
+                                                <Link
+                                                    href={`/category/${subItem.url}`}
+                                                    className="text-sm text-gray-700 block py-1"
+                                                    onClick={closeMobileMenu}
+                                                >
+                                                    {subItem.title}
+                                                </Link>
+                                            </li>
+                                        ))}
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    </React.Fragment>
                 ))}
 
                 {allMenuItems.length > 0 && allMenuItems.map((cat, index) => (
                     <div key={index} className="border-b">
-                        <Link
-                            href="/"
-                            className="w-full block p-3 text-sm font-medium hover:bg-gray-100"
-
-                        >
-                            Home
-                        </Link>
                         {cat.catTitle === "Contact Us" ? (
                             <Link
                                 href="/contact"
@@ -241,61 +243,60 @@ const MenuBar = (props) => {
             {/* Desktop Navigation */}
             <NavigationMenu.Root className="hidden lg:flex relative justify-center" >
                 <NavigationMenu.List className="flex space-x-4">
-                    {/* <Link
-                        href="/"
-                        className="w-full block p-3 text-sm font-medium hover:bg-gray-100"
-
-                    >
-                        Home
-                    </Link> */}
                     {menuItems.map((item, index) => (
-                        <NavigationMenu.Item key={index} className="relative flex justify-center">
-                            <NavigationMenu.Trigger className="flex items-center px-4 py-2 text-sm font-semibold  data-[state=open]:text-black rounded-md">
-                                {item.title} <ArrowDown className="ml-2" size={12} />
-                            </NavigationMenu.Trigger>
-                            <AnimatePresence>
-                                {item.subMenu.length > 0 && (
-                                    <NavigationMenu.Content asChild>
-                                        <motion.div
-                                            initial={{ opacity: 0, y: -10 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, y: -10 }}
-                                            transition={{ duration: 0.2, ease: "easeInOut" }}
-                                            className="absolute top-full mt-2 -translate-x-1/2 bg-white text-black shadow-lg rounded-md w-52"
-                                        >
-                                            <ul className="grid gap-2 p-2 text-sm">
-                                                {item.subMenu
-                                                    .filter(sub => sub.active)
-                                                    .sort((a, b) => a.order - b.order)
-                                                    .map((subItem, subIndex) => (
-                                                        <li key={subIndex}>
-                                                            <NavigationMenu.Link asChild>
-                                                                <Link
-                                                                    className="block px-4 py-2 rounded-md hover:bg-gray-100"
-                                                                    href={`/category/${subItem.url}`}
-                                                                >
-                                                                    {subItem.title}
-                                                                </Link>
-                                                            </NavigationMenu.Link>
-                                                        </li>
-                                                    ))}
-                                            </ul>
-                                        </motion.div>
-                                    </NavigationMenu.Content>
-                                )}
-                            </AnimatePresence>
-                        </NavigationMenu.Item>
+                        <>
+                            <NavigationMenu.Item key={index} className="relative flex justify-center">
+                            <Link
+                                href="/"
+                                className="flex items-center px-4 py-2 text-sm font-semibold hover:bg-blue-400 data-[state=open]:bg-blue-300 data-[state=open]:text-black rounded-md">
+                                Home
+                            </Link>
+                                <NavigationMenu.Trigger className="flex items-center px-4 py-2 text-sm font-semibold hover:bg-blue-400 data-[state=open]:bg-blue-300 data-[state=open]:text-black rounded-md">
+                                    {item.title} <ArrowDown className="ml-2" size={12} />
+                                </NavigationMenu.Trigger>
+                                <AnimatePresence>
+                                    {item.subMenu.length > 0 && (
+                                        <NavigationMenu.Content asChild>
+                                            <motion.div
+                                                initial={{ opacity: 0, y: -10 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                exit={{ opacity: 0, y: -10 }}
+                                                transition={{ duration: 0.2, ease: "easeInOut" }}
+                                                className="absolute top-full mt-2 -translate-x-1/2 bg-white text-black shadow-lg rounded-md w-52"
+                                            >
+                                                <ul className="grid gap-2 p-2 text-sm">
+                                                    {item.subMenu
+                                                        .filter(sub => sub.active)
+                                                        .sort((a, b) => a.order - b.order)
+                                                        .map((subItem, subIndex) => (
+                                                            <li key={subIndex}>
+                                                                <NavigationMenu.Link asChild>
+                                                                    <Link
+                                                                        className="block px-4 py-2 rounded-md hover:bg-blue-400"
+                                                                        href={`/category/${subItem.url}`}
+                                                                    >
+                                                                        {subItem.title}
+                                                                    </Link>
+                                                                </NavigationMenu.Link>
+                                                            </li>
+                                                        ))}
+                                                </ul>
+                                            </motion.div>
+                                        </NavigationMenu.Content>
+                                    )}
+                                </AnimatePresence>
+                            </NavigationMenu.Item>
+                        </>
                     ))}
                     {allMenuItems.length > 0 && allMenuItems.map((cat, index) => (
-                        <NavigationMenu.Item key={index} className="relative flex justify-center">
-
+                        <NavigationMenu.Item key={`menu-item-${index}`} className="relative flex justify-center">
                             {cat.catTitle === "Contact Us" ? (
-                                <Link href="/contact" className="flex items-center px-4 py-2 text-sm font-semibold hover:bg-blue-500 data-[state=open]:bg-blue-300 data-[state=open]:text-black rounded-md">
+                                <Link href="/contact" className="flex items-center px-4 py-2 text-sm font-semibold hover:bg-blue-300 data-[state=open]:bg-blue-300 data-[state=open]:text-black rounded-md">
                                     {cat.catTitle}
                                 </Link>
                             ) : (
                                 <>
-                                    <NavigationMenu.Trigger className="flex items-center px-4 py-2 text-sm font-semibold hover:bg-blue-500 data-[state=open]:bg-blue-300 data-[state=open]:text-black rounded-md">
+                                    <NavigationMenu.Trigger className="flex items-center px-4 py-2 text-sm font-semibold hover:bg-blue-400 data-[state=open]:bg-blue-300 data-[state=open]:text-black rounded-md">
                                         {cat.catTitle} <ArrowDown className="ml-2" size={12} />
                                     </NavigationMenu.Trigger>
                                     <AnimatePresence>

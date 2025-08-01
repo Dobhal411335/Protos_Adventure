@@ -173,7 +173,7 @@ const InstaBlog = () => {
             }
         } catch (error) {
             // console.error('Error fetching artisan reviews:', error);
-            toast.error('Failed to load reviews');
+           
         } finally {
             setIsLoadingReviews(false);
         }
@@ -234,9 +234,17 @@ const InstaBlog = () => {
     const cardBasis =
         allPosts.length <= 3 ? `basis-1/${allPosts.length}` : "md:basis-1/5";
 
+    // Only render the section if there are either blogs or news
+    const hasContent = (!isBlogsLoading && blogs && blogs.length > 0) || (news && news.length > 0);
+
+    if (!hasContent) {
+        return null; // Don't render anything if no content
+    }
+
     return (
         <div className='bg-white w-full overflow-hidden max-w-screen overflow-x-hidden'>
             {/*Blogs /  News & Announcement Section */}
+            {!isBlogsLoading && (blogs?.length > 0 || news?.length > 0) && (
             <div className="w-full flex flex-col items-center md:py-20 py-10 bg-green-900">
                 <div className="w-full flex flex-col md:flex-row gap-8 min-h-[350px]">
                     <div className="flex flex-col md:flex-row w-full gap-8 px-2">
@@ -410,6 +418,7 @@ const InstaBlog = () => {
                     </div>
                 </div>
             </div>
+            )}
 
             {/* Instagram-like Image Carousel using Carousel classes */}
             {!isInstaLoading && !isFbLoading && allPosts.length > 0 && (

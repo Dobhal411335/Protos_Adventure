@@ -15,40 +15,28 @@ import { Label } from "../ui/label"
 import ProductQrModal from "./ProductQrModal";
 import { useRef } from "react";
 
-const generateCode = () => {
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    let code = "";
-    for (let i = 0; i < 6; i++) {
-        code += chars[Math.floor(Math.random() * chars.length)];
-    }
-    return code;
-};
 const AddProduct = ({ id }) => {
     // ...existing state
     const [allCategories, setAllCategories] = useState([]);
-    // ...existing state and hooks...
 
     // Editing state
     const [isEditing, setIsEditing] = useState(false);
-
-    // Scroll ref for form
     const formRef = useRef(null);
 
     // Handler to fill form for editing
     const handleEditProduct = (prod) => {
-        // Use react-hook-form's reset to fill all fields
         reset({
             title: prod.title || '',
             order: prod.order || 1,
             active: typeof prod.active === 'boolean' ? prod.active : true,
-            // Add other fields as needed
+            code: prod.code || ''
         });
-        setProductCode(prod.code || '');
         setActive(typeof prod.active === 'boolean' ? prod.active : true);
         setOrder(prod.order || 1);
         setTitle(prod.title || '');
+        setCode(prod.code || '');
+        setEditingId(prod._id); // Set the editing ID
         setIsEditing(true);
-        // Optionally scroll to form
         if (formRef.current) {
             formRef.current.scrollIntoView({ behavior: 'smooth' });
         }
@@ -62,11 +50,12 @@ const AddProduct = ({ id }) => {
             active: true,
             // Add other fields as needed
         });
-        setProductCode(generateCode());
+        setCode('');
         setActive(true);
         setOrder(1);
         setTitle('');
         setIsEditing(false);
+        setEditingId(null);
     };
 
 
@@ -115,7 +104,7 @@ const AddProduct = ({ id }) => {
 
     const { handleSubmit, register, setValue, reset } = useForm();
     const subMenuId = id;
-    const [productCode, setProductCode] = useState("");
+    const [code, setCode] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -129,12 +118,10 @@ const AddProduct = ({ id }) => {
     const [qrModalPrice, setQrModalPrice] = useState('');
     const [qrModalOldPrice, setQrModalOldPrice] = useState('');
     const [qrModalDescription, setQrModalDescription] = useState('');
+    const [editingId, setEditingId] = useState(null);
     const [qrModalCoupon, setQrModalCoupon] = useState({ code: '', amount: 0 });
 
 
-    useEffect(() => {
-        setProductCode(generateCode());
-    }, []);
 
     useEffect(() => {
         // Fetch products for this submenu/category or all direct products
@@ -192,7 +179,7 @@ const AddProduct = ({ id }) => {
             const payload = {
                 title,
                 slug: slugify(title),
-                code: productCode,
+                code, // Use productCode consistently
                 order,
                 active: typeof active === 'boolean' ? active : true,
                 isDirect: !subMenuId,
@@ -201,10 +188,15 @@ const AddProduct = ({ id }) => {
 
             let response, result;
             if (isEditing) {
+                // For update, we need to include the _id in the payload
                 response = await fetch('/api/admin/website-manage/addPackage', {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ code: productCode, ...payload })
+                    body: JSON.stringify({
+                        _id: editingId,
+                        ...payload,
+
+                    })
                 });
                 result = await response.json();
                 if (response.ok) {
@@ -212,17 +204,16 @@ const AddProduct = ({ id }) => {
                     // Reset form and state
                     reset({
                         title: '',
-                    
                         order: 1,
-                        active: true
+                        active: true,
+                        code: ''
                     });
                     setTitle('');
-                
                     setOrder(1);
                     setActive(true);
-                    setProductCode(generateCode());
+                    setCode('');
                     setIsEditing(false);
-
+                    setEditingId(null);
                     // Refetch products
                     if (subMenuId) {
                         const res = await fetch(`/api/getSubMenuById/${subMenuId}`);
@@ -249,11 +240,18 @@ const AddProduct = ({ id }) => {
                 result = await response.json();
                 if (response.ok) {
                     toast.success('Product added successfully!', { style: { borderRadius: "10px", border: "2px solid green" } });
-                    reset();
+                    // Reset all form fields
+                    reset({
+                        title: '',
+                        order: 1,
+                        active: true,
+                        code: ''
+                    });
                     setTitle('');
-                
-                    setProductCode(generateCode());
-                    // Refetch products
+                    setCode('');
+                    setOrder(1);
+                    setActive(true);
+                                        // Refetch products
                     if (subMenuId) {
                         const res = await fetch(`/api/getSubMenuById/${subMenuId}`);
                         const data = await res.json();
@@ -283,17 +281,31 @@ const AddProduct = ({ id }) => {
             <form className="flex flex-col items-center justify-center gap-8 my-20 bg-gray-200 w-full md:w-fit mx-auto p-4 rounded-lg" onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex md:flex-row flex-col items-center md:items-end gap-6 w-full">
                     <div className="flex flex-col gap-2">
-                        <label htmlFor="productCode" className="font-semibold">Product Code</label>
-                        <Input name="productCode" className="w-full border-2 border-blue-600 focus:border-dashed focus:border-blue-500 focus:outline-none focus-visible:ring-0 font-bold" readOnly value={productCode} />
+                        <label htmlFor="code" className="font-semibold">Product Code</label>
+                        <Input name="code" placeholder="Enter Product Code Here" className="w-full border-2 border-blue-600 focus:border-dashed focus:border-blue-500 focus:outline-none focus-visible:ring-0 font-bold" value={code} onChange={e => setCode(e.target.value)} />
                     </div>
                     <div className="flex flex-col gap-2 ">
                         <label htmlFor="productTitle" className="font-semibold">Product Title</label>
-                        <Input name="productTitle" className="w-full border-2 font-bold border-blue-600 " value={title} onChange={e => setTitle(e.target.value)} />
+                        <Input name="productTitle" placeholder="Enter Product Title Here" className="w-full border-2 font-bold border-blue-600 " value={title} onChange={e => setTitle(e.target.value)} />
                     </div>
-                
+
                 </div>
-                <Button type="submit" className="bg-red-600 hover:bg-red-500">Add Product</Button>
-            </form>
+                <div className="flex gap-4">
+                    <Button type="submit" className="bg-red-600 hover:bg-red-500">
+                        {isEditing ? 'Update Product' : 'Add Product'}
+                    </Button>
+                    {isEditing && (
+                        <Button
+                            type="button"
+                            variant="outline"
+                            onClick={handleCancelEdit}
+                            className="bg-white text-red-600 border-red-600 hover:bg-red-50"
+                        >
+                            Cancel Edit
+                        </Button>
+                    )}
+                </div>
+             </form>
 
             <div className="bg-blue-100 p-4 rounded-lg shadow max-w-5xl mx-auto w-full overflow-x-auto lg:overflow-visible text-center">
                 <Table className="w-full min-w-max lg:min-w-0">

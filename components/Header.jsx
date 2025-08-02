@@ -116,7 +116,7 @@ const Header = () => {
         } bg-white text-black border-b sticky top-0 left-0 right-0 transition-all duration-300 font-barlow tracking-wider ease-in-out z-50 mx-auto w-full py-2
          ${showHeader ? "translate-y-0" : "-translate-y-full"}`}
     >
-      <div className="md:flex hidden items-center justify-between gap-8 border-b py-1 border-gray-400 md:px-8 ">
+      <div className="md:flex hidden items-center justify-between gap-8 border-b py-2 border-gray-400 md:px-8 ">
         <p className="text-md">Equipping Every Adventure, Empowering Every Explorer.</p>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-4">
@@ -142,16 +142,13 @@ const Header = () => {
               <p className="text-sm font-semibold tracking-widest hover:underline">9897468886</p>
             </Link>
           </div>
-          <div className="flex flex-col items-start justify-start">
-            <LanguageSelector size={20} />
-            <span className="text-sm font-medium">Language</span>
-          </div>
+          
         </div>
 
       </div>
-      <div className="lg:flex hidden items-center z-50 justify-center md:justify-between py-2 md:px-4 ">
+      <div className="lg:flex hidden items-center z-50 justify-center md:justify-between py-1 md:px-4 ">
         <Link href={"/"}>
-          <img className="w-48 object-contain drop-shadow-xl" src="/HeaderLogo.png" alt="Rishikesh Handmade" />
+          <img className="w-44 object-contain drop-shadow-xl" src="/HeaderLogo.png" alt="Rishikesh Handmade" />
         </Link>
 
         <div className="relative flex items-center">

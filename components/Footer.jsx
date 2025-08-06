@@ -88,11 +88,9 @@ const Footer = () => {
                             +91 1352442822 ,
                         </Link>
                         <Link href={'tel:+917669280002'} className="gap-2 block rounded-full py-1 font-barlow text-white flex items-center">
-                            +91 7669280002 ,
+                            +91 9897289601
                         </Link>
-                        <Link href={'tel:+919897468886'} className="gap-2 block rounded-full py-1 font-barlow text-white flex items-center">
-                            +91 9897468886 ,
-                        </Link>
+                       
                     </div>
                     <div className="flex items-start gap-2">
                         <div className=" py-1">
@@ -123,15 +121,7 @@ const Footer = () => {
                             <br />
                             (Uttarakhand)
                         </p>
-                        <p className="gap-2 px-8 font-barlow text-white mb-5 flex items-start">
-                            <span className="font-bold">Store
-                                <br />
-                                Address: &nbsp;
-                            </span>  162, Badrinath Road (Opp. Divine Lakshmi <br /> Ganga Hotel) Tapovan Laxman Jhoola,
-                            <br />
-                            Rishikesh - 239192, &nbsp;
-                            (Uttarakhand)
-                        </p>
+                       
                     </div>
                 </div>
             </div>

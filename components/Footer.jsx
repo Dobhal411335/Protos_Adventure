@@ -167,12 +167,10 @@ const Footer = () => {
                         <Link href={'tel:+911352442822'} className="gap-2 block rounded-full font-barlow text-white flex items-center">
                             +91 1352442822,
                         </Link>
-                        <Link href={'tel:+917669280002'} className="gap-2 block rounded-full font-barlow text-white flex items-center">
-                            +91 7669280002,
+                        <Link href={'tel:+919897289601'} className="gap-2 block rounded-full font-barlow text-white flex items-center">
+                            +91 9897289601
                         </Link>
-                        <Link href={'tel:+919897468886'} className="gap-2 block rounded-full font-barlow text-white flex items-center">
-                            +91 9897468886,
-                        </Link>
+                         
                     </div>
                 </div>
                 <div className="flex flex-row gap-2 items-start py-2">
@@ -206,15 +204,7 @@ const Footer = () => {
                             <br />
                             (Uttarakhand)
                         </p>
-                        <p className="gap-2 text-sm font-barlow text-white mb-5 flex items-start">
-                            <span className="font-semibold text-sm">Store
-                                <br />
-                                Address:
-                            </span>  162, Badrinath Road (Opp. Divine Lakshmi <br /> Ganga Hotel) Tapovan Laxman Jhoola,
-                            <br />
-                            Rishikesh - 239192,
-                            (Uttarakhand)
-                        </p>
+                      
                     </div>
                 </div>
             </div>
@@ -302,8 +292,8 @@ const Footer = () => {
                                     <li>
                                         <strong>9. Customer Support</strong>
                                         <ul className="list-disc list-inside ml-4">
-                                            <li>📧 Email: support@protosadventures.com</li>
-                                            <li>☎ Call/WhatsApp: +91 07669280002</li>
+                                            <li>📧 Email: info@protosadventures.com</li>
+                                            <li>☎ Call/WhatsApp: +91 9897289601</li>
                                             <li>🕒 Hours: Monday to Saturday, 10:00 AM – 6:00 PM IST</li>
                                         </ul>
                                     </li>

@@ -154,8 +154,8 @@ const Footer = () => {
                         <Phone size={15} className="text-blue-600" />
                     </div>
                     <div className="flex flex-col items-start gap-1">
-                        <Link href={'tel:+911352442822'} className="gap-2 block rounded-full font-barlow text-white flex items-center">
-                            +91 1352442822,
+                        <Link href={'tel:01352439354'} className="gap-2 block rounded-full font-barlow text-white flex items-center">
+                            0135-2439354,
                         </Link>
                         <Link href={'tel:+919897289601'} className="gap-2 block rounded-full font-barlow text-white flex items-center">
                             +91 9897289601
@@ -168,6 +168,10 @@ const Footer = () => {
                         <Send className="text-blue-600" size={18} />
                     </div>
                     <div className="flex items-start flex-col">
+
+                         <Link href={'mailto:umeshgoel4@hotmail.com'} className="text-sm block rounded-full font-barlow text-white flex items-center gap-2">
+                            umeshgoel4@hotmail.com
+                        </Link>
 
                         <Link href={'mailto:support@protosadventures.com'} className="text-sm block rounded-full font-barlow text-white flex items-center gap-2">
                             support@protosadventures.com

@@ -112,7 +112,7 @@ const ContactUs = () => {
                             <h3 className="font-bold text-md md:text-2xl mb-2">Call Us</h3>
                             <ul className="mb-2">
                                 <li className='flex flex-col md:flex-row gap-2'>
-                                    <a href="tel:+911352442822" className="hover:underline text-md md:text-xl">+91 1352442822</a>
+                                    <a href="tel:01352439354" className="hover:underline text-md md:text-xl">0135-2439354</a>
                                     <a href="tel:+919897289601" className="hover:underline text-md md:text-xl">+91 9897289601</a>
                                  
                                 </li>
@@ -121,6 +121,15 @@ const ContactUs = () => {
                         <div className=''>
                             <h3 className="font-bold text-md md:text-2xl mb-2 ">E-mail</h3>
                             <ul className="mb-2">
+
+                                 <li className='text-md md:text-xl'>
+                                    <span className="font-semibold">
+                                    For Sales:
+                                    </span>
+                                    <a href="mailto:umeshgoel4@hotmail.com" className="hover:underline text-md md:text-xl"> umeshgoel4@hotmail.com</a>
+                                </li>
+
+                                
                                 <li className='text-md md:text-xl'>
                                     <span className="font-semibold">
                                     For Sales:

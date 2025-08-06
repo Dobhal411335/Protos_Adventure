@@ -113,8 +113,8 @@ const ContactUs = () => {
                             <ul className="mb-2">
                                 <li className='flex flex-col md:flex-row gap-2'>
                                     <a href="tel:+911352442822" className="hover:underline text-md md:text-xl">+91 1352442822</a>
-                                    <a href="tel:+917669280002" className="hover:underline text-md md:text-xl">+91 7669280002</a>
-                                    <a href="tel:+919897468886" className="hover:underline text-md md:text-xl">+91 9897468886</a>
+                                    <a href="tel:+919897289601" className="hover:underline text-md md:text-xl">+91 9897289601</a>
+                                 
                                 </li>
                             </ul>
                         </div>
@@ -150,12 +150,7 @@ const ContactUs = () => {
                                     05 ,Lajpat Rai Marg, Rishikesh-249201 ,&nbsp;
                                      (Uttarakhand)
                                 </li>
-                                <li className='text-md md:text-xl'>
-                                <span className="font-semibold">Store Address:</span>162, Badrinath Road (Opp. Divine Lakshmi Ganga Hotel)
-                                    Tapovan Luxman Jhoola, 
-                                    RISHIKESH-249192 
-                                    (UK)
-                                </li>
+                           
                             </ul>
                         </div>
                     </div>

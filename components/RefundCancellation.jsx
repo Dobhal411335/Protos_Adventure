@@ -187,7 +187,7 @@ const RefundCancellation = () => {
           </div>
           <div>
             <strong>16. Contact Information for Refund and cancellation Related Queries   :- </strong>
-                     <p className="font-semibold">"www.protosadventures.com" is a registered trade mark.</p>
+                           <p className="font-semibold">"www.protosadventures.com" is a registered trade mark.</p>
             <p>PAN Number: AADCP9394E1</p>
             <p>GST Registration Number: 05AADCP9394E1Z7</p>
             <p>Working Hours: 9:30 - 18:30 pm</p>
@@ -197,7 +197,7 @@ const RefundCancellation = () => {
               
               Tapovan Luxman Jhoola, RISHIKESH-249 192 (UK)  </p>
             <p>Ph.: 0135-2439354 | Mo.: 9897289601</p>
-            <p>E-mail: <a href="mailto:umeshgoel4@hotmail.com" className="text-blue-600 hover:underline">umeshgoel4@hotmail.com</a> / E-mail: <a href="mailto:info@protosadventures.com" className="text-blue-600 hover:underline">info@protosadventures.com</a> / <a href="mailto:nitin.rksh@gmail.com" className="text-blue-600 hover:underline">nitin.rksh@gmail.com</a></p>
+            <p>E-mail: <a href="mailto:umeshgoel4@hotmail.com" className="text-blue-600 hover:underline">umeshgoel4@hotmail.com</a> / E-mail: <a href="mailto:info@protosadventures.com" className="text-blue-600 hover:underline">info@protosadventures.com</a> </p>
             <p>Visit us at: <a href="https://www.protosadventures.com" className="text-blue-600 hover:underline">www.protosadventures.com</a></p>
 
           </div>

@@ -132,10 +132,9 @@ const ReturnPolicy = () => {
             <p className="font-semibold mt-2">PROTOS ADVENTURE SPORTS & SECURITY SUPPLIES PVT LTD
               Corporate Address: 05 ,Lajpat Rai Marg, Rishikesh-249201 ( Uttarakhand)
               <br/>
-              Store Address: 162, Badrinath Road (Opp. Divine Lakshmi Ganga Hotel)
-              <br/>
+              
               Tapovan Luxman Jhoola, RISHIKESH-249 192 (UK)  </p>
-            <p>Ph.: +91-135-2442822 | Mo.: 7669280002, 9897468886</p>
+            <p>Ph.: +91-135-2442822 | Mo.: 9897289601</p>
             <p>E-mail: <a href="mailto:info@protosadventures.com" className="text-blue-600 hover:underline">info@protosadventures.com</a> / <a href="mailto:nitin.rksh@gmail.com" className="text-blue-600 hover:underline">nitin.rksh@gmail.com</a></p>
             <p>Visit us at: <a href="https://www.protosadventures.com" className="text-blue-600 hover:underline">www.protosadventures.com</a></p>
           </div>

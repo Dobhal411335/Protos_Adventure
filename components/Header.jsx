@@ -121,8 +121,8 @@ const Header = () => {
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-4">
             <Mail size={20} />
-            <Link href={"mailto:nitin.rksh@gmail.com"}>
-              <p className="text-sm font-semibold hover:underline">nitin.rksh@gmail.com</p>
+            <Link href={"mailto:sales@protosadventures.com"}>
+              <p className="text-sm font-semibold hover:underline">sales@protosadventures.com</p>
             </Link> <Link href={"mailto:info@protosadventures.com"}>
               <p className="text-sm font-semibold hover:underline">info@protosadventures.com</p>
             </Link>
@@ -135,12 +135,10 @@ const Header = () => {
             <Link href={"tel:+911352442822"}>
               <p className="text-sm font-semibold tracking-widest hover:underline">+91-135-2442822</p>
             </Link>
-            <Link href={"tel:+917669280002"}>
-              <p className="text-sm font-semibold tracking-widest hover:underline">7669280002</p>
+            <Link href={"tel:+919897289601"}>
+              <p className="text-sm font-semibold tracking-widest hover:underline">+919897289601</p>
             </Link>
-            <Link href={"tel:+919897468886"}>
-              <p className="text-sm font-semibold tracking-widest hover:underline">9897468886</p>
-            </Link>
+        
           </div>
           
         </div>

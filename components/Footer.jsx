@@ -83,11 +83,11 @@ const Footer = () => {
                 <div className="flex flex-col gap-2">
                     <h1 className="font-semibold text-xl flex items-center gap-2"> More Inquiry</h1>
                     <div className="flex md:flex-row flex-col items-center gap-2">
-                        <Link href={'tel:+911352442822'} className="gap-2 block rounded-full py-1 font-barlow text-white flex items-center">
+                        <Link href={'tel:+9101352439354'} className="gap-2 block rounded-full py-1 font-barlow text-white flex items-center">
                             <Phone size={20} className="text-blue-600" />
-                            +91 1352442822 ,
+                            0135-2439354,
                         </Link>
-                        <Link href={'tel:+917669280002'} className="gap-2 block rounded-full py-1 font-barlow text-white flex items-center">
+                        <Link href={'tel:+919897289601'} className="gap-2 block rounded-full py-1 font-barlow text-white flex items-center">
                             +91 9897289601
                         </Link>
                        
@@ -97,6 +97,10 @@ const Footer = () => {
                             <Send className="text-blue-600" size={20} />
                         </div>
                         <div className="flex flex-col items-start gap-1">
+
+                             <Link href={'mailto:umeshgoel4@hotmail.com'} className="gap-2 block rounded-full font-barlow text-white flex items-center">
+                                umeshgoel4@hotmail.com
+                            </Link>
 
                             <Link href={'mailto:info@protosadventures.com'} className="gap-2 block rounded-full font-barlow text-white flex items-center">
                                 info@protosadventures.com

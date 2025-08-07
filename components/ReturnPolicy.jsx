@@ -25,7 +25,7 @@ const ReturnPolicy = () => {
               <div>
                 <h4 className="font-semibold">Initiate Return Request:</h4>
                 <p className="mt-2">
-                  The guest must contact our customer service desk or email us at <a href="mailto:info@protosadventures.com" className="text-blue-600 hover:underline">info@protosadventures.com</a> or call <a href="tel:+911352442822" className="text-blue-600 hover:underline">+91-135-2442822</a> / <a href="tel:917669280002" className="text-blue-600 hover:underline">7669280002</a>, <a href="tel:919897468886" className="text-blue-600 hover:underline">9897468886</a> with the following details:
+                  The guest must contact our customer service desk or email us at <a href="mailto:info@protosadventures.com" className="text-blue-600 hover:underline">info@protosadventures.com</a> or call  <a href="tel:+919897289601 " className="text-blue-600 hover:underline">+91 9897289601 </a> with the following details:
                 </p>
                 <ul className="list-disc ml-6 mt-2 space-y-1">
                   <li>Order number</li>

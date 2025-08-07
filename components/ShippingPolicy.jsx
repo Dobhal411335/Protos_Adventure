@@ -114,16 +114,14 @@ const ShippingPolicy = () => {
                 specific conditions, which may be displayed on the webpage of that product.  <br /> <br />
                
                 </p> 
-
-                                <p className="font-semibold">"www.protosadventures.com" is a registered trade mark.</p>
+                      <p className="font-semibold">"www.protosadventures.com" is a registered trade mark.</p>
             <p>PAN Number: AADCP9394E1</p>
             <p>GST Registration Number: 05AADCP9394E1Z7</p>
             <p>Working Hours: 9:30 - 18:30 pm</p>
-            <p className="font-semibold mt-2">PROTOS ADVENTURE SPORTS & SECURITY SUPPLIES PVT LTD <br/>
+            <p className="font-semibold mt-2">PROTOS ADVENTURE SPORTS & SECURITY SUPPLIES PVT LTD.    </br> </br>
               Corporate Address: 05 ,Lajpat Rai Marg, Rishikesh-249201 ( Uttarakhand)
-              <br/>
-              
-              Tapovan Luxman Jhoola, RISHIKESH-249 192 (UK)  </p>
+            </p>
+
             <p>Ph.: 0135-2439354 | Mo.: 9897289601</p>
             <p>E-mail: <a href="mailto:umeshgoel4@hotmail.com" className="text-blue-600 hover:underline">umeshgoel4@hotmail.com</a> / E-mail: <a href="mailto:info@protosadventures.com" className="text-blue-600 hover:underline">info@protosadventures.com</a> </p>
             <p>Visit us at: <a href="https://www.protosadventures.com" className="text-blue-600 hover:underline">www.protosadventures.com</a></p>

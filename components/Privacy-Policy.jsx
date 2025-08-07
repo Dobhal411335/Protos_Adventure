@@ -105,17 +105,16 @@ const PrivacyPolicy = () => {
                 purchase of products shall be additionally governed by specific policies of sale, like cancellation policy,
                 return policy, etc. and all of which are incorporated here by reference. In addition, these terms and
                 policies may be further supplemented by www.protosadventures.com (Website) product specific
-                conditions, which may be displayed on the webpage of that product.  <br /> <br />
+                conditions, which may be displayed on the webpage of that product.  
               
               </p>
 
-                      <p className="font-semibold">"www.protosadventures.com" is a registered trade mark.</p>
+              <p className="font-semibold">"www.protosadventures.com" is a registered trade mark.</p>
             <p>PAN Number: AADCP9394E1</p>
             <p>GST Registration Number: 05AADCP9394E1Z7</p>
             <p>Working Hours: 9:30 - 18:30 pm</p>
-            <p className="font-semibold mt-2">PROTOS ADVENTURE SPORTS & SECURITY SUPPLIES PVT LTD. <br/>  <br/>
+            <p className="font-semibold mt-2">PROTOS ADVENTURE SPORTS & SECURITY SUPPLIES PVT LTD.    </br> </br>
               Corporate Address: 05 ,Lajpat Rai Marg, Rishikesh-249201 ( Uttarakhand)
-              <br/>
             </p>
 
             <p>Ph.: 0135-2439354 | Mo.: 9897289601</p>

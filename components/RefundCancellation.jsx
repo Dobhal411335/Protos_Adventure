@@ -192,7 +192,7 @@ const RefundCancellation = () => {
             <p>PAN Number: AADCP9394E1</p>
             <p>GST Registration Number: 05AADCP9394E1Z7</p>
             <p>Working Hours: 9:30 - 18:30 pm</p>
-            <p className="font-semibold mt-2">PROTOS ADVENTURE SPORTS & SECURITY SUPPLIES PVT LTD.    </br> </br>
+            <p className="font-semibold mt-2">PROTOS ADVENTURE SPORTS & SECURITY SUPPLIES PVT LTD.    <br/> <br/>
               Corporate Address: 05 ,Lajpat Rai Marg, Rishikesh-249201 ( Uttarakhand)
             </p>
 

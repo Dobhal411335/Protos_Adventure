@@ -25,8 +25,7 @@ const ReturnPolicy = () => {
               <div>
                 <h4 className="font-semibold">Initiate Return Request:</h4>
                 <p className="mt-2">
-                  The guest must contact our customer service desk or email us at <a href="mailto:info@protosadventures.com" className="text-blue-600 hover:underline">info@protosadventures.com</a> or call  <a href="tel:+919897289601" className="text-blue-600 hover:underline">+91 9897289601</a> with the following details:
-                </p>
+                  The guest must contact our customer service desk or email us at <a href="mailto:info@protosadventures.com" className="text-blue-600 hover:underline">info@protosadventures.com</a> or call  <a href="tel:+919897289601" className="text-blue-600 hover:underline">  +91 9897289601 </a> with the following details:</p>
                 <ul className="list-disc ml-6 mt-2 space-y-1">
                   <li>Order number</li>
                   <li>Reason for return</li>
@@ -130,7 +129,7 @@ const ReturnPolicy = () => {
             <p>PAN Number: AADCP9394E1</p>
             <p>GST Registration Number: 05AADCP9394E1Z7</p>
             <p>Working Hours: 9:30 - 18:30 pm</p>
-            <p className="font-semibold mt-2">PROTOS ADVENTURE SPORTS & SECURITY SUPPLIES PVT LTD.    </br> </br>
+            <p className="font-semibold mt-2">PROTOS ADVENTURE SPORTS & SECURITY SUPPLIES PVT LTD.   <br/> <br/>
               Corporate Address: 05 ,Lajpat Rai Marg, Rishikesh-249201 ( Uttarakhand)
             </p>
 

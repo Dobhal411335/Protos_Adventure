@@ -282,7 +282,7 @@ export default function QuickViewProductCard({ product, onClose }) {
                   <div className="flex justify-between items-center w-full gap-2">
                     <span>{size}</span>
                     <div className="h-4 w-px bg-gray-300" />
-                    <span className="text-gray-600 text-md">{weight}g</span>
+                    <span className="text-gray-600 text-md"> {weight ? (Number(weight) / 1000).toFixed(3) : '0.00'} kg</span>
                   </div>
                 </button>
               );
@@ -367,97 +367,6 @@ export default function QuickViewProductCard({ product, onClose }) {
               >+</button>
             </div>
           </div>
-        </div>
-
-        {/* Buttons */}
-        <div className="flex gap-2 mb-4 w-full">
-          <button
-            className="bg-black text-white px-4 py-2 font-semibold hover:bg-gray-800 w-1/2"
-            onClick={() => {
-              const price = product?.quantity?.variants[0].price;
-              const coupon = product.coupon || product.coupons?.coupon;
-              let discountedPrice = price;
-              let couponApplied = false;
-              let couponCode = "";
-
-              if (coupon && typeof coupon.percent === 'number' && coupon.percent > 0) {
-                discountedPrice = price - (price * coupon.percent) / 100;
-                couponApplied = true;
-                couponCode = coupon.couponCode;
-              } else if (coupon && typeof coupon.amount === 'number' && coupon.amount > 0) {
-                discountedPrice = price - coupon.amount;
-                couponApplied = true;
-                couponCode = coupon.couponCode;
-              }
-              addToCart({
-                id: product._id,
-                name: product.title,
-                image: product?.gallery?.mainImage || "/placeholder.jpeg",
-                price: Math.round(discountedPrice),
-                originalPrice: price,
-                qty: 1,
-                couponApplied,
-                couponCode: couponApplied ? couponCode : undefined,
-                productCode: product.code || product.productCode || '',
-                discountPercent: coupon && typeof coupon.percent === 'number' ? coupon.percent : undefined,
-                discountAmount: coupon && typeof coupon.amount === 'number' ? coupon.amount : undefined,
-                cgst: (product.taxes && product.taxes.cgst) || product.cgst || (product.tax && product.tax.cgst) || 0,
-                sgst: (product.taxes && product.taxes.sgst) || product.sgst || (product.tax && product.tax.sgst) || 0,
-                quantity: product.quantity || {},
-              }, quantity);
-              toast.success("Added to cart!");
-            }}
-
-          >ADD TO CART</button>
-          <button
-            className="border border-black py-1 font-semibold hover:bg-gray-100 w-1/2 flex items-center justify-center gap-2 bg-white hover:bg-[#b3a7a3]"
-            onClick={() => {
-              if (wishlist.some(i => i.id === product._id)) {
-                removeFromWishlist(product._id);
-                toast.success("Removed from wishlist!");
-                return;
-              } else {
-                const coupon = product.coupon || product.coupons?.coupon;
-                const originalPrice = product?.quantity?.variants[0].price;
-                let discountedPrice = originalPrice;
-                let couponApplied = false;
-                let couponCode = '';
-                if (coupon && typeof coupon.percent === 'number' && coupon.percent > 0) {
-                  discountedPrice = originalPrice - (originalPrice * coupon.percent) / 100;
-                  couponApplied = true;
-                  couponCode = coupon.couponCode;
-                } else if (coupon && typeof coupon.amount === 'number' && coupon.amount > 0) {
-                  discountedPrice = originalPrice - coupon.amount;
-                  couponApplied = true;
-                  couponCode = coupon.couponCode;
-                }
-                addToWishlist({
-                  id: product._id,
-                  name: product.title,
-                  image: product?.gallery?.mainImage || "/placeholder.png",
-                  price: couponApplied ? Math.round(discountedPrice) : couponApplied,
-                  couponCode,
-                  qty: quantity
-                });
-                toast.success("Added to wishlist!");
-              }
-            }}
-          >
-            <div
-              className={`p-2 rounded-full ${wishlist.some(i => i.id === product._id)
-                ? "bg-pink-600"
-                : "bg-gray-900 text-white"
-                }`}
-            >
-              <Heart
-                size={20}
-                className="text-white"
-              />
-            </div>
-            {wishlist.some(i => i.id === product._id) ? "Remove From Wishlist" : "Add To Wishlist"}
-          </button>
-
-
         </div>
         {/* Divider */}
         <hr className="my-1" />

@@ -90,7 +90,7 @@ export default function ProductDetailView({ product }) {
       toast.success('Enquiry submitted successfully!');
 
     } catch (error) {
-            toast.error(error.message || 'Failed to submit enquiry. Please try again.');
+      toast.error(error.message || 'Failed to submit enquiry. Please try again.');
     }
   };
 
@@ -247,16 +247,51 @@ export default function ProductDetailView({ product }) {
   }
   const price = selectedVariant ? formatNumeric(selectedVariant.price) : 0;
   const total = hasDiscount ? (discountedPrice * quantity).toFixed(2) : (selectedVariant ? (selectedVariant.price * quantity).toFixed(2) : 0);
+  // Get images from the selected variant or first available variant
+  const getVariantImages = (variant) => {
+    if (!variant) return ['/placeholder.jpeg'];
 
-  // Gather all images (main + sub) at the top-level
-  // Gather all images, filter out empty/undefined/null, and fallback to placeholder if empty
-  const allImagesRaw = [product.gallery?.mainImage?.url, ...(product.gallery?.subImages?.map(img => img.url) || [])];
-  const allImages = allImagesRaw.filter(img => typeof img === 'string' && img.trim().length > 0);
-  if (allImages.length === 0) allImages.push('/placeholder.jpeg');
+    const images = [];
+
+    // Add profile image if exists
+    if (variant.profileImage?.url) {
+      images.push(variant.profileImage.url);
+    }
+
+    // Add all valid sub-images 
+    if (Array.isArray(variant.subImages)) {
+      variant.subImages.forEach(img => {
+        if (img?.url && typeof img.url === 'string' && img.url.trim() !== '') {
+          images.push(img.url);
+        }
+      });
+    }
+    return images.length > 0 ? images : ['/placeholder.jpeg'];
+  };
+
+  // Get images for the selected variant or first variant if none selected
+  const [variantImages, setVariantImages] = useState(
+    variants.length > 0 ? getVariantImages(variants[0]) : ['/placeholder.jpeg']
+  );
+
   // Debug main image array and index
   // Embla carousel API and active image index for main image gallery
   const [carouselApi, setCarouselApi] = React.useState(null);
   const [activeImageIdx, setActiveImageIdx] = React.useState(0);
+  // Update variant images when selected variant changes
+  useEffect(() => {
+    if (selectedVariant) {
+      const images = getVariantImages(selectedVariant);
+      setVariantImages(images);
+
+      // Reset carousel to first image when variant changes
+      if (carouselApi) {
+        carouselApi.scrollTo(0);
+      }
+    }
+  }, [selectedVariant, carouselApi]);
+
+  const allImages = variantImages;
   React.useEffect(() => {
     if (!carouselApi) return;
     const onSelect = () => {
@@ -1071,7 +1106,7 @@ export default function ProductDetailView({ product }) {
                       )}
                       <h4 className="font-semibold text-xl text-gray-900 flex-wrap">Name: {product?.title || 'Product Name'}</h4>
                       {product?.quantity && (
-                        <p className="text-lg font-semibold text-gray-900 mt-2">Price: 
+                        <p className="text-lg font-semibold text-gray-900 mt-2">Price:
                           {new Intl.NumberFormat('en-IN', {
                             style: 'currency',
                             currency: 'INR',

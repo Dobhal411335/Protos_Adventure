@@ -92,7 +92,7 @@ export async function PUT(req) {
 export async function PATCH(req) {
     await connectDB();
     const body = await req.json();
-    const { pkgId,...updateFields } = body;
+    const { pkgId, ...updateFields } = body;
 
     try {
         // Find the current product and its artisan
@@ -126,7 +126,8 @@ export async function DELETE(req) {
             { "subMenu.products": id },
             { $pull: { "subMenu.$[].products": id } }
         );
-
+        // Delete the product document
+        await Product.findByIdAndDelete(id);
         return NextResponse.json({ message: "Product deleted successfully!" }, { status: 200 });
     } catch (error) {
         return NextResponse.json({ message: error.message }, { status: 500 });

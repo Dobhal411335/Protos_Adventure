@@ -225,7 +225,7 @@ const ChangeBannerImage = () => {
 
                 <div>
                     <Label>Button Link</Label>
-                    <Input name="buttonLink" placeholder="Enter add to cart link" type="url" value={formData.buttonLink} onChange={handleInputChange} />
+                    <Input name="buttonLink" placeholder="Enter link url" type="url" value={formData.buttonLink} onChange={handleInputChange} />
                 </div>
                 <div>
                     <Label>Order</Label>
